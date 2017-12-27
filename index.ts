@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
-
 import * as crypto from 'crypto';
+import * as dotenv from 'dotenv';
+import { DotenvResult } from 'dotenv';
 
 // --------------------------------------------------------------
 // Define Types
@@ -19,14 +20,19 @@ export type Json = JsonMap | JsonArray | string | number | boolean | null;
 // Core Classes
 // --------------------------------------------------------------
 
+export const createConfigLoader = (optionsLoader?) => {
+  return new ConfigLoader(optionsLoader);
+};
+
 /**
  * 配置读取器
  */
 export class ConfigLoader {
   private optionsLoader: object | { (): object };
 
-  constructor(optionsLoader = {}) {
+  constructor(optionsLoader?) {
     this.optionsLoader = optionsLoader;
+    loadDotEnv();
   }
 
   private loadConfigFromOptions(key: string): any {
@@ -120,6 +126,14 @@ export const base64Decode =
  */
 export const base64Encode = (str: string = ''): string => {
   return new Buffer(str).toString('base64');
+};
+
+export const loadDotEnv = (): DotenvResult => {
+  let suffix = '';
+  if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+    suffix = `.${process.env.NODE_ENV}`;
+  }
+  return dotenv.config({ path: `.env${suffix}` }); // load .env into process.env
 };
 
 /**

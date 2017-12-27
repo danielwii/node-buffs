@@ -1,12 +1,14 @@
+import * as dotenv from 'dotenv';
 export interface JsonMap {
     [member: string]: string | number | boolean | null | JsonArray | JsonMap;
 }
 export interface JsonArray extends Array<string | number | boolean | null | JsonArray | JsonMap> {
 }
 export declare type Json = JsonMap | JsonArray | string | number | boolean | null;
+export declare const createConfigLoader: (optionsLoader?: any) => ConfigLoader;
 export declare class ConfigLoader {
     private optionsLoader;
-    constructor(optionsLoader?: {});
+    constructor(optionsLoader?: any);
     private loadConfigFromOptions(key);
     loadConfig(key: string, defaultValue?: any): any;
     loadEncodedConfig(key: string, defaultValue?: any): any;
@@ -26,5 +28,6 @@ export declare class Cryptor {
 }
 export declare const base64Decode: (str?: string) => string;
 export declare const base64Encode: (str?: string) => string;
+export declare const loadDotEnv: () => dotenv.DotenvResult;
 export declare const loadConfig: (key: string, options: JsonMap, defaultValue: any) => any;
 export declare const loadEncodedConfig: (key: any, options: JsonMap, defaultValue: any) => any;

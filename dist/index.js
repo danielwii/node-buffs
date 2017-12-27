@@ -2,10 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require("lodash");
 var crypto = require("crypto");
+var dotenv = require("dotenv");
+exports.createConfigLoader = function (optionsLoader) {
+    return new ConfigLoader(optionsLoader);
+};
 var ConfigLoader = (function () {
     function ConfigLoader(optionsLoader) {
-        if (optionsLoader === void 0) { optionsLoader = {}; }
         this.optionsLoader = optionsLoader;
+        exports.loadDotEnv();
     }
     ConfigLoader.prototype.loadConfigFromOptions = function (key) {
         return _.isObjectLike(this.optionsLoader)
@@ -69,6 +73,13 @@ exports.base64Decode = function (str) {
 exports.base64Encode = function (str) {
     if (str === void 0) { str = ''; }
     return new Buffer(str).toString('base64');
+};
+exports.loadDotEnv = function () {
+    var suffix = '';
+    if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+        suffix = "." + process.env.NODE_ENV;
+    }
+    return dotenv.config({ path: ".env" + suffix });
 };
 exports.loadConfig = function (key, options, defaultValue) {
     return process.env[key] || options[key] || defaultValue;
