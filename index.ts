@@ -20,6 +20,84 @@ export type Json = JsonMap | JsonArray | string | number | boolean | null;
 // Core Classes
 // --------------------------------------------------------------
 
+/**
+ * @example
+ * class ModuleNotifications extends AbstractReduxModuleWithSage {
+ *   // set module name first
+ *   constructor() {
+ *     super('notifications');
+ *   }
+ *
+ *   actionTypes() {
+ *     return {
+ *       NOTIFY: 'notify',
+ *     };
+ *   }
+ *
+ *   actions() {
+ *     return {
+ *       notify: message => dispatch =>
+ *         dispatch({ type: this.actionTypesWrapper().NOTIFY, payload: { message } }),
+ *     };
+ *   }
+ *
+ *   sagas() {
+ *     return [];
+ *   }
+ *
+ *   initialState() {
+ *     return { notifications: [] };
+ *   }
+ *
+ *   reducer() {
+ *     return (previousState = this.initialState(), action) => {
+ *       const state = previousState || this.initialState();
+ *       switch (action.type) {
+ *         default:
+ *           return { ...state, ...action.payload };
+ *       }
+ *     };
+ *   }
+ * }
+ *
+ * export default new ModuleNotifications().exports();
+ */
+export abstract class AbstractReduxModuleWithSage {
+  private moduleName: string;
+
+  constructor(moduleName: string = 'root') {
+    this.moduleName = moduleName;
+  }
+
+  // ACTION: 'module::action'
+  abstract actionTypes(): JsonMap;
+
+  // action: (args): dispatchFunction
+  abstract actions(): JsonMap;
+
+  // takeLatest / takeEvery (actionType, actionSage)
+  abstract sagas(): any[];
+
+  abstract initialState(): JsonMap;
+
+  abstract reducer(): JsonMap;
+
+  protected actionTypesWrapper() {
+    return _.mapValues(
+      this.actionTypes(),
+      value => `${this.moduleName}::${value}`);
+  }
+
+  exports() {
+    return {
+      actionTypes: this.actionTypesWrapper(),
+      actions: this.actions(),
+      sagas: this.sagas(),
+      reducer: this.reducer(),
+    };
+  }
+}
+
 export const createConfigLoader = (optionsLoader?) => {
   return new ConfigLoader(optionsLoader);
 };

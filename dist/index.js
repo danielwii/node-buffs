@@ -3,6 +3,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require("lodash");
 var crypto = require("crypto");
 var dotenv = require("dotenv");
+var AbstractReduxModuleWithSage = (function () {
+    function AbstractReduxModuleWithSage(moduleName) {
+        if (moduleName === void 0) { moduleName = 'root'; }
+        this.moduleName = moduleName;
+    }
+    AbstractReduxModuleWithSage.prototype.actionTypesWrapper = function () {
+        var _this = this;
+        return _.mapValues(this.actionTypes(), function (value) { return _this.moduleName + "::" + value; });
+    };
+    AbstractReduxModuleWithSage.prototype.exports = function () {
+        return {
+            actionTypes: this.actionTypesWrapper(),
+            actions: this.actions(),
+            sagas: this.sagas(),
+            reducer: this.reducer(),
+        };
+    };
+    return AbstractReduxModuleWithSage;
+}());
+exports.AbstractReduxModuleWithSage = AbstractReduxModuleWithSage;
 exports.createConfigLoader = function (optionsLoader) {
     return new ConfigLoader(optionsLoader);
 };

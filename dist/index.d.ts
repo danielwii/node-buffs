@@ -5,6 +5,26 @@ export interface JsonMap {
 export interface JsonArray extends Array<string | number | boolean | null | JsonArray | JsonMap> {
 }
 export declare type Json = JsonMap | JsonArray | string | number | boolean | null;
+export declare abstract class AbstractReduxModuleWithSage {
+    private moduleName;
+    constructor(moduleName?: string);
+    abstract actionTypes(): JsonMap;
+    abstract actions(): JsonMap;
+    abstract sagas(): any[];
+    abstract initialState(): JsonMap;
+    abstract reducer(): JsonMap;
+    protected actionTypesWrapper(): {
+        [x: string]: string;
+    };
+    exports(): {
+        actionTypes: {
+            [x: string]: string;
+        };
+        actions: JsonMap;
+        sagas: any[];
+        reducer: JsonMap;
+    };
+}
 export declare const createConfigLoader: (optionsLoader?: any) => ConfigLoader;
 export declare class ConfigLoader {
     private optionsLoader;
