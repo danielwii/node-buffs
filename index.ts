@@ -1,5 +1,7 @@
 import * as _ from 'lodash';
 
+import * as crypto from 'crypto';
+
 // --------------------------------------------------------------
 // Define Types
 // --------------------------------------------------------------
@@ -17,6 +19,9 @@ export type Json = JsonMap | JsonArray | string | number | boolean | null;
 // Core Classes
 // --------------------------------------------------------------
 
+/**
+ * 配置读取器
+ */
 export class ConfigLoader {
   private optionsLoader: object | { (): object };
 
@@ -46,6 +51,54 @@ export class ConfigLoader {
   }
 }
 
+/**
+ * 加密工具
+ */
+export class Cryptor {
+  private readonly iterations: number;
+  private readonly keylen: number;
+  private readonly digest: string;
+
+  constructor(iterations: number = 10000, keylen: number = 16, digest: string = 'sha512') {
+    this.iterations = iterations;
+    this.keylen     = keylen;
+    this.digest     = digest;
+  }
+
+  static generateSalt(length: number = 32): string {
+    return crypto.randomBytes(length).toString('hex').slice(0, length);
+  }
+
+  static encrypt(data: string, digest: string = 'sha512') {
+    return crypto.createHash(digest).update(data).digest('hex');
+  }
+
+  /**
+   *
+   * @param {string} password
+   * @param {string} prefix
+   * @returns {{hash: string; salt: string}}
+   */
+  passwordEncrypt(password: string, prefix: string = '') {
+    const salt              = Cryptor.generateSalt();
+    const encryptedPassword = Cryptor.encrypt(password);
+    const generatedSalt     = `${prefix}${salt}`;
+    const hash              = crypto
+      .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+      .toString('hex')
+    ;
+    return { hash, salt };
+  }
+
+  passwordCompare(password: string, savedHash: string, savedSalt: string, prefix: string = '') {
+    const encryptedPassword = Cryptor.encrypt(password);
+    const generatedSalt     = `${prefix}${savedSalt}`;
+    return savedHash === crypto
+      .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+      .toString('hex');
+  }
+}
+
 // --------------------------------------------------------------
 // Core Functions
 // --------------------------------------------------------------
@@ -72,23 +125,23 @@ export const base64Encode = (str: string = ''): string => {
 /**
  *
  * @param {string} key
- * @param configs
+ * @param options
  * @param defaultValue
  * @returns {any}
  */
-export const loadConfig = (key: string, configs: JsonMap, defaultValue: any): any => {
-  return process.env[key] || configs[key] || defaultValue;
+export const loadConfig = (key: string, options: JsonMap, defaultValue: any): any => {
+  return process.env[key] || options[key] || defaultValue;
 };
 
 
 /**
  *
  * @param key
- * @param configs
+ * @param options
  * @param defaultValue
  * @returns {any}
  */
-export const loadEncodedConfig = (key, configs: JsonMap, defaultValue): any => {
-  const value = process.env[key] || configs[key];
+export const loadEncodedConfig = (key, options: JsonMap, defaultValue): any => {
+  const value = process.env[key] || options[key];
   return value ? base64Decode(`${value}`) : defaultValue;
 };

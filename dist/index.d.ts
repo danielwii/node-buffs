@@ -11,7 +11,20 @@ export declare class ConfigLoader {
     loadConfig(key: string, defaultValue?: any): any;
     loadEncodedConfig(key: string, defaultValue?: any): any;
 }
+export declare class Cryptor {
+    private readonly iterations;
+    private readonly keylen;
+    private readonly digest;
+    constructor(iterations?: number, keylen?: number, digest?: string);
+    static generateSalt(length?: number): string;
+    static encrypt(data: string, digest?: string): string;
+    passwordEncrypt(password: string, prefix?: string): {
+        hash: string;
+        salt: string;
+    };
+    passwordCompare(password: string, savedHash: string, savedSalt: string, prefix?: string): boolean;
+}
 export declare const base64Decode: (str?: string) => string;
 export declare const base64Encode: (str?: string) => string;
-export declare const loadConfig: (key: string, configs: JsonMap, defaultValue: any) => any;
-export declare const loadEncodedConfig: (key: any, configs: JsonMap, defaultValue: any) => any;
+export declare const loadConfig: (key: string, options: JsonMap, defaultValue: any) => any;
+export declare const loadEncodedConfig: (key: any, options: JsonMap, defaultValue: any) => any;

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require("lodash");
+var crypto = require("crypto");
 var ConfigLoader = (function () {
     function ConfigLoader(optionsLoader) {
         if (optionsLoader === void 0) { optionsLoader = {}; }
@@ -23,6 +24,44 @@ var ConfigLoader = (function () {
     return ConfigLoader;
 }());
 exports.ConfigLoader = ConfigLoader;
+var Cryptor = (function () {
+    function Cryptor(iterations, keylen, digest) {
+        if (iterations === void 0) { iterations = 10000; }
+        if (keylen === void 0) { keylen = 16; }
+        if (digest === void 0) { digest = 'sha512'; }
+        this.iterations = iterations;
+        this.keylen = keylen;
+        this.digest = digest;
+    }
+    Cryptor.generateSalt = function (length) {
+        if (length === void 0) { length = 32; }
+        return crypto.randomBytes(length).toString('hex').slice(0, length);
+    };
+    Cryptor.encrypt = function (data, digest) {
+        if (digest === void 0) { digest = 'sha512'; }
+        return crypto.createHash(digest).update(data).digest('hex');
+    };
+    Cryptor.prototype.passwordEncrypt = function (password, prefix) {
+        if (prefix === void 0) { prefix = ''; }
+        var salt = Cryptor.generateSalt();
+        var encryptedPassword = Cryptor.encrypt(password);
+        var generatedSalt = "" + prefix + salt;
+        var hash = crypto
+            .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+            .toString('hex');
+        return { hash: hash, salt: salt };
+    };
+    Cryptor.prototype.passwordCompare = function (password, savedHash, savedSalt, prefix) {
+        if (prefix === void 0) { prefix = ''; }
+        var encryptedPassword = Cryptor.encrypt(password);
+        var generatedSalt = "" + prefix + savedSalt;
+        return savedHash === crypto
+            .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+            .toString('hex');
+    };
+    return Cryptor;
+}());
+exports.Cryptor = Cryptor;
 exports.base64Decode = function (str) {
     if (str === void 0) { str = ''; }
     return new Buffer(str, 'base64').toString('ascii').trim();
@@ -31,10 +70,10 @@ exports.base64Encode = function (str) {
     if (str === void 0) { str = ''; }
     return new Buffer(str).toString('base64');
 };
-exports.loadConfig = function (key, configs, defaultValue) {
-    return process.env[key] || configs[key] || defaultValue;
+exports.loadConfig = function (key, options, defaultValue) {
+    return process.env[key] || options[key] || defaultValue;
 };
-exports.loadEncodedConfig = function (key, configs, defaultValue) {
-    var value = process.env[key] || configs[key];
+exports.loadEncodedConfig = function (key, options, defaultValue) {
+    var value = process.env[key] || options[key];
     return value ? exports.base64Decode("" + value) : defaultValue;
 };
