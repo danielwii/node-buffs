@@ -51,3 +51,8 @@ export declare const base64Encode: (str?: string) => string;
 export declare const loadDotEnv: () => dotenv.DotenvResult;
 export declare const loadConfig: (key: string, options: JsonMap, defaultValue: any) => any;
 export declare const loadEncodedConfig: (key: any, options: JsonMap, defaultValue: any) => any;
+export declare const reduxAction: (type: any, payload?: {}, error?: any) => {
+    type: any;
+    payload: {};
+    error: any;
+};

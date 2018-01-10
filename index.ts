@@ -237,3 +237,5 @@ export const loadEncodedConfig = (key, options: JsonMap, defaultValue): any => {
   const value = process.env[key] || options[key];
   return value ? base64Decode(`${value}`) : defaultValue;
 };
+
+export const reduxAction = (type, payload = {}, error = null) => ({ type, payload, error });

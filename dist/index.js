@@ -108,3 +108,8 @@ exports.loadEncodedConfig = function (key, options, defaultValue) {
     var value = process.env[key] || options[key];
     return value ? exports.base64Decode("" + value) : defaultValue;
 };
+exports.reduxAction = function (type, payload, error) {
+    if (payload === void 0) { payload = {}; }
+    if (error === void 0) { error = null; }
+    return ({ type: type, payload: payload, error: error });
+};
