@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv';
+import { DotenvResult } from 'dotenv';
 export interface JsonMap {
     [member: string]: string | number | boolean | null | JsonArray | JsonMap;
 }
@@ -13,13 +13,9 @@ export declare abstract class AbstractReduxModuleWithSage {
     abstract sagas(): any[];
     abstract initialState(): JsonMap;
     abstract reducer(): JsonMap;
-    protected actionTypesWrapper(): {
-        [x: string]: string;
-    };
+    protected actionTypesWrapper(): any;
     exports(): {
-        actionTypes: {
-            [x: string]: string;
-        };
+        actionTypes: any;
         actions: JsonMap;
         sagas: any[];
         reducer: JsonMap;
@@ -48,7 +44,7 @@ export declare class Cryptor {
 }
 export declare const base64Decode: (str?: string) => string;
 export declare const base64Encode: (str?: string) => string;
-export declare const loadDotEnv: () => dotenv.DotenvResult;
+export declare const loadDotEnv: () => DotenvResult;
 export declare const loadConfig: (key: string, options: JsonMap, defaultValue: any) => any;
 export declare const loadEncodedConfig: (key: any, options: JsonMap, defaultValue: any) => any;
 export declare const reduxAction: (type: any, payload?: {}, error?: any) => {

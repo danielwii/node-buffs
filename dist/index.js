@@ -1,8 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _ = require("lodash");
 var crypto = require("crypto");
-var dotenv = require("dotenv");
+var _ = {
+    get: require('lodash/get'),
+    mapValues: require('lodash/mapValues'),
+    isFunction: require('lodash/isFunction'),
+    isObjectLike: require('lodash/isObjectLike'),
+};
+var dotenv = require('dotenv');
 var AbstractReduxModuleWithSage = (function () {
     function AbstractReduxModuleWithSage(moduleName) {
         if (moduleName === void 0) { moduleName = 'root'; }

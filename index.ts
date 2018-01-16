@@ -1,7 +1,14 @@
-import * as _ from 'lodash';
 import * as crypto from 'crypto';
-import * as dotenv from 'dotenv';
 import { DotenvResult } from 'dotenv';
+
+const _ = {
+  get: require('lodash/get'),
+  mapValues: require('lodash/mapValues'),
+  isFunction: require('lodash/isFunction'),
+  isObjectLike: require('lodash/isObjectLike'),
+};
+
+const dotenv = require('dotenv');
 
 // --------------------------------------------------------------
 // Define Types
@@ -106,7 +113,7 @@ export const createConfigLoader = (optionsLoader?) => {
  * 配置读取器
  */
 export class ConfigLoader {
-  private optionsLoader: object | { (): object };
+  private optionsLoader: object | { (): object } | any;
 
   constructor(optionsLoader?) {
     this.optionsLoader = optionsLoader;
