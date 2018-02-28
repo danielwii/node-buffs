@@ -214,8 +214,8 @@ export const base64Encode = (str: string = ''): string => {
 };
 
 export const loadDotEnv = (): DotenvResult => {
-  let suffix = '';
-  if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+  let suffix = process.env.ENV ? `.${process.env.ENV}` : '';
+  if (!suffix && process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
     suffix = `.${process.env.NODE_ENV}`;
   }
   return dotenv.config({ path: `.env${suffix}` }); // load .env into process.env

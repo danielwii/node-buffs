@@ -100,8 +100,8 @@ exports.base64Encode = function (str) {
     return new Buffer(str).toString('base64');
 };
 exports.loadDotEnv = function () {
-    var suffix = '';
-    if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+    var suffix = process.env.ENV ? "." + process.env.ENV : '';
+    if (!suffix && process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
         suffix = "." + process.env.NODE_ENV;
     }
     return dotenv.config({ path: ".env" + suffix });
