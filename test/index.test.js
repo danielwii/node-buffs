@@ -4,6 +4,8 @@ const buffs = require('../dist');
 
 describe('ConfigLoader', () => {
 
+  process.env.ENV = 'example';
+
   describe('No optionsLoader', () => {
     const loader = new buffs.ConfigLoader();
 
@@ -12,6 +14,17 @@ describe('ConfigLoader', () => {
     });
     it('return default value if not exists', () => {
       assert(loader.loadConfig('a', 1) === 1);
+    });
+
+    it('.env file loaded', () => {
+      const dotenvResult = buffs.loadDotEnv();
+      assert(dotenvResult.parsed.env_loaded === 'true');
+    });
+
+    it('.env.not-exists returns error', () => {
+      process.env.ENV    = 'not-exists';
+      const dotenvResult = buffs.loadDotEnv();
+      assert(!!dotenvResult.error);
     });
   });
 
