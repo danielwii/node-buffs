@@ -1,6 +1,6 @@
 {
   "name": "node-buffs",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "typings": "dist/index",
   "author": "Daniel Wei(danielwii0326@gmail.com)",

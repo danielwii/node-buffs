@@ -104,7 +104,12 @@ exports.loadDotEnv = function () {
     if (!suffix && process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
         suffix = "." + process.env.NODE_ENV;
     }
-    return dotenv.config({ path: ".env" + suffix });
+    var dotenvResult = dotenv.config({ path: ".env" + suffix });
+    if (dotenvResult.error) {
+        console.warn(dotenvResult.error);
+        return {};
+    }
+    return dotenvResult.parsed;
 };
 exports.loadConfig = function (key, options, defaultValue) {
     return process.env[key] || options[key] || defaultValue;

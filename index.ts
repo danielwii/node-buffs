@@ -218,7 +218,12 @@ export const loadDotEnv = (): DotenvResult => {
   if (!suffix && process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
     suffix = `.${process.env.NODE_ENV}`;
   }
-  return dotenv.config({ path: `.env${suffix}` }); // load .env into process.env
+  const dotenvResult = dotenv.config({ path: `.env${suffix}` });
+  if (dotenvResult.error) {
+    console.warn(dotenvResult.error);
+    return {};
+  }
+  return dotenvResult.parsed; // load .env into process.env}
 };
 
 /**

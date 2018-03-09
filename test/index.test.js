@@ -18,13 +18,13 @@ describe('ConfigLoader', () => {
 
     it('.env file loaded', () => {
       const dotenvResult = buffs.loadDotEnv();
-      assert(dotenvResult.parsed.env_loaded === 'true');
+      assert(dotenvResult.env_loaded === 'true');
     });
 
     it('.env.not-exists returns error', () => {
       process.env.ENV    = 'not-exists';
       const dotenvResult = buffs.loadDotEnv();
-      assert(!!dotenvResult.error);
+      assert(!!dotenvResult);
     });
   });
 
