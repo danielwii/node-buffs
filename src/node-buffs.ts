@@ -11,6 +11,8 @@ const _ = {
   isObjectLike: require('lodash/isObjectLike'),
   isNil: require('lodash/isNil'),
   isEmpty: require('lodash/isEmpty'),
+  zipObject: require('lodash/zipObject'),
+  assign: require('lodash/assign'),
   filter: require('lodash/filter')
 }
 
@@ -157,7 +159,7 @@ export class ConfigLoader {
   }
 
   public loadConfigs(): Json {
-    const configs = loadDotEnv()
+    const configs = _.assign(_.zipObject(this.requiredVariables), loadDotEnv())
     return _.mapValues(configs, (value: Json, key: string) =>
       this.loadConfig(key)
     )

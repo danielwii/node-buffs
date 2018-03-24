@@ -8,6 +8,8 @@ var _ = {
     isObjectLike: require('lodash/isObjectLike'),
     isNil: require('lodash/isNil'),
     isEmpty: require('lodash/isEmpty'),
+    zipObject: require('lodash/zipObject'),
+    assign: require('lodash/assign'),
     filter: require('lodash/filter')
 };
 var dotenv = require('dotenv');
@@ -105,7 +107,7 @@ var ConfigLoader = /** @class */ (function () {
     };
     ConfigLoader.prototype.loadConfigs = function () {
         var _this = this;
-        var configs = loadDotEnv();
+        var configs = _.assign(_.zipObject(this.requiredVariables), loadDotEnv());
         return _.mapValues(configs, function (value, key) {
             return _this.loadConfig(key);
         });

@@ -1,9 +1,8 @@
 import { ConfigLoader, Cryptor } from '../src/node-buffs'
 
 describe('ConfigLoader', () => {
-  process.env.ENV = 'example'
-
   describe('No optionsLoader', () => {
+    process.env.ENV = 'example'
     const loader = new ConfigLoader()
 
     it('should return null without default value', () => {
@@ -15,8 +14,9 @@ describe('ConfigLoader', () => {
     })
 
     it('should load .env file', () => {
+      process.env.ENV = 'example'
       const env = loader.loadConfigs()
-      expect(env.env_loaded).toBe('true')
+      expect(env).toEqual({ env_loaded: 'true' })
     })
 
     it('should return error when load .env.not-exists', () => {
@@ -24,6 +24,8 @@ describe('ConfigLoader', () => {
       const env = loader.loadConfigs()
       expect(!!env).toBeTruthy()
     })
+
+    process.env.ENV = null
   })
 
   describe('With optionsLoader as Object', () => {
@@ -62,13 +64,22 @@ describe('ConfigLoader', () => {
     })
 
     it('should throw error when set requiredOptions', () => {
-      const loader = new ConfigLoader()
-      loader.setRequiredVariables(['test-required-1', 'test-required-2'])
       expect(() => {
-        loader.validate()
+        const loader = new ConfigLoader({
+          requiredVariables: ['test-required-1', 'test-required-2']
+        })
       }).toThrowError(
         '[ConfigLoader] "test-required-1,test-required-2" is required.'
       )
+    })
+
+    it('should return values from process.env', () => {
+      process.env.TEST = '^_^'
+      const loader = new ConfigLoader({
+        requiredVariables: ['TEST']
+      })
+      const configs = loader.loadConfigs()
+      expect(configs).toEqual({ TEST: '^_^' })
     })
   })
 })
