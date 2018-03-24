@@ -921,6 +921,9 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="configloader.html#optionsloader" class="tsd-kind-icon">options<wbr>Loader</a>
 				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="configloader.html#requiredvariables" class="tsd-kind-icon">required<wbr>Variables</a>
+				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="configloader.html#loadconfig" class="tsd-kind-icon">load<wbr>Config</a>
 				</li>
@@ -929,6 +932,12 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="configloader.html#loadencodedconfig" class="tsd-kind-icon">load<wbr>Encoded<wbr>Config</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="configloader.html#setrequiredvariables" class="tsd-kind-icon">set<wbr>Required<wbr>Variables</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="configloader.html#validate" class="tsd-kind-icon">validate</a>
 				</li>
 			</ul>
 		</li>
@@ -943,6 +952,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#foptionsloader" class="tsd-kind-icon">FOptions<wbr>Loader</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="../globals.html#func" class="tsd-kind-icon">Func</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#json" class="tsd-kind-icon">Json</a>
@@ -1007,6 +1019,7 @@ img { max-width: 100%; }
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#optionsloader" class="tsd-kind-icon">options<wbr>Loader</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#requiredvariables" class="tsd-kind-icon">required<wbr>Variables</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
@@ -1015,6 +1028,8 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#loadconfig" class="tsd-kind-icon">load<wbr>Config</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="configloader.html#loadconfigfromoptions" class="tsd-kind-icon">load<wbr>Config<wbr>From<wbr>Options</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#loadencodedconfig" class="tsd-kind-icon">load<wbr>Encoded<wbr>Config</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#setrequiredvariables" class="tsd-kind-icon">set<wbr>Required<wbr>Variables</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#validate" class="tsd-kind-icon">validate</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1026,19 +1041,27 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Config<wbr>Loader<span class="tsd-signature-symbol">(</span>optionsLoader<span class="tsd-signature-symbol">?: </span><a href="../globals.html#foptionsloader" class="tsd-signature-type">FOptionsLoader</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="configloader.html" class="tsd-signature-type">ConfigLoader</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Config<wbr>Loader<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="configloader.html" class="tsd-signature-type">ConfigLoader</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in node-buffs.ts:122</li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L133">node-buffs.ts:133</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> optionsLoader: <a href="../globals.html#foptionsloader" class="tsd-signature-type">FOptionsLoader</a></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> options<wbr>Loader<span class="tsd-signature-symbol">?: </span><a href="../globals.html#foptionsloader" class="tsd-signature-type">FOptionsLoader</a></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> required<wbr>Variables<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									</li>
+								</ul>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="configloader.html" class="tsd-signature-type">ConfigLoader</a></h4>
@@ -1054,7 +1077,17 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">options<wbr>Loader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in node-buffs.ts:122</li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L132">node-buffs.ts:132</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="requiredvariables" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> required<wbr>Variables</h3>
+				<div class="tsd-signature tsd-kind-icon">required<wbr>Variables<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L133">node-buffs.ts:133</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1071,7 +1104,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in node-buffs.ts:135</li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L147">node-buffs.ts:147</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1111,7 +1144,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in node-buffs.ts:144</li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L167">node-buffs.ts:167</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1134,7 +1167,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in node-buffs.ts:139</li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L151">node-buffs.ts:151</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1147,6 +1180,46 @@ img { max-width: 100%; }
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="setrequiredvariables" class="tsd-anchor"></a>
+				<h3>set<wbr>Required<wbr>Variables</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">set<wbr>Required<wbr>Variables<span class="tsd-signature-symbol">(</span>requires<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L156">node-buffs.ts:156</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>requires: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="validate" class="tsd-anchor"></a>
+				<h3>validate</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7cac3db/src/node-buffs.ts#L160">node-buffs.ts:160</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 					</li>
 				</ul>
 			</section>

@@ -3,13 +3,17 @@
 // ...
 
 import * as crypto from 'crypto'
-import { DotenvResult } from 'dotenv'
 
 const _ = {
   get: require('lodash/get'),
   mapValues: require('lodash/mapValues'),
   isFunction: require('lodash/isFunction'),
-  isObjectLike: require('lodash/isObjectLike')
+  isObjectLike: require('lodash/isObjectLike'),
+  isUndefined: require('lodash/isUndefined'),
+  isNil: require('lodash/isNil'),
+  isEmpty: require('lodash/isEmpty'),
+  has: require('lodash/has'),
+  filter: require('lodash/filter')
 }
 
 const dotenv = require('dotenv')
@@ -27,7 +31,9 @@ export interface JsonArray
 
 export type Json = JsonMap | JsonArray | string | number | boolean | null
 
-export type FOptionsLoader = () => any
+export type Func = () => any
+
+export type FOptionsLoader = Json | Func
 
 // --------------------------------------------------------------
 // Core Classes
@@ -112,8 +118,11 @@ export abstract class AbstractReduxModuleWithSage {
   }
 }
 
-export const createConfigLoader = (optionsLoader?: FOptionsLoader) => {
-  return new ConfigLoader(optionsLoader)
+export const createConfigLoader = (options: {
+  optionsLoader?: FOptionsLoader
+  requiredVariables?: string[]
+}) => {
+  return new ConfigLoader(options)
 }
 
 /**
@@ -121,9 +130,16 @@ export const createConfigLoader = (optionsLoader?: FOptionsLoader) => {
  */
 export class ConfigLoader {
   private optionsLoader: object | { (): object } | any
+  private requiredVariables: string[]
 
-  constructor(optionsLoader?: FOptionsLoader) {
-    this.optionsLoader = optionsLoader
+  constructor(
+    options: {
+      optionsLoader?: FOptionsLoader
+      requiredVariables?: string[]
+    } = {}
+  ) {
+    this.optionsLoader = options.optionsLoader
+    this.requiredVariables = options.requiredVariables || []
     loadDotEnv()
   }
 
@@ -133,13 +149,26 @@ export class ConfigLoader {
    * @param {any=null} defaultValue - default value
    * @returns {any}                 - property value
    */
-  loadConfig(key: string, defaultValue: any = null): any {
+  public loadConfig(key: string, defaultValue: any = null): any {
     return process.env[key] || this.loadConfigFromOptions(key) || defaultValue
   }
 
-  loadEncodedConfig(key: string, defaultValue: any = null): any {
+  public loadEncodedConfig(key: string, defaultValue: any = null): any {
     const encoded = process.env[key] || this.loadConfigFromOptions(key)
     return encoded ? base64Decode(encoded) : defaultValue
+  }
+
+  public setRequiredVariables(requires: string[]): void {
+    this.requiredVariables = requires
+  }
+
+  public validate(): void {
+    const notExists = _.filter(this.requiredVariables, (key: string) =>
+      _.isNil(this.loadConfig(key))
+    )
+    if (!_.isEmpty(notExists)) {
+      throw new Error(`[ConfigLoader] "${notExists}" is required.`)
+    }
   }
 
   private loadConfigFromOptions(key: string): any {
@@ -176,7 +205,7 @@ export class Cryptor {
       .slice(0, length)
   }
 
-  static encrypt(data: string, digest: string = 'sha512') {
+  static encrypt(data: string, digest: string = 'sha512'): string {
     return crypto
       .createHash(digest)
       .update(data)
@@ -184,12 +213,14 @@ export class Cryptor {
   }
 
   /**
-   *
    * @param {string} password
    * @param {string} prefix
    * @returns {{hash: string; salt: string}}
    */
-  passwordEncrypt(password: string, prefix: string = '') {
+  passwordEncrypt(
+    password: string,
+    prefix: string = ''
+  ): { hash: string; salt: string } {
     const salt = Cryptor.generateSalt()
     const encryptedPassword = Cryptor.encrypt(password)
     const generatedSalt = `${prefix}${salt}`
@@ -250,7 +281,7 @@ export const base64Encode = (str: string = ''): string => {
   return new Buffer(str).toString('base64')
 }
 
-export const loadDotEnv = () => {
+export const loadDotEnv = (): Json => {
   let suffix = process.env.ENV ? `.${process.env.ENV}` : ''
   if (
     !suffix &&

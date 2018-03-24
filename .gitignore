@@ -1,4 +1,5 @@
 node_modules
 yarn-error.log
 .scannerwork
+.rpt2_cache
 coverage

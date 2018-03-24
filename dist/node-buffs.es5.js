@@ -6,6 +6,11 @@ var _ = {
     mapValues: require('lodash/mapValues'),
     isFunction: require('lodash/isFunction'),
     isObjectLike: require('lodash/isObjectLike'),
+    isUndefined: require('lodash/isUndefined'),
+    isNil: require('lodash/isNil'),
+    isEmpty: require('lodash/isEmpty'),
+    has: require('lodash/has'),
+    filter: require('lodash/filter'),
 };
 var dotenv = require('dotenv');
 // --------------------------------------------------------------
@@ -63,7 +68,7 @@ var AbstractReduxModuleWithSage = /** @class */ (function () {
             actionTypes: this.actionTypesWrapper(),
             actions: this.actions(),
             sagas: this.sagas(),
-            reducer: this.reducer(),
+            reducer: this.reducer()
         };
     };
     AbstractReduxModuleWithSage.prototype.actionTypesWrapper = function () {
@@ -72,15 +77,17 @@ var AbstractReduxModuleWithSage = /** @class */ (function () {
     };
     return AbstractReduxModuleWithSage;
 }());
-var createConfigLoader = function (optionsLoader) {
-    return new ConfigLoader(optionsLoader);
+var createConfigLoader = function (options) {
+    return new ConfigLoader(options);
 };
 /**
  * 配置读取器
  */
 var ConfigLoader = /** @class */ (function () {
-    function ConfigLoader(optionsLoader) {
-        this.optionsLoader = optionsLoader;
+    function ConfigLoader(options) {
+        if (options === void 0) { options = {}; }
+        this.optionsLoader = options.optionsLoader;
+        this.requiredVariables = options.requiredVariables || [];
         loadDotEnv();
     }
     /**
@@ -98,10 +105,22 @@ var ConfigLoader = /** @class */ (function () {
         var encoded = process.env[key] || this.loadConfigFromOptions(key);
         return encoded ? base64Decode(encoded) : defaultValue;
     };
+    ConfigLoader.prototype.setRequiredVariables = function (requires) {
+        this.requiredVariables = requires;
+    };
+    ConfigLoader.prototype.validate = function () {
+        var _this = this;
+        var notExists = _.filter(this.requiredVariables, function (key) { return _.isNil(_this.loadConfig(key)); });
+        if (!_.isEmpty(notExists)) {
+            throw new Error("[ConfigLoader] \"" + notExists + "\" is required.");
+        }
+    };
     ConfigLoader.prototype.loadConfigFromOptions = function (key) {
         return _.isObjectLike(this.optionsLoader)
             ? _.get(this.optionsLoader, key)
-            : _.isFunction(this.optionsLoader) ? _.get(this.optionsLoader(), key) : null;
+            : _.isFunction(this.optionsLoader)
+                ? _.get(this.optionsLoader(), key)
+                : null;
     };
     return ConfigLoader;
 }());
@@ -119,14 +138,17 @@ var Cryptor = /** @class */ (function () {
     }
     Cryptor.generateSalt = function (length) {
         if (length === void 0) { length = 32; }
-        return randomBytes(length).toString('hex').slice(0, length);
+        return randomBytes(length)
+            .toString('hex')
+            .slice(0, length);
     };
     Cryptor.encrypt = function (data, digest) {
         if (digest === void 0) { digest = 'sha512'; }
-        return createHash(digest).update(data).digest('hex');
+        return createHash(digest)
+            .update(data)
+            .digest('hex');
     };
     /**
-     *
      * @param {string} password
      * @param {string} prefix
      * @returns {{hash: string; salt: string}}
@@ -144,8 +166,9 @@ var Cryptor = /** @class */ (function () {
         if (prefix === void 0) { prefix = ''; }
         var encryptedPassword = Cryptor.encrypt(password);
         var generatedSalt = "" + prefix + savedSalt;
-        return savedHash === pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
-            .toString('hex');
+        return (savedHash ===
+            pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+                .toString('hex'));
     };
     return Cryptor;
 }());
@@ -172,7 +195,9 @@ var base64Encode = function (str) {
 };
 var loadDotEnv = function () {
     var suffix = process.env.ENV ? "." + process.env.ENV : '';
-    if (!suffix && process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+    if (!suffix &&
+        process.env.NODE_ENV &&
+        process.env.NODE_ENV !== 'production') {
         suffix = "." + process.env.NODE_ENV;
     }
     var dotenvResult = dotenv.config({ path: ".env" + suffix });
@@ -206,7 +231,11 @@ var loadEncodedConfig = function (key, options, defaultValue) {
 var reduxAction = function (type, payload, error) {
     if (payload === void 0) { payload = {}; }
     if (error === void 0) { error = null; }
-    return ({ type: type, payload: payload, error: error });
+    return ({
+        type: type,
+        payload: payload,
+        error: error
+    });
 };
 
 export { AbstractReduxModuleWithSage, createConfigLoader, ConfigLoader, Cryptor, base64Decode, base64Encode, loadDotEnv, loadConfig, loadEncodedConfig, reduxAction };

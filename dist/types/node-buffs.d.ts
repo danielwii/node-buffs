@@ -4,7 +4,8 @@ export interface JsonMap {
 export interface JsonArray extends Array<string | number | boolean | null | JsonArray | JsonMap> {
 }
 export declare type Json = JsonMap | JsonArray | string | number | boolean | null;
-export declare type FOptionsLoader = () => any;
+export declare type Func = () => any;
+export declare type FOptionsLoader = Json | Func;
 /**
  * @example
  * class ModuleNotifications extends AbstractReduxModuleWithSage {
@@ -63,13 +64,20 @@ export declare abstract class AbstractReduxModuleWithSage {
     abstract reducer(): JsonMap;
     protected actionTypesWrapper(): any;
 }
-export declare const createConfigLoader: (optionsLoader?: FOptionsLoader | undefined) => ConfigLoader;
+export declare const createConfigLoader: (options: {
+    optionsLoader?: string | number | boolean | JsonMap | JsonArray | Func | null | undefined;
+    requiredVariables?: string[] | undefined;
+}) => ConfigLoader;
 /**
  * 配置读取器
  */
 export declare class ConfigLoader {
     private optionsLoader;
-    constructor(optionsLoader?: FOptionsLoader);
+    private requiredVariables;
+    constructor(options?: {
+        optionsLoader?: FOptionsLoader;
+        requiredVariables?: string[];
+    });
     /**
      * load config from env first, then options loader, and default at last.
      * @param {string} key            - property key
@@ -78,6 +86,8 @@ export declare class ConfigLoader {
      */
     loadConfig(key: string, defaultValue?: any): any;
     loadEncodedConfig(key: string, defaultValue?: any): any;
+    setRequiredVariables(requires: string[]): void;
+    validate(): void;
     private loadConfigFromOptions(key);
 }
 /**
@@ -91,7 +101,6 @@ export declare class Cryptor {
     static generateSalt(length?: number): string;
     static encrypt(data: string, digest?: string): string;
     /**
-     *
      * @param {string} password
      * @param {string} prefix
      * @returns {{hash: string; salt: string}}
@@ -114,7 +123,7 @@ export declare const base64Decode: (str?: string) => string;
  * @returns {string}
  */
 export declare const base64Encode: (str?: string) => string;
-export declare const loadDotEnv: () => any;
+export declare const loadDotEnv: () => string | number | boolean | JsonMap | JsonArray | null;
 /**
  *
  * @param {string} key
