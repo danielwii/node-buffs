@@ -6,15 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var crypto = require("crypto");
 var _ = {
     get: require('lodash/get'),
-    map: require('lodash/map'),
-    mapKeys: require('lodash/mapKeys'),
     mapValues: require('lodash/mapValues'),
     isFunction: require('lodash/isFunction'),
     isObjectLike: require('lodash/isObjectLike'),
-    isUndefined: require('lodash/isUndefined'),
     isNil: require('lodash/isNil'),
     isEmpty: require('lodash/isEmpty'),
-    has: require('lodash/has'),
     filter: require('lodash/filter')
 };
 var dotenv = require('dotenv');
@@ -94,7 +90,7 @@ var ConfigLoader = /** @class */ (function () {
         if (options === void 0) { options = {}; }
         this.optionsLoader = options.optionsLoader;
         this.requiredVariables = options.requiredVariables || [];
-        exports.loadDotEnv();
+        this.validate();
     }
     /**
      * load config from env first, then options loader, and default at last.
@@ -114,7 +110,9 @@ var ConfigLoader = /** @class */ (function () {
     ConfigLoader.prototype.loadConfigs = function () {
         var _this = this;
         var configs = exports.loadDotEnv();
-        return _.mapValues(configs, function (value, key) { return _this.loadConfig(key); });
+        return _.mapValues(configs, function (value, key) {
+            return _this.loadConfig(key);
+        });
     };
     ConfigLoader.prototype.setRequiredVariables = function (requires) {
         this.requiredVariables = requires;

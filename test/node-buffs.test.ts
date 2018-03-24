@@ -1,4 +1,4 @@
-import { ConfigLoader, Cryptor, loadDotEnv } from '../src/node-buffs'
+import { ConfigLoader, Cryptor } from '../src/node-buffs'
 
 describe('ConfigLoader', () => {
   process.env.ENV = 'example'

@@ -138,7 +138,7 @@ export class ConfigLoader {
   ) {
     this.optionsLoader = options.optionsLoader
     this.requiredVariables = options.requiredVariables || []
-    loadDotEnv()
+    this.validate()
   }
 
   /**
