@@ -86,6 +86,7 @@ export declare class ConfigLoader {
      */
     loadConfig(key: string, defaultValue?: any): any;
     loadEncodedConfig(key: string, defaultValue?: any): any;
+    loadConfigs(): Json;
     setRequiredVariables(requires: string[]): void;
     validate(): void;
     private loadConfigFromOptions(key);

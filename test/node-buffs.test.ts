@@ -15,13 +15,13 @@ describe('ConfigLoader', () => {
     })
 
     it('should load .env file', () => {
-      const env = loadDotEnv()
+      const env = loader.loadConfigs()
       expect(env.env_loaded).toBe('true')
     })
 
     it('should return error when load .env.not-exists', () => {
       process.env.ENV = 'not-exists'
-      const env = loadDotEnv()
+      const env = loader.loadConfigs()
       expect(!!env).toBeTruthy()
     })
   })

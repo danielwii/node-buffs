@@ -9,10 +9,8 @@ const _ = {
   mapValues: require('lodash/mapValues'),
   isFunction: require('lodash/isFunction'),
   isObjectLike: require('lodash/isObjectLike'),
-  isUndefined: require('lodash/isUndefined'),
   isNil: require('lodash/isNil'),
   isEmpty: require('lodash/isEmpty'),
-  has: require('lodash/has'),
   filter: require('lodash/filter')
 }
 
@@ -156,6 +154,13 @@ export class ConfigLoader {
   public loadEncodedConfig(key: string, defaultValue: any = null): any {
     const encoded = process.env[key] || this.loadConfigFromOptions(key)
     return encoded ? base64Decode(encoded) : defaultValue
+  }
+
+  public loadConfigs(): Json {
+    const configs = loadDotEnv()
+    return _.mapValues(configs, (value: Json, key: string) =>
+      this.loadConfig(key)
+    )
   }
 
   public setRequiredVariables(requires: string[]): void {

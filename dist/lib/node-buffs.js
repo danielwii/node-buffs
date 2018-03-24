@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var crypto = require("crypto");
 var _ = {
     get: require('lodash/get'),
+    map: require('lodash/map'),
+    mapKeys: require('lodash/mapKeys'),
     mapValues: require('lodash/mapValues'),
     isFunction: require('lodash/isFunction'),
     isObjectLike: require('lodash/isObjectLike'),
@@ -13,7 +15,7 @@ var _ = {
     isNil: require('lodash/isNil'),
     isEmpty: require('lodash/isEmpty'),
     has: require('lodash/has'),
-    filter: require('lodash/filter'),
+    filter: require('lodash/filter')
 };
 var dotenv = require('dotenv');
 // --------------------------------------------------------------
@@ -109,12 +111,19 @@ var ConfigLoader = /** @class */ (function () {
         var encoded = process.env[key] || this.loadConfigFromOptions(key);
         return encoded ? exports.base64Decode(encoded) : defaultValue;
     };
+    ConfigLoader.prototype.loadConfigs = function () {
+        var _this = this;
+        var configs = exports.loadDotEnv();
+        return _.mapValues(configs, function (value, key) { return _this.loadConfig(key); });
+    };
     ConfigLoader.prototype.setRequiredVariables = function (requires) {
         this.requiredVariables = requires;
     };
     ConfigLoader.prototype.validate = function () {
         var _this = this;
-        var notExists = _.filter(this.requiredVariables, function (key) { return _.isNil(_this.loadConfig(key)); });
+        var notExists = _.filter(this.requiredVariables, function (key) {
+            return _.isNil(_this.loadConfig(key));
+        });
         if (!_.isEmpty(notExists)) {
             throw new Error("[ConfigLoader] \"" + notExists + "\" is required.");
         }
