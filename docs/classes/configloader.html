@@ -919,6 +919,9 @@ img { max-width: 100%; }
 					<a href="configloader.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="configloader.html#options" class="tsd-kind-icon">options</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="configloader.html#optionsloader" class="tsd-kind-icon">options<wbr>Loader</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -975,9 +978,6 @@ img { max-width: 100%; }
 			<a href="../globals.html#createconfigloader" class="tsd-kind-icon">create<wbr>Config<wbr>Loader</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="../globals.html#loadconfig" class="tsd-kind-icon">load<wbr>Config</a>
-		</li>
-		<li class=" tsd-kind-function">
 			<a href="../globals.html#loaddotenv" class="tsd-kind-icon">load<wbr>Dot<wbr>Env</a>
 		</li>
 		<li class=" tsd-kind-function">
@@ -1021,6 +1021,7 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#options" class="tsd-kind-icon">options</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#optionsloader" class="tsd-kind-icon">options<wbr>Loader</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#requiredvariables" class="tsd-kind-icon">required<wbr>Variables</a></li>
 						</ul>
@@ -1045,19 +1046,19 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Config<wbr>Loader<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="configloader.html" class="tsd-signature-type">ConfigLoader</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Config<wbr>Loader<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="configloader.html" class="tsd-signature-type">ConfigLoader</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L133">node-buffs.ts:133</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L135">node-buffs.ts:135</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter">
 										<h5><span class="tsd-flag ts-flagOptional">Optional</span> options<wbr>Loader<span class="tsd-signature-symbol">?: </span><a href="../globals.html#foptionsloader" class="tsd-signature-type">FOptionsLoader</a></h5>
@@ -1076,12 +1077,22 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="options" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> options</h3>
+				<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L135">node-buffs.ts:135</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="optionsloader" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagPrivate">Private</span> options<wbr>Loader</h3>
 				<div class="tsd-signature tsd-kind-icon">options<wbr>Loader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L132">node-buffs.ts:132</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L133">node-buffs.ts:133</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1091,7 +1102,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">required<wbr>Variables<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L133">node-buffs.ts:133</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L134">node-buffs.ts:134</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1108,7 +1119,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L152">node-buffs.ts:152</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L153">node-buffs.ts:153</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1148,7 +1159,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L181">node-buffs.ts:181</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L185">node-buffs.ts:185</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1171,7 +1182,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L161">node-buffs.ts:161</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L165">node-buffs.ts:165</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../globals.html#json" class="tsd-signature-type">Json</a></h4>
@@ -1188,7 +1199,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L156">node-buffs.ts:156</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L160">node-buffs.ts:160</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1214,7 +1225,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L168">node-buffs.ts:168</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L172">node-buffs.ts:172</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1237,7 +1248,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/17b0124/src/node-buffs.ts#L172">node-buffs.ts:172</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/267e76d/src/node-buffs.ts#L176">node-buffs.ts:176</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

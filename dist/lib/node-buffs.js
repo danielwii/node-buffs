@@ -81,17 +81,19 @@ var AbstractReduxModuleWithSage = /** @class */ (function () {
     return AbstractReduxModuleWithSage;
 }());
 exports.AbstractReduxModuleWithSage = AbstractReduxModuleWithSage;
-exports.createConfigLoader = function (options) {
-    return new ConfigLoader(options);
+exports.createConfigLoader = function (opts) {
+    return new ConfigLoader(opts);
 };
 /**
  * 配置读取器
  */
 var ConfigLoader = /** @class */ (function () {
-    function ConfigLoader(options) {
-        if (options === void 0) { options = {}; }
-        this.optionsLoader = options.optionsLoader;
-        this.requiredVariables = options.requiredVariables || [];
+    function ConfigLoader(opts) {
+        if (opts === void 0) { opts = {}; }
+        this.options = {};
+        this.optionsLoader = opts.optionsLoader;
+        this.requiredVariables = opts.requiredVariables || [];
+        this.options = exports.loadDotEnv();
         this.validate();
     }
     /**
@@ -102,7 +104,10 @@ var ConfigLoader = /** @class */ (function () {
      */
     ConfigLoader.prototype.loadConfig = function (key, defaultValue) {
         if (defaultValue === void 0) { defaultValue = null; }
-        return process.env[key] || this.loadConfigFromOptions(key) || defaultValue;
+        return process.env[key] ||
+            this.options[key] ||
+            this.loadConfigFromOptions(key) ||
+            defaultValue;
     };
     ConfigLoader.prototype.loadEncodedConfig = function (key, defaultValue) {
         if (defaultValue === void 0) { defaultValue = null; }
@@ -111,7 +116,7 @@ var ConfigLoader = /** @class */ (function () {
     };
     ConfigLoader.prototype.loadConfigs = function () {
         var _this = this;
-        var configs = _.assign(_.zipObject(this.requiredVariables), exports.loadDotEnv());
+        var configs = _.assign(_.zipObject(this.requiredVariables), this.options);
         return _.mapValues(configs, function (value, key) {
             return _this.loadConfig(key);
         });
@@ -225,16 +230,6 @@ exports.loadDotEnv = function () {
         return {};
     }
     return dotenvResult.parsed; // load .env into process.env}
-};
-/**
- *
- * @param {string} key
- * @param options
- * @param defaultValue
- * @returns {any}
- */
-exports.loadConfig = function (key, options, defaultValue) {
-    return process.env[key] || options[key] || defaultValue;
 };
 /**
  *

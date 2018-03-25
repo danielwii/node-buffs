@@ -1,5 +1,16 @@
 import { ConfigLoader, Cryptor } from '../src/node-buffs'
 
+beforeEach(() => {
+  // delete process.env.ENV
+})
+
+afterEach(() => {
+  delete process.env.ENV
+  delete process.env.env_loaded
+  delete process.env.a
+  delete process.env.b
+})
+
 describe('ConfigLoader', () => {
   describe('No optionsLoader', () => {
     process.env.ENV = 'example'
@@ -24,8 +35,6 @@ describe('ConfigLoader', () => {
       const env = loader.loadConfigs()
       expect(!!env).toBeTruthy()
     })
-
-    process.env.ENV = null
   })
 
   describe('With optionsLoader as Object', () => {
@@ -71,6 +80,14 @@ describe('ConfigLoader', () => {
       }).toThrowError(
         '[ConfigLoader] "test-required-1,test-required-2" is required.'
       )
+    })
+
+    it('should return configs when set requiredOptions and load from env', () => {
+      process.env.ENV = 'example'
+      const loader = new ConfigLoader({
+        requiredVariables: ['env_loaded']
+      })
+      expect(loader.loadConfig('env_loaded')).toBeTruthy()
     })
 
     it('should return values from process.env', () => {

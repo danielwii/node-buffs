@@ -64,7 +64,7 @@ export declare abstract class AbstractReduxModuleWithSage {
     abstract reducer(): JsonMap;
     protected actionTypesWrapper(): any;
 }
-export declare const createConfigLoader: (options: {
+export declare const createConfigLoader: (opts: {
     optionsLoader?: string | number | boolean | JsonMap | JsonArray | Func | null | undefined;
     requiredVariables?: string[] | undefined;
 }) => ConfigLoader;
@@ -74,7 +74,8 @@ export declare const createConfigLoader: (options: {
 export declare class ConfigLoader {
     private optionsLoader;
     private requiredVariables;
-    constructor(options?: {
+    private options;
+    constructor(opts?: {
         optionsLoader?: FOptionsLoader;
         requiredVariables?: string[];
     });
@@ -124,15 +125,7 @@ export declare const base64Decode: (str?: string) => string;
  * @returns {string}
  */
 export declare const base64Encode: (str?: string) => string;
-export declare const loadDotEnv: () => string | number | boolean | JsonMap | JsonArray | null;
-/**
- *
- * @param {string} key
- * @param options
- * @param defaultValue
- * @returns {any}
- */
-export declare const loadConfig: (key: string, options: JsonMap, defaultValue: any) => any;
+export declare const loadDotEnv: () => JsonMap;
 /**
  *
  * @param key

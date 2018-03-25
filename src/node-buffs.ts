@@ -118,11 +118,11 @@ export abstract class AbstractReduxModuleWithSage {
   }
 }
 
-export const createConfigLoader = (options: {
+export const createConfigLoader = (opts: {
   optionsLoader?: FOptionsLoader
   requiredVariables?: string[]
 }) => {
-  return new ConfigLoader(options)
+  return new ConfigLoader(opts)
 }
 
 /**
@@ -131,15 +131,17 @@ export const createConfigLoader = (options: {
 export class ConfigLoader {
   private optionsLoader: object | { (): object } | any
   private requiredVariables: string[]
+  private options: JsonMap = {}
 
   constructor(
-    options: {
+    opts: {
       optionsLoader?: FOptionsLoader
       requiredVariables?: string[]
     } = {}
   ) {
-    this.optionsLoader = options.optionsLoader
-    this.requiredVariables = options.requiredVariables || []
+    this.optionsLoader = opts.optionsLoader
+    this.requiredVariables = opts.requiredVariables || []
+    this.options = loadDotEnv()
     this.validate()
   }
 
@@ -150,7 +152,12 @@ export class ConfigLoader {
    * @returns {any}                 - property value
    */
   public loadConfig(key: string, defaultValue: any = null): any {
-    return process.env[key] || this.loadConfigFromOptions(key) || defaultValue
+    return (
+      process.env[key] ||
+      this.options[key] ||
+      this.loadConfigFromOptions(key) ||
+      defaultValue
+    )
   }
 
   public loadEncodedConfig(key: string, defaultValue: any = null): any {
@@ -159,7 +166,7 @@ export class ConfigLoader {
   }
 
   public loadConfigs(): Json {
-    const configs = _.assign(_.zipObject(this.requiredVariables), loadDotEnv())
+    const configs = _.assign(_.zipObject(this.requiredVariables), this.options)
     return _.mapValues(configs, (value: Json, key: string) =>
       this.loadConfig(key)
     )
@@ -288,7 +295,7 @@ export const base64Encode = (str: string = ''): string => {
   return new Buffer(str).toString('base64')
 }
 
-export const loadDotEnv = (): Json => {
+export const loadDotEnv = (): JsonMap => {
   let suffix = process.env.ENV ? `.${process.env.ENV}` : ''
   if (
     !suffix &&
@@ -303,21 +310,6 @@ export const loadDotEnv = (): Json => {
     return {}
   }
   return dotenvResult.parsed // load .env into process.env}
-}
-
-/**
- *
- * @param {string} key
- * @param options
- * @param defaultValue
- * @returns {any}
- */
-export const loadConfig = (
-  key: string,
-  options: JsonMap,
-  defaultValue: any
-): any => {
-  return process.env[key] || options[key] || defaultValue
 }
 
 /**

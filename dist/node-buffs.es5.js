@@ -77,17 +77,19 @@ var AbstractReduxModuleWithSage = /** @class */ (function () {
     };
     return AbstractReduxModuleWithSage;
 }());
-var createConfigLoader = function (options) {
-    return new ConfigLoader(options);
+var createConfigLoader = function (opts) {
+    return new ConfigLoader(opts);
 };
 /**
  * 配置读取器
  */
 var ConfigLoader = /** @class */ (function () {
-    function ConfigLoader(options) {
-        if (options === void 0) { options = {}; }
-        this.optionsLoader = options.optionsLoader;
-        this.requiredVariables = options.requiredVariables || [];
+    function ConfigLoader(opts) {
+        if (opts === void 0) { opts = {}; }
+        this.options = {};
+        this.optionsLoader = opts.optionsLoader;
+        this.requiredVariables = opts.requiredVariables || [];
+        this.options = loadDotEnv();
         this.validate();
     }
     /**
@@ -98,7 +100,10 @@ var ConfigLoader = /** @class */ (function () {
      */
     ConfigLoader.prototype.loadConfig = function (key, defaultValue) {
         if (defaultValue === void 0) { defaultValue = null; }
-        return process.env[key] || this.loadConfigFromOptions(key) || defaultValue;
+        return process.env[key] ||
+            this.options[key] ||
+            this.loadConfigFromOptions(key) ||
+            defaultValue;
     };
     ConfigLoader.prototype.loadEncodedConfig = function (key, defaultValue) {
         if (defaultValue === void 0) { defaultValue = null; }
@@ -107,7 +112,7 @@ var ConfigLoader = /** @class */ (function () {
     };
     ConfigLoader.prototype.loadConfigs = function () {
         var _this = this;
-        var configs = _.assign(_.zipObject(this.requiredVariables), loadDotEnv());
+        var configs = _.assign(_.zipObject(this.requiredVariables), this.options);
         return _.mapValues(configs, function (value, key) {
             return _this.loadConfig(key);
         });
@@ -218,16 +223,6 @@ var loadDotEnv = function () {
 };
 /**
  *
- * @param {string} key
- * @param options
- * @param defaultValue
- * @returns {any}
- */
-var loadConfig = function (key, options, defaultValue) {
-    return process.env[key] || options[key] || defaultValue;
-};
-/**
- *
  * @param key
  * @param options
  * @param defaultValue
@@ -247,4 +242,4 @@ var reduxAction = function (type, payload, error) {
     });
 };
 
-export { AbstractReduxModuleWithSage, createConfigLoader, ConfigLoader, Cryptor, base64Decode, base64Encode, loadDotEnv, loadConfig, loadEncodedConfig, reduxAction };
+export { AbstractReduxModuleWithSage, createConfigLoader, ConfigLoader, Cryptor, base64Decode, base64Encode, loadDotEnv, loadEncodedConfig, reduxAction };
