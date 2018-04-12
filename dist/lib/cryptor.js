@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var crypto = require("crypto");
+var crypto = require('crypto');
 /**
  * 加密工具
  */

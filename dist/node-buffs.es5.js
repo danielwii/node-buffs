@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { randomBytes, createHash, pbkdf2Sync } from 'crypto';
 
 /*
  * Parses a string or buffer into an object
@@ -190,6 +189,7 @@ var ConfigLoader = /** @class */ (function () {
     return ConfigLoader;
 }());
 
+var crypto = require('crypto');
 /**
  * 加密工具
  */
@@ -204,13 +204,15 @@ var Cryptor = /** @class */ (function () {
     }
     Cryptor.generateSalt = function (length) {
         if (length === void 0) { length = 32; }
-        return randomBytes(length)
+        return crypto
+            .randomBytes(length)
             .toString('hex')
             .slice(0, length);
     };
     Cryptor.encrypt = function (data, digest) {
         if (digest === void 0) { digest = 'sha512'; }
-        return createHash(digest)
+        return crypto
+            .createHash(digest)
             .update(data)
             .digest('hex');
     };
@@ -224,7 +226,8 @@ var Cryptor = /** @class */ (function () {
         var salt = Cryptor.generateSalt();
         var encryptedPassword = Cryptor.encrypt(password);
         var generatedSalt = "" + prefix + salt;
-        var hash = pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+        var hash = crypto
+            .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
             .toString('hex');
         return { hash: hash, salt: salt };
     };
@@ -233,30 +236,31 @@ var Cryptor = /** @class */ (function () {
         var encryptedPassword = Cryptor.encrypt(password);
         var generatedSalt = "" + prefix + savedSalt;
         return (savedHash ===
-            pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+            crypto
+                .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
                 .toString('hex'));
     };
     return Cryptor;
 }());
 
 var _$1 = {
-    isString: require('lodash/isString'),
+    isString: require('lodash/isString')
 };
 /**
- * cast camel case to underscore case
+ * cast camel case to snake case
  * @param {string} str
  * @returns {string}
  */
-var toUnderscore = function (str) {
+var toSnakeCase = function (str) {
     if (_$1.isString(str) && str.length > 1) {
         var trimStr = str.trim();
-        return trimStr[0].toLowerCase() +
-            trimStr.slice(1).replace(/[A-Z]/g, function (match) { return '_' + match.toLowerCase(); });
+        return (trimStr[0].toLowerCase() +
+            trimStr.slice(1).replace(/[A-Z]/g, function (match) { return '_' + match.toLowerCase(); }));
     }
     return str;
 };
 /**
- * cast underscore case to camel case
+ * cast snake case to camel case
  * @param {string} str
  * @returns {string}
  */
@@ -264,8 +268,11 @@ var toCamelCase = function (str) {
     if (_$1.isString(str) && str.includes('_') && str.length > 1) {
         var trimStr = str.trim();
         var strings = trimStr.split('_');
-        return strings[0] +
-            strings.slice(1).map(function (s) { return s[0].toUpperCase() + s.slice(1); }).join('');
+        return (strings[0] +
+            strings
+                .slice(1)
+                .map(function (s) { return s[0].toUpperCase() + s.slice(1); })
+                .join(''));
     }
     return str;
 };
@@ -273,7 +280,7 @@ var toCamelCase = function (str) {
 // Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
 // import "core-js/fn/array.find"
 var _$2 = {
-    mapValues: require('lodash/mapValues'),
+    mapValues: require('lodash/mapValues')
 };
 // --------------------------------------------------------------
 // Core Classes
@@ -361,4 +368,4 @@ var reduxAction = function (type, payload, error) {
     });
 };
 
-export { AbstractReduxModuleWithSage, base64Encode, reduxAction, base64Decode, createConfigLoader, loadDotEnv, loadEncodedConfig, ConfigLoader, Cryptor, toUnderscore, toCamelCase };
+export { AbstractReduxModuleWithSage, base64Encode, reduxAction, base64Decode, createConfigLoader, loadDotEnv, loadEncodedConfig, ConfigLoader, Cryptor, toSnakeCase, toCamelCase };

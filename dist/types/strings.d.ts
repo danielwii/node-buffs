@@ -1,11 +1,11 @@
 /**
- * cast camel case to underscore case
+ * cast camel case to snake case
  * @param {string} str
  * @returns {string}
  */
-export declare const toUnderscore: (str: string) => string;
+export declare const toSnakeCase: (str: string) => string;
 /**
- * cast underscore case to camel case
+ * cast snake case to camel case
  * @param {string} str
  * @returns {string}
  */

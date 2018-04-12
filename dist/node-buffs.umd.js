@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('fs'), require('path'), require('crypto')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'fs', 'path', 'crypto'], factory) :
-  (factory((global.nodeBuffs = {}),global.fs,global.path,global.crypto));
-}(this, (function (exports,fs,path,crypto) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('fs'), require('path')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'fs', 'path'], factory) :
+  (factory((global.nodeBuffs = {}),global.fs,global.path));
+}(this, (function (exports,fs,path) { 'use strict';
 
   fs = fs && fs.hasOwnProperty('default') ? fs['default'] : fs;
   path = path && path.hasOwnProperty('default') ? path['default'] : path;
@@ -195,6 +195,7 @@
       return ConfigLoader;
   }());
 
+  var crypto = require('crypto');
   /**
    * 加密工具
    */
@@ -209,13 +210,15 @@
       }
       Cryptor.generateSalt = function (length) {
           if (length === void 0) { length = 32; }
-          return crypto.randomBytes(length)
+          return crypto
+              .randomBytes(length)
               .toString('hex')
               .slice(0, length);
       };
       Cryptor.encrypt = function (data, digest) {
           if (digest === void 0) { digest = 'sha512'; }
-          return crypto.createHash(digest)
+          return crypto
+              .createHash(digest)
               .update(data)
               .digest('hex');
       };
@@ -229,7 +232,8 @@
           var salt = Cryptor.generateSalt();
           var encryptedPassword = Cryptor.encrypt(password);
           var generatedSalt = "" + prefix + salt;
-          var hash = crypto.pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+          var hash = crypto
+              .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
               .toString('hex');
           return { hash: hash, salt: salt };
       };
@@ -238,30 +242,31 @@
           var encryptedPassword = Cryptor.encrypt(password);
           var generatedSalt = "" + prefix + savedSalt;
           return (savedHash ===
-              crypto.pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
+              crypto
+                  .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.digest)
                   .toString('hex'));
       };
       return Cryptor;
   }());
 
   var _$1 = {
-      isString: require('lodash/isString'),
+      isString: require('lodash/isString')
   };
   /**
-   * cast camel case to underscore case
+   * cast camel case to snake case
    * @param {string} str
    * @returns {string}
    */
-  var toUnderscore = function (str) {
+  var toSnakeCase = function (str) {
       if (_$1.isString(str) && str.length > 1) {
           var trimStr = str.trim();
-          return trimStr[0].toLowerCase() +
-              trimStr.slice(1).replace(/[A-Z]/g, function (match) { return '_' + match.toLowerCase(); });
+          return (trimStr[0].toLowerCase() +
+              trimStr.slice(1).replace(/[A-Z]/g, function (match) { return '_' + match.toLowerCase(); }));
       }
       return str;
   };
   /**
-   * cast underscore case to camel case
+   * cast snake case to camel case
    * @param {string} str
    * @returns {string}
    */
@@ -269,8 +274,11 @@
       if (_$1.isString(str) && str.includes('_') && str.length > 1) {
           var trimStr = str.trim();
           var strings = trimStr.split('_');
-          return strings[0] +
-              strings.slice(1).map(function (s) { return s[0].toUpperCase() + s.slice(1); }).join('');
+          return (strings[0] +
+              strings
+                  .slice(1)
+                  .map(function (s) { return s[0].toUpperCase() + s.slice(1); })
+                  .join(''));
       }
       return str;
   };
@@ -278,7 +286,7 @@
   // Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
   // import "core-js/fn/array.find"
   var _$2 = {
-      mapValues: require('lodash/mapValues'),
+      mapValues: require('lodash/mapValues')
   };
   // --------------------------------------------------------------
   // Core Classes
@@ -375,7 +383,7 @@
   exports.loadEncodedConfig = loadEncodedConfig;
   exports.ConfigLoader = ConfigLoader;
   exports.Cryptor = Cryptor;
-  exports.toUnderscore = toUnderscore;
+  exports.toSnakeCase = toSnakeCase;
   exports.toCamelCase = toCamelCase;
 
   Object.defineProperty(exports, '__esModule', { value: true });

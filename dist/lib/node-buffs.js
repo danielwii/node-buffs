@@ -6,7 +6,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 var _ = {
-    mapValues: require('lodash/mapValues'),
+    mapValues: require('lodash/mapValues')
 };
 // --------------------------------------------------------------
 // Core Classes
