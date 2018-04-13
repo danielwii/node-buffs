@@ -12,7 +12,7 @@
   "author": "Daniel Wei <danielwii0326@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/danielwii/node-buffs"
   },
   "license": "MIT",
   "engines": {
