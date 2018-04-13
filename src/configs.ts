@@ -31,8 +31,13 @@ export function createConfigLoader(opts: {
   return new ConfigLoader(opts);
 }
 
-export function loadDotEnv(): JsonMap {
-  const suffix = process.env.ENV ? `.${process.env.ENV}` : '';
+/**
+ * 读取配置文件
+ * @param {string} by 从 process.env 中读取指定的后缀，default: ENV
+ * @returns {JsonMap}
+ */
+export function loadDotEnv(by: string = 'ENV'): JsonMap {
+  const suffix = process.env[by] ? `.${process.env[by]}` : '';
   const dotenvResult = dotenv.config({ path: `.env${suffix}` });
   if (dotenvResult.error) {
     console.warn(dotenvResult.error.message);
@@ -58,27 +63,45 @@ export function loadEncodedConfig(
 }
 
 /**
- * 配置读取器
- * 配置加载优先级：
- *   overwrite options -> process.env -> options(.env) -> optionsLoader(user config) -> default
+ * 配置读取器，加载优先级：
+ * overwrite options -> process.env -> options(.env) -> optionsLoader(user config) -> default
  */
 export class ConfigLoader {
-  private optionsLoader: any;
+  /**
+   * 从 process.env 读取要加载的 .env 后缀，default: ENV
+   */
+  private dotenvBy: string;
+  /**
+   * 配置加载器，可以是一个方法或配置对象
+   */
+  private optionsLoader: FOptionsLoader;
+  /**
+   * 设置必填字段
+   */
   private requiredVariables: string[];
+  /**
+   * 覆盖配置，优先级最高
+   */
   private overwriteOptions: JsonMap;
+  /**
+   * 加载自 .env 的配置
+   * @type {{}}
+   */
   private options: JsonMap = {};
 
   constructor(
     opts: {
+      dotenvBy?: string;
       optionsLoader?: FOptionsLoader;
       requiredVariables?: string[];
       overwriteOptions?: JsonMap;
     } = {}
   ) {
-    this.optionsLoader = opts.optionsLoader;
+    this.dotenvBy = opts.dotenvBy || 'ENV';
+    this.optionsLoader = opts.optionsLoader || {};
     this.overwriteOptions = opts.overwriteOptions || {};
     this.requiredVariables = opts.requiredVariables || [];
-    this.options = loadDotEnv();
+    this.options = loadDotEnv(this.dotenvBy);
     this.validate();
   }
 
@@ -95,10 +118,10 @@ export class ConfigLoader {
       this.options[key] ||
       this.loadConfigFromOptions(key) ||
       defaultValue;
-    if (/\d+/.test(value)) {
+    if (/^\d+$/.test(value)) {
       return +value;
     }
-    if (/(true|false)/.test(value)) {
+    if (/^(true|false)$/.test(value)) {
       return value === 'true';
     }
     return value;
@@ -147,7 +170,7 @@ export class ConfigLoader {
     return _.isObjectLike(this.optionsLoader)
       ? _.get(this.optionsLoader, key)
       : _.isFunction(this.optionsLoader)
-        ? _.get(this.optionsLoader(), key)
+        ? _.get((this.optionsLoader as Func)(), key)
         : null;
   }
 }

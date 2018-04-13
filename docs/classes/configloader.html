@@ -919,6 +919,9 @@ img { max-width: 100%; }
 					<a href="configloader.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="configloader.html#dotenvby" class="tsd-kind-icon">dotenv<wbr>By</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="configloader.html#options" class="tsd-kind-icon">options</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -1017,8 +1020,7 @@ img { max-width: 100%; }
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>配置读取器
-						配置加载优先级：
+					<p>配置读取器，加载优先级：
 					overwrite options -&gt; process.env -&gt; options(.env) -&gt; optionsLoader(user config) -&gt; default</p>
 				</div>
 			</div>
@@ -1044,6 +1046,7 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#dotenvby" class="tsd-kind-icon">dotenv<wbr>By</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#options" class="tsd-kind-icon">options</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#optionsloader" class="tsd-kind-icon">options<wbr>Loader</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#overwriteoptions" class="tsd-kind-icon">overwrite<wbr>Options</a></li>
@@ -1077,7 +1080,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L69">configs.ts:69</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L90">configs.ts:90</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1085,6 +1088,9 @@ img { max-width: 100%; }
 							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> dotenv<wbr>By<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									</li>
 									<li class="tsd-parameter">
 										<h5><span class="tsd-flag ts-flagOptional">Optional</span> options<wbr>Loader<span class="tsd-signature-symbol">?: </span><a href="../globals.html#foptionsloader" class="tsd-signature-type">FOptionsLoader</a></h5>
 									</li>
@@ -1105,24 +1111,54 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="dotenvby" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> dotenv<wbr>By</h3>
+				<div class="tsd-signature tsd-kind-icon">dotenv<wbr>By<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L73">configs.ts:73</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>从 process.env 读取要加载的 .env 后缀，default: ENV</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="options" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagPrivate">Private</span> options</h3>
 				<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L69">configs.ts:69</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L90">configs.ts:90</a></li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>加载自 .env 的配置</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>type</dt>
+						<dd><p>{{}}</p>
+						</dd>
+					</dl>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="optionsloader" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagPrivate">Private</span> options<wbr>Loader</h3>
-				<div class="tsd-signature tsd-kind-icon">options<wbr>Loader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+				<div class="tsd-signature tsd-kind-icon">options<wbr>Loader<span class="tsd-signature-symbol">:</span> <a href="../globals.html#foptionsloader" class="tsd-signature-type">FOptionsLoader</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L66">configs.ts:66</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L77">configs.ts:77</a></li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>配置加载器，可以是一个方法或配置对象</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="overwriteoptions" class="tsd-anchor"></a>
@@ -1130,9 +1166,14 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">overwrite<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L68">configs.ts:68</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L85">configs.ts:85</a></li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>覆盖配置，优先级最高</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="requiredvariables" class="tsd-anchor"></a>
@@ -1140,9 +1181,14 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">required<wbr>Variables<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L67">configs.ts:67</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L81">configs.ts:81</a></li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>设置必填字段</p>
+					</div>
+				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
@@ -1157,7 +1203,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L91">configs.ts:91</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L114">configs.ts:114</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1197,7 +1243,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L146">configs.ts:146</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L169">configs.ts:169</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1220,7 +1266,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L118">configs.ts:118</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L141">configs.ts:141</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../globals.html#json" class="tsd-signature-type">Json</a></h4>
@@ -1237,7 +1283,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L113">configs.ts:113</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L136">configs.ts:136</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1268,7 +1314,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L133">configs.ts:133</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L156">configs.ts:156</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1291,7 +1337,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L129">configs.ts:129</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L152">configs.ts:152</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1321,7 +1367,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/513e458/src/configs.ts#L137">configs.ts:137</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/fa4ab6b/src/configs.ts#L160">configs.ts:160</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

@@ -6,6 +6,7 @@ beforeEach(() => {
 
 afterEach(() => {
   delete process.env.ENV;
+  delete process.env.PROXY_API;
   delete process.env.env_loaded;
   delete process.env.env_number;
   delete process.env.env_string;
@@ -32,7 +33,8 @@ describe('ConfigLoader', () => {
       expect(env).toEqual({
         env_loaded: true,
         env_number: 1,
-        env_string: 'hello kitty ^_^'
+        env_string: 'hello kitty ^_^',
+        PROXY_API: 'http://localhost:5000'
       });
     });
 
@@ -46,19 +48,22 @@ describe('ConfigLoader', () => {
       expect(loader.loadConfigs()).toEqual({
         env_loaded: true,
         env_number: 1,
-        env_string: 'hello kitty ^_^'
+        env_string: 'hello kitty ^_^',
+        PROXY_API: 'http://localhost:5000'
       });
       process.env.env_number = '2';
       expect(loader.loadConfigs()).toEqual({
         env_loaded: true,
         env_number: 2,
-        env_string: 'hello kitty ^_^'
+        env_string: 'hello kitty ^_^',
+        PROXY_API: 'http://localhost:5000'
       });
       loader.setOverwriteOptions({ env_number: '3' });
       expect(loader.loadConfigs()).toEqual({
         env_loaded: true,
         env_number: 3,
-        env_string: 'hello kitty ^_^'
+        env_string: 'hello kitty ^_^',
+        PROXY_API: 'http://localhost:5000'
       });
     });
   });
