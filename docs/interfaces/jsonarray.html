@@ -1026,6 +1026,9 @@ img { max-width: 100%; }
 			<a href="jsonmap.html" class="tsd-kind-icon">Json<wbr>Map</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
+			<a href="../globals.html#anyjson" class="tsd-kind-icon">Any<wbr>Json</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#foptionsloader" class="tsd-kind-icon">FOptions<wbr>Loader</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
@@ -1035,7 +1038,13 @@ img { max-width: 100%; }
 			<a href="../globals.html#json" class="tsd-kind-icon">Json</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-is-not-exported">
+			<a href="../globals.html#r" class="tsd-kind-icon">R</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-is-not-exported">
 			<a href="../globals.html#crypto" class="tsd-kind-icon">crypto</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../globals.html#exconvert" class="tsd-kind-icon">ex<wbr>Convert</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#base64decode" class="tsd-kind-icon">base64<wbr>Decode</a>
@@ -1072,7 +1081,7 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">&gt;</span>
+					<span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">&gt;</span>
 					<ul class="tsd-hierarchy">
 						<li>
 							<span class="target">JsonArray</span>
@@ -1083,7 +1092,7 @@ img { max-width: 100%; }
 		</section>
 		<section class="tsd-panel tsd-kind-interface">
 			<h3 class="tsd-before-signature">Indexable</h3>
-			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>n: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></div>
+			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>n: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></div>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
@@ -1170,7 +1179,7 @@ img { max-width: 100%; }
 				<a name="___iterator" class="tsd-anchor"></a>
 				<h3>__@iterator</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">__@iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">__@iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1185,7 +1194,7 @@ img { max-width: 100%; }
 								<p>Iterator</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1240,8 +1249,8 @@ img { max-width: 100%; }
 				<a name="concat" class="tsd-anchor"></a>
 				<h3>concat</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConcatArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
-					<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ConcatArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConcatArray</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ConcatArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1259,13 +1268,13 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-type">ConcatArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-type">ConcatArray</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>Additional items to add to the end of array1.</p>
 								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
@@ -1288,7 +1297,7 @@ img { max-width: 100%; }
 								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1343,7 +1352,7 @@ img { max-width: 100%; }
 				<a name="entries" class="tsd-anchor"></a>
 				<h3>entries</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">entries<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">entries<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1358,7 +1367,7 @@ img { max-width: 100%; }
 								<p>Returns an iterable of key, value pairs for every entry in the array</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1391,20 +1400,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1428,7 +1437,7 @@ img { max-width: 100%; }
 				<a name="fill" class="tsd-anchor"></a>
 				<h3>fill</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">fill<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					<li class="tsd-signature tsd-kind-icon">fill<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1446,7 +1455,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+								<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>value to fill array section with</p>
 								</div>
@@ -1475,7 +1484,7 @@ img { max-width: 100%; }
 				<h3>filter</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
 					<li class="tsd-signature tsd-kind-icon">filter&lt;S&gt;<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span></li>
-					<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1493,7 +1502,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
 						<ul class="tsd-type-parameters">
 							<li>
-								<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h4>
+								<h4>S<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 							</li>
 						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1506,20 +1515,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1559,20 +1568,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -1588,7 +1597,7 @@ img { max-width: 100%; }
 								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1597,7 +1606,7 @@ img { max-width: 100%; }
 				<h3>find</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
 					<li class="tsd-signature tsd-kind-icon">find&lt;S&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					<li class="tsd-signature tsd-kind-icon">find<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					<li class="tsd-signature tsd-kind-icon">find<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1616,7 +1625,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
 						<ul class="tsd-type-parameters">
 							<li>
-								<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h4>
+								<h4>S<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 							</li>
 						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1631,7 +1640,7 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span>, value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, obj<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
@@ -1641,13 +1650,13 @@ img { max-width: 100%; }
 														<h5>this: <span class="tsd-signature-type">void</span></h5>
 													</li>
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>obj: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>obj: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1683,20 +1692,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, obj<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>obj: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>obj: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1709,17 +1718,7 @@ img { max-width: 100%; }
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> thisArg: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">number</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">boolean</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">null</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>
 							<span class="tsd-signature-symbol"> | </span>
 							<span class="tsd-signature-type">undefined</span>
 						</h4>
@@ -1758,20 +1757,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, obj<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>obj: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>obj: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1821,20 +1820,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1858,7 +1857,7 @@ img { max-width: 100%; }
 				<a name="includes" class="tsd-anchor"></a>
 				<h3>includes</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">includes<span class="tsd-signature-symbol">(</span>searchElement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, fromIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<li class="tsd-signature tsd-kind-icon">includes<span class="tsd-signature-symbol">(</span>searchElement<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, fromIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1876,7 +1875,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>searchElement: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+								<h5>searchElement: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>The element to search for.</p>
 								</div>
@@ -1896,7 +1895,7 @@ img { max-width: 100%; }
 				<a name="indexof" class="tsd-anchor"></a>
 				<h3>index<wbr>Of</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">index<wbr>Of<span class="tsd-signature-symbol">(</span>searchElement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, fromIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">index<wbr>Of<span class="tsd-signature-symbol">(</span>searchElement<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, fromIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1914,7 +1913,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>searchElement: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+								<h5>searchElement: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>The value to locate in the array.</p>
 								</div>
@@ -1989,7 +1988,7 @@ img { max-width: 100%; }
 				<a name="lastindexof" class="tsd-anchor"></a>
 				<h3>last<wbr>Index<wbr>Of</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">last<wbr>Index<wbr>Of<span class="tsd-signature-symbol">(</span>searchElement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, fromIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">last<wbr>Index<wbr>Of<span class="tsd-signature-symbol">(</span>searchElement<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, fromIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2007,7 +2006,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>searchElement: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+								<h5>searchElement: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>The value to locate in the array.</p>
 								</div>
@@ -2058,20 +2057,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">U</span></h4>
@@ -2095,7 +2094,7 @@ img { max-width: 100%; }
 				<a name="pop" class="tsd-anchor"></a>
 				<h3>pop</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">pop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					<li class="tsd-signature tsd-kind-icon">pop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2110,17 +2109,7 @@ img { max-width: 100%; }
 								<p>Removes the last element from an array and returns it.</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">number</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">boolean</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">null</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>
 							<span class="tsd-signature-symbol"> | </span>
 							<span class="tsd-signature-type">undefined</span>
 						</h4>
@@ -2131,7 +2120,7 @@ img { max-width: 100%; }
 				<a name="push" class="tsd-anchor"></a>
 				<h3>push</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">push<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">push<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2149,7 +2138,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>New elements of the Array.</p>
 								</div>
@@ -2163,8 +2152,8 @@ img { max-width: 100%; }
 				<a name="reduce" class="tsd-anchor"></a>
 				<h3>reduce</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">reduce<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
-					<li class="tsd-signature tsd-kind-icon">reduce<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, initialValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
+					<li class="tsd-signature tsd-kind-icon">reduce<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
+					<li class="tsd-signature tsd-kind-icon">reduce<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, initialValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
 					<li class="tsd-signature tsd-kind-icon">reduce&lt;U&gt;<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, initialValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
@@ -2190,55 +2179,33 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>previousValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>previousValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
-														<h5>currentValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>currentValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>currentIndex: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">number</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">boolean</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">null</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-												</h4>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">number</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">boolean</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">null</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-						</h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 					</li>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
@@ -2254,58 +2221,36 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>previousValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>previousValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
-														<h5>currentValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>currentValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>currentIndex: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">number</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">boolean</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">null</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-												</h4>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
 							</li>
 							<li>
-								<h5>initialValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+								<h5>initialValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">number</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">boolean</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">null</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-						</h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 					</li>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
@@ -2335,7 +2280,7 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, currentValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, currentValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
@@ -2345,13 +2290,13 @@ img { max-width: 100%; }
 														<h5>previousValue: <span class="tsd-signature-type">U</span></h5>
 													</li>
 													<li>
-														<h5>currentValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>currentValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>currentIndex: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">U</span></h4>
@@ -2375,8 +2320,8 @@ img { max-width: 100%; }
 				<a name="reduceright" class="tsd-anchor"></a>
 				<h3>reduce<wbr>Right</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">reduce<wbr>Right<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
-					<li class="tsd-signature tsd-kind-icon">reduce<wbr>Right<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, initialValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
+					<li class="tsd-signature tsd-kind-icon">reduce<wbr>Right<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
+					<li class="tsd-signature tsd-kind-icon">reduce<wbr>Right<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, initialValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
 					<li class="tsd-signature tsd-kind-icon">reduce<wbr>Right&lt;U&gt;<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, initialValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
@@ -2402,55 +2347,33 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>previousValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>previousValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
-														<h5>currentValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>currentValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>currentIndex: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">number</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">boolean</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">null</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-												</h4>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">number</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">boolean</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">null</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-						</h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 					</li>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
@@ -2466,58 +2389,36 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>previousValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>previousValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
-														<h5>currentValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>currentValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>currentIndex: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">number</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">boolean</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<span class="tsd-signature-type">null</span>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-													<span class="tsd-signature-symbol"> | </span>
-													<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-												</h4>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
 							</li>
 							<li>
-								<h5>initialValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+								<h5>initialValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">number</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">boolean</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">null</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
-						</h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h4>
 					</li>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
@@ -2547,7 +2448,7 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, currentValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, currentValue<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, currentIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
@@ -2557,13 +2458,13 @@ img { max-width: 100%; }
 														<h5>previousValue: <span class="tsd-signature-type">U</span></h5>
 													</li>
 													<li>
-														<h5>currentValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>currentValue: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>currentIndex: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">U</span></h4>
@@ -2587,7 +2488,7 @@ img { max-width: 100%; }
 				<a name="reverse" class="tsd-anchor"></a>
 				<h3>reverse</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">reverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">reverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2602,7 +2503,7 @@ img { max-width: 100%; }
 								<p>Reverses the elements in an Array.</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -2610,7 +2511,7 @@ img { max-width: 100%; }
 				<a name="shift" class="tsd-anchor"></a>
 				<h3>shift</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">shift<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					<li class="tsd-signature tsd-kind-icon">shift<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2625,17 +2526,7 @@ img { max-width: 100%; }
 								<p>Removes the first element from an array and returns it.</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">number</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">boolean</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<span class="tsd-signature-type">null</span>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonarray.html" class="tsd-signature-type">JsonArray</a>
-							<span class="tsd-signature-symbol"> | </span>
-							<a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>
 							<span class="tsd-signature-symbol"> | </span>
 							<span class="tsd-signature-type">undefined</span>
 						</h4>
@@ -2646,7 +2537,7 @@ img { max-width: 100%; }
 				<a name="slice" class="tsd-anchor"></a>
 				<h3>slice</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2676,7 +2567,7 @@ img { max-width: 100%; }
 								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -2709,20 +2600,20 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, array<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+														<h5>value: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a></h5>
 													</li>
 													<li>
 														<h5>index: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>array: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>array: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -2778,8 +2669,8 @@ img { max-width: 100%; }
 				<a name="splice" class="tsd-anchor"></a>
 				<h3>splice</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">splice<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, deleteCount<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
-					<li class="tsd-signature tsd-kind-icon">splice<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, deleteCount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, <span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">splice<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, deleteCount<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">splice<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, deleteCount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, <span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2809,7 +2700,7 @@ img { max-width: 100%; }
 								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
@@ -2838,13 +2729,13 @@ img { max-width: 100%; }
 								</div>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>Elements to insert into the array in place of the deleted elements.</p>
 								</div>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -2898,7 +2789,7 @@ img { max-width: 100%; }
 				<a name="unshift" class="tsd-anchor"></a>
 				<h3>unshift</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">unshift<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">unshift<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2916,7 +2807,7 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>Elements to insert at the start of the Array.</p>
 								</div>
@@ -2930,7 +2821,7 @@ img { max-width: 100%; }
 				<a name="values" class="tsd-anchor"></a>
 				<h3>values</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -2945,7 +2836,7 @@ img { max-width: 100%; }
 								<p>Returns an iterable of values in the array</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="jsonarray.html" class="tsd-signature-type">JsonArray</a><span class="tsd-signature-symbol"> | </span><a href="jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#anyjson" class="tsd-signature-type">AnyJson</a><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>

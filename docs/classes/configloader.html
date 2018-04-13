@@ -925,6 +925,9 @@ img { max-width: 100%; }
 					<a href="configloader.html#optionsloader" class="tsd-kind-icon">options<wbr>Loader</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="configloader.html#overwriteoptions" class="tsd-kind-icon">overwrite<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="configloader.html#requiredvariables" class="tsd-kind-icon">required<wbr>Variables</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -938,6 +941,9 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="configloader.html#loadencodedconfig" class="tsd-kind-icon">load<wbr>Encoded<wbr>Config</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="configloader.html#setoverwriteoptions" class="tsd-kind-icon">set<wbr>Overwrite<wbr>Options</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="configloader.html#setrequiredvariables" class="tsd-kind-icon">set<wbr>Required<wbr>Variables</a>
@@ -957,6 +963,9 @@ img { max-width: 100%; }
 			<a href="../interfaces/jsonmap.html" class="tsd-kind-icon">Json<wbr>Map</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
+			<a href="../globals.html#anyjson" class="tsd-kind-icon">Any<wbr>Json</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#foptionsloader" class="tsd-kind-icon">FOptions<wbr>Loader</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
@@ -966,7 +975,13 @@ img { max-width: 100%; }
 			<a href="../globals.html#json" class="tsd-kind-icon">Json</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-is-not-exported">
+			<a href="../globals.html#r" class="tsd-kind-icon">R</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-is-not-exported">
 			<a href="../globals.html#crypto" class="tsd-kind-icon">crypto</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../globals.html#exconvert" class="tsd-kind-icon">ex<wbr>Convert</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#base64decode" class="tsd-kind-icon">base64<wbr>Decode</a>
@@ -1002,7 +1017,9 @@ img { max-width: 100%; }
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>配置读取器</p>
+					<p>配置读取器
+						配置加载优先级：
+					overwrite options -&gt; process.env -&gt; options(.env) -&gt; optionsLoader(user config) -&gt; default</p>
 				</div>
 			</div>
 		</section>
@@ -1029,6 +1046,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#options" class="tsd-kind-icon">options</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#optionsloader" class="tsd-kind-icon">options<wbr>Loader</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#overwriteoptions" class="tsd-kind-icon">overwrite<wbr>Options</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="configloader.html#requiredvariables" class="tsd-kind-icon">required<wbr>Variables</a></li>
 						</ul>
 					</section>
@@ -1039,6 +1057,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="configloader.html#loadconfigfromoptions" class="tsd-kind-icon">load<wbr>Config<wbr>From<wbr>Options</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#loadconfigs" class="tsd-kind-icon">load<wbr>Configs</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#loadencodedconfig" class="tsd-kind-icon">load<wbr>Encoded<wbr>Config</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#setoverwriteoptions" class="tsd-kind-icon">set<wbr>Overwrite<wbr>Options</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#setrequiredvariables" class="tsd-kind-icon">set<wbr>Required<wbr>Variables</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="configloader.html#validate" class="tsd-kind-icon">validate</a></li>
 						</ul>
@@ -1058,7 +1077,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L71">configs.ts:71</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L69">configs.ts:69</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1068,6 +1087,9 @@ img { max-width: 100%; }
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter">
 										<h5><span class="tsd-flag ts-flagOptional">Optional</span> options<wbr>Loader<span class="tsd-signature-symbol">?: </span><a href="../globals.html#foptionsloader" class="tsd-signature-type">FOptionsLoader</a></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> overwrite<wbr>Options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
 									</li>
 									<li class="tsd-parameter">
 										<h5><span class="tsd-flag ts-flagOptional">Optional</span> required<wbr>Variables<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
@@ -1088,7 +1110,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L71">configs.ts:71</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L69">configs.ts:69</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1098,7 +1120,17 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">options<wbr>Loader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L69">configs.ts:69</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L66">configs.ts:66</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="overwriteoptions" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> overwrite<wbr>Options</h3>
+				<div class="tsd-signature tsd-kind-icon">overwrite<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L68">configs.ts:68</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1108,7 +1140,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">required<wbr>Variables<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L70">configs.ts:70</a></li>
+						<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L67">configs.ts:67</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1125,7 +1157,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L91">configs.ts:91</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L91">configs.ts:91</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1165,7 +1197,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L125">configs.ts:125</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L146">configs.ts:146</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1188,7 +1220,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L105">configs.ts:105</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L118">configs.ts:118</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../globals.html#json" class="tsd-signature-type">Json</a></h4>
@@ -1205,9 +1237,14 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L100">configs.ts:100</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L113">configs.ts:113</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>读取 base64 编码的配置</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
@@ -1222,6 +1259,29 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="setoverwriteoptions" class="tsd-anchor"></a>
+				<h3>set<wbr>Overwrite<wbr>Options</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">set<wbr>Overwrite<wbr>Options<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L133">configs.ts:133</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>options: <a href="../interfaces/jsonmap.html" class="tsd-signature-type">JsonMap</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="setrequiredvariables" class="tsd-anchor"></a>
 				<h3>set<wbr>Required<wbr>Variables</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1231,13 +1291,20 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L112">configs.ts:112</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L129">configs.ts:129</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>设置必设参数，未找到值时报错</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>requires: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								<div class="tsd-comment tsd-typography">
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1254,7 +1321,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/33da820/src/configs.ts#L116">configs.ts:116</a></li>
+								<li>Defined in <a href="https://github.com/danielwii/node-buffs/blob/7c2a536/src/configs.ts#L137">configs.ts:137</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

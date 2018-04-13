@@ -1,5 +1,6 @@
-node_modules
+node_modules/
+.scannerwork/
+.rpt2_cache/
+coverage/
+dist/
 yarn-error.log
-.scannerwork
-.rpt2_cache
-coverage

@@ -1,11 +1,11 @@
 // Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
 // import "core-js/fn/array.find"
 
-import { JsonMap } from './typings'
+import { JsonMap } from './typings';
 
 const _ = {
   mapValues: require('lodash/mapValues')
-}
+};
 
 // --------------------------------------------------------------
 // Core Classes
@@ -54,10 +54,10 @@ const _ = {
  * export default new ModuleNotifications().exports();
  */
 export abstract class AbstractReduxModuleWithSage {
-  private moduleName: string
+  private moduleName: string;
 
   constructor(moduleName: string = 'root') {
-    this.moduleName = moduleName
+    this.moduleName = moduleName;
   }
 
   public exports() {
@@ -66,27 +66,27 @@ export abstract class AbstractReduxModuleWithSage {
       actions: this.actions(),
       sagas: this.sagas(),
       reducer: this.reducer()
-    }
+    };
   }
 
   // ACTION: 'module::action'
-  abstract actionTypes(): JsonMap
+  abstract actionTypes(): JsonMap;
 
   // action: (args): dispatchFunction
-  abstract actions(): JsonMap
+  abstract actions(): JsonMap;
 
   // takeLatest / takeEvery (actionType, actionSage)
-  abstract sagas(): any[]
+  abstract sagas(): any[];
 
-  abstract initialState(): JsonMap
+  abstract initialState(): JsonMap;
 
-  abstract reducer(): JsonMap
+  abstract reducer(): JsonMap;
 
   protected actionTypesWrapper() {
     return _.mapValues(
       this.actionTypes(),
       (value: string) => `${this.moduleName}::${value}`
-    )
+    );
   }
 }
 
@@ -100,15 +100,15 @@ export abstract class AbstractReduxModuleWithSage {
  * @returns {string}
  */
 export const base64Encode = (str: string = ''): string => {
-  return new Buffer(str).toString('base64')
-}
+  return new Buffer(str).toString('base64');
+};
 
 export const reduxAction = (type: string, payload = {}, error = null) => ({
   type,
   payload,
   error
-})
+});
 
-export * from './configs'
-export * from './cryptor'
-export * from './strings'
+export * from './configs';
+export * from './cryptor';
+export * from './strings';

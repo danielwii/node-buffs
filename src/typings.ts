@@ -2,15 +2,14 @@
 // Define Types
 // --------------------------------------------------------------
 
+export type AnyJson = boolean | number | string | null | JsonArray | JsonMap;
+
 export interface JsonMap {
-  [member: string]: string | number | boolean | null | JsonArray | JsonMap
+  [key: string]: AnyJson;
 }
 
-export interface JsonArray
-  extends Array<string | number | boolean | null | JsonArray | JsonMap> {}
+export interface JsonArray extends Array<AnyJson> {}
 
-export type Json = JsonMap | JsonArray | string | number | boolean | null
+export type Json = JsonMap | JsonArray | null;
 
-export type Func = () => any
-
-export type FOptionsLoader = Json | Func
+export type Func = () => any;
