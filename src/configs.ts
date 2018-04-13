@@ -32,14 +32,7 @@ export function createConfigLoader(opts: {
 }
 
 export function loadDotEnv(): JsonMap {
-  let suffix = process.env.ENV ? `.${process.env.ENV}` : '';
-  if (
-    !suffix &&
-    process.env.NODE_ENV &&
-    process.env.NODE_ENV !== 'production'
-  ) {
-    suffix = `.${process.env.NODE_ENV}`;
-  }
+  const suffix = process.env.ENV ? `.${process.env.ENV}` : '';
   const dotenvResult = dotenv.config({ path: `.env${suffix}` });
   if (dotenvResult.error) {
     console.warn(dotenvResult.error.message);
