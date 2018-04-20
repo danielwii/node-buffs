@@ -3,7 +3,8 @@ import { toSnakeCase, toCamelCase } from '../src/node-buffs';
 describe('strings toSnakeCase', () => {
   it('should cast camel case to underscore', () => {
     expect(toSnakeCase('a')).toBe('a');
-    expect(toSnakeCase('A')).toBe('A');
+    expect(toSnakeCase('A')).toBe('a');
+    expect(toSnakeCase('Colleges')).toBe('colleges');
     expect(toSnakeCase('a_b')).toBe('a_b');
     expect(toSnakeCase('_a')).toBe('_a');
     // expect(toSnakeCase('_A')).toBe('_A');
@@ -11,7 +12,6 @@ describe('strings toSnakeCase', () => {
     expect(toSnakeCase('aB')).toBe('a_b');
     expect(toSnakeCase('aBCDefG')).toBe('a_b_c_def_g');
     expect(toSnakeCase(' aB ')).toBe('a_b');
-    expect(toSnakeCase(null)).toBe(null);
   });
 });
 
@@ -27,6 +27,5 @@ describe('strings toCamelCase', () => {
     expect(toCamelCase('aB')).toBe('aB');
     expect(toCamelCase('a_b_c_def_g')).toBe('aBCDefG');
     expect(toCamelCase(' a_b ')).toBe('aB');
-    expect(toCamelCase(null)).toBe(null);
   });
 });

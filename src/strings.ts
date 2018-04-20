@@ -8,7 +8,7 @@ const _ = {
  * @returns {string}
  */
 export const toSnakeCase = (str: string) => {
-  if (_.isString(str) && str.length > 1) {
+  if (_.isString(str) && str.length > 0) {
     const trimStr = str.trim();
     return (
       trimStr[0].toLowerCase() +
