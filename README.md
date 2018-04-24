@@ -33,7 +33,7 @@ import { createConfigLoader } from 'node-buffs';
 一个灵活配置读取器，通过环境变量 `ENV` 加载对应的 [dotenv](https://github.com/motdotla/dotenv) 文件，也可通过预制的优先级覆盖配置。
 
 > 加载优先级：
-> overwrite options -> process.env -> options(.env) -> optionsLoader(user config) -> default
+> overwrite options -> process.env -> options(.env) -> optionsLoader -> default
 
 
 
