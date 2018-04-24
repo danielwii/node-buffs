@@ -2,6 +2,7 @@ import { toSnakeCase, toCamelCase } from '../src/node-buffs';
 
 describe('strings toSnakeCase', () => {
   it('should cast camel case to underscore', () => {
+    expect(toSnakeCase('')).toBe('');
     expect(toSnakeCase('a')).toBe('a');
     expect(toSnakeCase('A')).toBe('a');
     expect(toSnakeCase('Colleges')).toBe('colleges');
@@ -17,6 +18,7 @@ describe('strings toSnakeCase', () => {
 
 describe('strings toCamelCase', () => {
   it('should cast underscore to camel case', () => {
+    expect(toCamelCase('')).toBe('');
     expect(toCamelCase('_')).toBe('_');
     expect(toCamelCase('a')).toBe('a');
     expect(toCamelCase('A')).toBe('A');

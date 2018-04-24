@@ -12,7 +12,7 @@ const _ = {
   isFunction: require('lodash/isFunction'),
   isObjectLike: require('lodash/isObjectLike'),
   isNil: require('lodash/isNil'),
-  isEmpty: require('lodash/isEmpty')
+  isEmpty: require('lodash/isEmpty'),
 };
 
 /**
@@ -23,6 +23,15 @@ const _ = {
 export function base64Decode(str: string = ''): string {
   return new Buffer(str, 'base64').toString('ascii').trim();
 }
+
+/**
+ *
+ * @param {string} str
+ * @returns {string}
+ */
+export const base64Encode = (str: string = ''): string => {
+  return new Buffer(str).toString('base64');
+};
 
 export function createConfigLoader(opts: {
   optionsLoader?: FOptionsLoader;
@@ -53,11 +62,7 @@ export function loadDotEnv(by: string = 'ENV'): JsonMap {
  * @param defaultValue
  * @returns {any}
  */
-export function loadEncodedConfig(
-  key: string,
-  options: JsonMap,
-  defaultValue: any
-): any {
+export function loadEncodedConfig(key: string, options: JsonMap, defaultValue: any): any {
   const value = process.env[key] || options[key];
   return value ? base64Decode(`${value}`) : defaultValue;
 }
@@ -140,9 +145,7 @@ export class ConfigLoader {
 
   public loadConfigs(): Json {
     const configs = _.assign(_.zipObject(this.requiredVariables), this.options);
-    return _.mapValues(configs, (value: Json, key: string) =>
-      this.loadConfig(key)
-    );
+    return _.mapValues(configs, (value: Json, key: string) => this.loadConfig(key));
   }
 
   /**
