@@ -2,6 +2,12 @@
 
 [![travis-ci](https://travis-ci.org/danielwii/node-buffs.svg?branch=master)](https://travis-ci.org/danielwii/node-buffs)
 [![codecov](https://codecov.io/gh/danielwii/node-buffs/branch/master/graph/badge.svg)](https://codecov.io/gh/danielwii/node-buffs)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7f78db8355785dfe34a4/maintainability)](https://codeclimate.com/github/danielwii/node-buffs/maintainability)
+[![npm version](https://img.shields.io/npm/v/node-buffs.svg)](https://www.npmjs.com/package/node-buffs)
+[![npm downloads](https://img.shields.io/npm/dt/node-buffs.svg)](https://www.npmjs.com/package/node-buffs)
+[![license](https://img.shields.io/npm/l/node-buffs.svg)](https://www.npmjs.com/package/node-buffs)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 
 node useful toolkit.
 封装了常用的 nodejs 工具包，如配置加载，加密和字符串转换等。
