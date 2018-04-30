@@ -1,7 +1,21 @@
 import dotenv from 'dotenv';
-import { Func, Json, JsonMap } from './typings';
 
-export type FOptionsLoader = Json | Func;
+export type Options = {
+  [key: string]: string | number | boolean;
+};
+
+export type Func = () => any;
+
+export type FOptionsLoader = Options | Func;
+
+export interface IConfigLoaderOpts {
+  dotenvBy?: string;
+  optionsLoader?: FOptionsLoader;
+  requiredVariables?: string[];
+  overwriteOptions?: Options;
+  path?: string;
+  suffix?: string;
+}
 
 const _ = {
   get: require('lodash/get'),
@@ -15,56 +29,26 @@ const _ = {
   isEmpty: require('lodash/isEmpty'),
 };
 
-/**
- * 采用 base64 解码字符串
- * @param {string} str - 字符串
- * @returns {string}   - 解码后字符串
- */
-export function base64Decode(str: string = ''): string {
-  return new Buffer(str, 'base64').toString('ascii').trim();
-}
-
-/**
- *
- * @param {string} str
- * @returns {string}
- */
-export const base64Encode = (str: string = ''): string => {
-  return new Buffer(str).toString('base64');
-};
-
-export function createConfigLoader(opts: {
-  optionsLoader?: FOptionsLoader;
-  requiredVariables?: string[];
-}): ConfigLoader {
+export function createConfigLoader(opts: IConfigLoaderOpts): ConfigLoader {
   return new ConfigLoader(opts);
 }
 
 /**
  * 读取配置文件
  * @param {string} by 从 process.env 中读取指定的后缀，default: ENV
- * @returns {JsonMap}
+ * @param path 访问路径，默认为 .
+ * @param suffix .env 文件后缀
+ * @returns {Options}
  */
-export function loadDotEnv(by: string = 'ENV'): JsonMap {
-  const suffix = process.env[by] ? `.${process.env[by]}` : '';
-  const dotenvResult = dotenv.config({ path: `.env${suffix}` });
+export function loadDotEnv(by: string = 'ENV', path: string = '.', suffix: string = ''): Options {
+  const _suffix = process.env[by] || suffix ? `.${process.env[by] || suffix}` : '';
+  const _path = `${path}/.env${_suffix}`;
+  const dotenvResult = dotenv.config({ path: _path });
   if (dotenvResult.error) {
     console.warn(dotenvResult.error.message);
     return {};
   }
   return dotenvResult.parsed || {}; // load .env into process.env}
-}
-
-/**
- *
- * @param key
- * @param options
- * @param defaultValue
- * @returns {any}
- */
-export function loadEncodedConfig(key: string, options: JsonMap, defaultValue: any): any {
-  const value = process.env[key] || options[key];
-  return value ? base64Decode(`${value}`) : defaultValue;
 }
 
 /**
@@ -75,11 +59,11 @@ export class ConfigLoader {
   /**
    * 从 process.env 读取要加载的 .env 后缀，default: ENV
    */
-  private dotenvBy: string;
+  private readonly dotenvBy: string;
   /**
    * 配置加载器，可以是一个方法或配置对象
    */
-  private optionsLoader: FOptionsLoader;
+  private readonly optionsLoader: FOptionsLoader;
   /**
    * 设置必填字段
    */
@@ -87,26 +71,19 @@ export class ConfigLoader {
   /**
    * 覆盖配置，优先级最高
    */
-  private overwriteOptions: JsonMap;
+  private overwriteOptions: Options;
   /**
    * 加载自 .env 的配置
    * @type {{}}
    */
-  private options: JsonMap = {};
+  private options: Options = {};
 
-  constructor(
-    opts: {
-      dotenvBy?: string;
-      optionsLoader?: FOptionsLoader;
-      requiredVariables?: string[];
-      overwriteOptions?: JsonMap;
-    } = {}
-  ) {
+  constructor(opts: IConfigLoaderOpts = {}) {
     this.dotenvBy = opts.dotenvBy || 'ENV';
     this.optionsLoader = opts.optionsLoader || {};
     this.overwriteOptions = opts.overwriteOptions || {};
     this.requiredVariables = opts.requiredVariables || [];
-    this.options = loadDotEnv(this.dotenvBy);
+    this.options = loadDotEnv(this.dotenvBy, opts.path, opts.suffix);
     this.validate();
   }
 
@@ -132,20 +109,11 @@ export class ConfigLoader {
     return value;
   }
 
-  /**
-   * 读取 base64 编码的配置
-   * @param {string} key
-   * @param defaultValue
-   * @returns {any}
-   */
-  public loadEncodedConfig(key: string, defaultValue: any = null): any {
-    const encoded = process.env[key] || this.loadConfigFromOptions(key);
-    return encoded ? base64Decode(encoded) : defaultValue;
-  }
-
-  public loadConfigs(): Json {
+  public loadConfigs(): Options {
     const configs = _.assign(_.zipObject(this.requiredVariables), this.options);
-    return _.mapValues(configs, (value: Json, key: string) => this.loadConfig(key));
+    return _.mapValues(configs, (value: string | number | boolean, key: string) =>
+      this.loadConfig(key)
+    );
   }
 
   /**
@@ -156,7 +124,7 @@ export class ConfigLoader {
     this.requiredVariables = requires;
   }
 
-  public setOverwriteOptions(options: JsonMap): void {
+  public setOverwriteOptions(options: Options): void {
     this.overwriteOptions = { ...this.overwriteOptions, ...options };
   }
 

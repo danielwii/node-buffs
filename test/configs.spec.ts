@@ -1,4 +1,4 @@
-import { ConfigLoader } from '../src/node-buffs';
+import { ConfigLoader, createConfigLoader } from '../src/node-buffs';
 
 beforeEach(() => {
   // ...
@@ -16,8 +16,8 @@ afterEach(() => {
 
 describe('ConfigLoader', () => {
   describe('No optionsLoader', () => {
-    process.env.ENV = 'example';
-    const loader = new ConfigLoader();
+    process.env.ENV = 'test';
+    const loader = new ConfigLoader({ path: __dirname });
 
     it('should return null without default value', () => {
       expect(loader.loadConfig('a')).toBeNull();
@@ -34,7 +34,7 @@ describe('ConfigLoader', () => {
         env_loaded: true,
         env_number: 1,
         env_string: 'hello kitty ^_^',
-        PROXY_API: 'http://localhost:5000'
+        PROXY_API: 'http://localhost:5000',
       });
     });
 
@@ -49,21 +49,21 @@ describe('ConfigLoader', () => {
         env_loaded: true,
         env_number: 1,
         env_string: 'hello kitty ^_^',
-        PROXY_API: 'http://localhost:5000'
+        PROXY_API: 'http://localhost:5000',
       });
       process.env.env_number = '2';
       expect(loader.loadConfigs()).toEqual({
         env_loaded: true,
         env_number: 2,
         env_string: 'hello kitty ^_^',
-        PROXY_API: 'http://localhost:5000'
+        PROXY_API: 'http://localhost:5000',
       });
       loader.setOverwriteOptions({ env_number: '3' });
       expect(loader.loadConfigs()).toEqual({
         env_loaded: true,
         env_number: 3,
         env_string: 'hello kitty ^_^',
-        PROXY_API: 'http://localhost:5000'
+        PROXY_API: 'http://localhost:5000',
       });
     });
   });
@@ -94,30 +94,27 @@ describe('ConfigLoader', () => {
 
   describe('With requiredOptions', () => {
     it('should throw error when setRequiredVariables', () => {
-      const loader = new ConfigLoader();
+      const loader = new ConfigLoader({ path: 'test', suffix: 'test' }); // test/.env.test
       loader.setRequiredVariables(['test-required-1', 'test-required-2']);
       expect(() => {
         loader.validate();
-      }).toThrowError(
-        '[ConfigLoader] "test-required-1,test-required-2" is required.'
-      );
+      }).toThrowError('[ConfigLoader] "test-required-1,test-required-2" is required.');
     });
 
     it('should throw error when set requiredOptions', () => {
       expect(() => {
         const loader = new ConfigLoader({
-          requiredVariables: ['test-required-1', 'test-required-2']
+          requiredVariables: ['test-required-1', 'test-required-2'],
         });
         loader.validate();
-      }).toThrowError(
-        '[ConfigLoader] "test-required-1,test-required-2" is required.'
-      );
+      }).toThrowError('[ConfigLoader] "test-required-1,test-required-2" is required.');
     });
 
     it('should return configs when set requiredOptions and load from env', () => {
-      process.env.ENV = 'example';
+      process.env.ENV = 'test';
       const loader = new ConfigLoader({
-        requiredVariables: ['env_loaded']
+        path: './test',
+        requiredVariables: ['env_loaded'],
       });
       expect(loader.loadConfig('env_loaded')).toBeTruthy();
     });
@@ -125,7 +122,18 @@ describe('ConfigLoader', () => {
     it('should return values from process.env', () => {
       process.env.TEST = '^_^';
       const loader = new ConfigLoader({
-        requiredVariables: ['TEST']
+        requiredVariables: ['TEST'],
+      });
+      const configs = loader.loadConfigs();
+      expect(configs).toEqual({ TEST: '^_^' });
+    });
+  });
+
+  describe('createConfigLoader', () => {
+    it('should create config loader by createConfigLoader', () => {
+      process.env.TEST = '^_^';
+      const loader = createConfigLoader({
+        requiredVariables: ['TEST'],
       });
       const configs = loader.loadConfigs();
       expect(configs).toEqual({ TEST: '^_^' });
