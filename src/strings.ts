@@ -1,5 +1,5 @@
 const _ = {
-  isString: require('lodash/isString')
+  isString: require('lodash/isString'),
 };
 
 /**
