@@ -138,5 +138,15 @@ describe('ConfigLoader', () => {
       const configs = loader.loadConfigs();
       expect(configs).toEqual({ TEST: '^_^' });
     });
+
+    // it('should load configs after call loads/load by set delay to true', function() {
+    //   process.env.ENV = 'test-not-exists';
+    //   const loader = new ConfigLoader({
+    //     delay: true,
+    //     requiredVariables: ['TEST'],
+    //   });
+    //   process.env.ENV = 'test';
+    //   expect(loader.loadConfig('env_loaded')).toBeTruthy();
+    // });
   });
 });

@@ -9,11 +9,30 @@ export type Func = () => any;
 export type FOptionsLoader = Options | Func;
 
 export interface IConfigLoaderOpts {
+  /**
+   * 从 process.env 加载一个 ENV 属性，其值用于识别 .env 的后缀
+   * e.g ENV=test will load .env.test
+   */
   dotenvBy?: string;
+  /**
+   * 配置加载器，可以是一个方法或配置对象
+   */
   optionsLoader?: FOptionsLoader;
+  /**
+   * 设置必填字段
+   */
   requiredVariables?: string[];
+  /**
+   * 覆盖配置，优先级最高
+   */
   overwriteOptions?: Options;
+  /**
+   * 配置加载路径
+   */
   path?: string;
+  /**
+   * 自定义后缀
+   */
   suffix?: string;
 }
 
