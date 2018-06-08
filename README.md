@@ -8,6 +8,7 @@
 [![Dependencies](https://img.shields.io/david/danielwii/node-buffs.svg?style=flat-square)](https://david-dm.org/danielwii/node-buffs)
 [![license](https://img.shields.io/npm/l/node-buffs.svg)](https://www.npmjs.com/package/node-buffs)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdanielwii%2Fnode-buffs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdanielwii%2Fnode-buffs?ref=badge_shield)
 
 [![NPM](https://nodei.co/npm/node-buffs.png?downloads=true&downloadRank=true)](https://nodei.co/npm/node-buffs/)
 
@@ -67,3 +68,6 @@ const configs = configLoader.loadConfigs();
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/atom/atom/blob/master/LICENSE.md) file for details
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdanielwii%2Fnode-buffs.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdanielwii%2Fnode-buffs?ref=badge_large)
