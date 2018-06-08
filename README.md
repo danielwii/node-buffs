@@ -67,7 +67,7 @@ const configs = configLoader.loadConfigs();
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/atom/atom/blob/master/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/danielwii/node-buffs/blob/master/LICENSE.md) file for details
 
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdanielwii%2Fnode-buffs.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdanielwii%2Fnode-buffs?ref=badge_large)
