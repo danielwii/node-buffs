@@ -4,7 +4,7 @@ export const reduxAction = (type: string, payload = {}, error?: string | object)
   error,
 });
 
-export const reduxTAction = (type: string, payload = {}, error?: string | object) => ({
+export const transientAction = (type: string, payload = {}, error?: string | object) => ({
   transient: true,
   type,
   payload,

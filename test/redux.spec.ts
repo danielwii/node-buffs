@@ -1,4 +1,4 @@
-import { reduxAction, reduxTAction } from '../src/redux';
+import { reduxAction, transientAction } from '../src/redux';
 
 describe('reduxAction', () => {
   it('should return correct action', () => {
@@ -20,21 +20,21 @@ describe('reduxAction', () => {
   });
 });
 
-describe('reduxTAction', () => {
+describe('transientAction', () => {
   it('should return correct action', () => {
-    expect(reduxTAction('TEST', { test: 1 }, 'error message')).toEqual({
+    expect(transientAction('TEST', { test: 1 }, 'error message')).toEqual({
       transient: true,
       error: 'error message',
       payload: { test: 1 },
       type: 'TEST',
     });
-    expect(reduxTAction('TEST', { test: 1 })).toEqual({
+    expect(transientAction('TEST', { test: 1 })).toEqual({
       transient: true,
       error: undefined,
       payload: { test: 1 },
       type: 'TEST',
     });
-    expect(reduxTAction('TEST')).toEqual({
+    expect(transientAction('TEST')).toEqual({
       transient: true,
       error: undefined,
       payload: {},
