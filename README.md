@@ -32,6 +32,11 @@ import { createConfigLoader } from 'node-buffs';
 
 一个灵活配置读取器，通过环境变量 `ENV` 加载对应的 [dotenv](https://github.com/motdotla/dotenv) 文件，也可通过预制的优先级覆盖配置。
 
+* ENV=undefined -> .env
+* ENV=local -> .env.local
+* ENV=staging -> .env.staging
+
+
 > 加载优先级：
 > overwrite options -> process.env -> options(.env) -> optionsLoader -> default
 
@@ -44,22 +49,25 @@ e.g:
 ```javascript
 import { createConfigLoader } from 'node-buffs';
 
+// Load order:
 // 1. load from overwrite options
 // 2. load from process.env
 // 3. load from .env
 // 4. load from optionsLoader (json or function)
 // 5. load from default
 
+// lv4
 export const configLoader = createConfigLoader({
   optionsLoader: { data: 'o.o' },
   requiredVariables: ['SECRET_KEY'],
 });
 
-// 具有最高的优先级
+// 具有最高的优先级 lv1
 configLoader.setOverwriteOptions({
   highestOrder: '^_^',
 });
 
+// lv5
 const key = configLoader.loadConfig('SECRET_KEY', 'default-secret');
 const configs = configLoader.loadConfigs();
 ```
