@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
 export type Options = {
   [key: string]: string | number | boolean;
@@ -138,13 +138,14 @@ export class ConfigLoader {
   /**
    * 设置必设参数，未找到值时报错
    * @param {string[]} requires
+   * @param overwrite 是否覆盖已经设置的值，默认: true
    */
-  public setRequiredVariables(requires: string[]): void {
-    this.requiredVariables = requires;
+  public setRequiredVariables(requires: string[], overwrite: boolean = true): void {
+    this.requiredVariables = overwrite ? requires : { ...this.requiredVariables, ...requires };
   }
 
-  public setOverwriteOptions(options: Options): void {
-    this.overwriteOptions = { ...this.overwriteOptions, ...options };
+  public setOverwriteOptions(options: Options, overwrite: boolean = true): void {
+    this.overwriteOptions = overwrite ? options : { ...this.overwriteOptions, ...options };
   }
 
   public validate(): void {
@@ -160,7 +161,7 @@ export class ConfigLoader {
     return _.isObjectLike(this.optionsLoader)
       ? _.get(this.optionsLoader, key)
       : _.isFunction(this.optionsLoader)
-        ? _.get((this.optionsLoader as Func)(), key)
-        : null;
+      ? _.get((this.optionsLoader as Func)(), key)
+      : null;
   }
 }
