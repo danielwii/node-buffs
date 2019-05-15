@@ -46,6 +46,7 @@ const _ = {
   isObjectLike: require('lodash/isObjectLike'),
   isNil: require('lodash/isNil'),
   isEmpty: require('lodash/isEmpty'),
+  isString: require('lodash/isString'),
 };
 
 export function createConfigLoader(opts: IConfigLoaderOpts): ConfigLoader {
@@ -109,29 +110,42 @@ export class ConfigLoader {
   /**
    * load config from env first, then options loader, and default at last.
    * @param {string} key            - property key
-   * @param {any=null} defaultValue - default value
+   * @param defaultValue
+   * @param convert                 - convert bool string to bool and numeric string to numeric
    * @returns {any}                 - property value
    */
-  public loadConfig(key: string, defaultValue: any = null): any {
+  public loadConfig(key: string, defaultValue: any = null, convert: boolean = false): any {
     const value =
       this.overwriteOptions[key] ||
       process.env[key] ||
       this.options[key] ||
       this.loadConfigFromOptions(key) ||
       defaultValue;
-    if (/^\d+$/.test(value)) {
-      return +value;
-    }
-    if (/^(true|false)$/.test(value)) {
-      return value === 'true';
+
+    if (convert) {
+      if (/^\d+$/.test(value)) {
+        return +value;
+      }
+
+      if (_.isString(value) && /^(true|false)$/.test(value)) {
+        return value === 'true';
+      }
     }
     return value;
   }
 
-  public loadConfigs(): Options {
+  public loadNumericConfig(key: string, defaultValue: any = null): any {
+    return this.loadConfig(key, defaultValue, true);
+  }
+
+  public loadBoolConfig(key: string, defaultValue: any = null): any {
+    return this.loadConfig(key, defaultValue, true);
+  }
+
+  public loadConfigs(opts: { convert: boolean } = { convert: false }): Options {
     const configs = _.assign(_.zipObject(this.requiredVariables), this.options);
     return _.mapValues(configs, (value: string | number | boolean, key: string) =>
-      this.loadConfig(key)
+      this.loadConfig(key, null, opts.convert)
     );
   }
 

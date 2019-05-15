@@ -29,10 +29,15 @@ describe('ConfigLoader', () => {
 
     it('should load .env file', () => {
       process.env.ENV = 'example';
-      const env = loader.loadConfigs();
-      expect(env).toEqual({
+      expect(loader.loadConfigs({ convert: true })).toEqual({
         env_loaded: true,
         env_number: 1,
+        env_string: 'hello kitty ^_^',
+        PROXY_API: 'http://localhost:5000',
+      });
+      expect(loader.loadConfigs()).toEqual({
+        env_loaded: 'true',
+        env_number: '1',
         env_string: 'hello kitty ^_^',
         PROXY_API: 'http://localhost:5000',
       });
@@ -44,22 +49,58 @@ describe('ConfigLoader', () => {
       expect(!!env).toBeTruthy();
     });
 
+    it('should return correct boolean value', () => {
+      const falsy = loader.loadConfig('bool_test', false);
+      expect(!!falsy).toBeFalsy();
+      const truthy = loader.loadConfig('bool_test', true);
+      expect(!!truthy).toBeTruthy();
+
+      const boolFalsy = loader.loadBoolConfig('bool_test', false);
+      expect(boolFalsy).toBeFalsy();
+      const boolTruthy = loader.loadBoolConfig('bool_test', true);
+      expect(boolTruthy).toBeTruthy();
+    });
+
+    it('should return correct string boolean value', () => {
+      const falsy = loader.loadConfig('bool_test', 'false');
+      expect(falsy).toBe('false');
+      const truthy = loader.loadConfig('bool_test', 'true');
+      expect(truthy).toBe('true');
+
+      const boolFalsy = loader.loadBoolConfig('bool_test', 'false');
+      expect(boolFalsy).toBeFalsy();
+      const boolTruthy = loader.loadBoolConfig('bool_test', 'true');
+      expect(boolTruthy).toBeTruthy();
+    });
+
+    it('should return correct numeric boolean value', () => {
+      const numString = loader.loadConfig('num_test', '1');
+      expect(numString).toBe('1');
+      const numString2 = loader.loadConfig('num_test', 1);
+      expect(numString2).toBe(1);
+
+      const numString3 = loader.loadNumericConfig('num_test', '1');
+      expect(numString3).toBe(1);
+      const numString4 = loader.loadNumericConfig('num_test', 1);
+      expect(numString4).toBe(1);
+    });
+
     it('should return overwrite options first', () => {
-      expect(loader.loadConfigs()).toEqual({
+      expect(loader.loadConfigs({ convert: true })).toEqual({
         env_loaded: true,
         env_number: 1,
         env_string: 'hello kitty ^_^',
         PROXY_API: 'http://localhost:5000',
       });
       process.env.env_number = '2';
-      expect(loader.loadConfigs()).toEqual({
+      expect(loader.loadConfigs({ convert: true })).toEqual({
         env_loaded: true,
         env_number: 2,
         env_string: 'hello kitty ^_^',
         PROXY_API: 'http://localhost:5000',
       });
       loader.setOverwriteOptions({ env_number: '3' });
-      expect(loader.loadConfigs()).toEqual({
+      expect(loader.loadConfigs({ convert: true })).toEqual({
         env_loaded: true,
         env_number: 3,
         env_string: 'hello kitty ^_^',
