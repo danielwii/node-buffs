@@ -62,4 +62,25 @@ describe('Cryptor', () => {
       expect(cryptor.passwordCompare('password', result.hash, result.salt)).toBe(false);
     });
   });
+
+  describe('des', () => {
+    it('should create correct encrypted code', function() {
+      expect(Cryptor.desEncrypt('test-password', 'secret', 'iv')).toBe('qFiFADRlMbj/Qz18pz+OeA==');
+      expect(Cryptor.desDecrypt('qFiFADRlMbj/Qz18pz+OeA==', 'secret', 'iv')).toBe('test-password');
+    });
+
+    it('should create correct encrypted code with empty key', function() {
+      expect(Cryptor.desEncrypt('test-password')).toBe('WRBGlfgOb0ICR3mvZ/cKBw==');
+      expect(Cryptor.desDecrypt('WRBGlfgOb0ICR3mvZ/cKBw==')).toBe('test-password');
+    });
+
+    it('should create correct encrypted code with longer key', function() {
+      expect(Cryptor.desEncrypt('test-password', '1234567890', '1234567890')).toBe(
+        'YU+eI8bVBKEzK9+4fTbxEA=='
+      );
+      expect(Cryptor.desDecrypt('YU+eI8bVBKEzK9+4fTbxEA==', '1234567890', '1234567890')).toBe(
+        'test-password'
+      );
+    });
+  });
 });

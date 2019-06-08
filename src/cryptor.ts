@@ -53,4 +53,44 @@ export class Cryptor {
         .toString('hex')
     );
   }
+
+  // DES 加密
+  static desEncrypt(textToEncode: string, keyString: string = 'key', ivString: string = 'iv') {
+    keyString =
+      keyString.length >= 8
+        ? keyString.slice(0, 8)
+        : keyString.concat('0'.repeat(8 - keyString.length));
+    const keyHex = Buffer.from(keyString, 'utf8');
+
+    ivString =
+      ivString.length >= 8
+        ? ivString.slice(0, 8)
+        : ivString.concat('0'.repeat(8 - ivString.length));
+    const ivHex = Buffer.from(ivString, 'utf8');
+
+    const cipher = crypto.createCipheriv('des-cbc', keyHex, ivHex);
+    let c = cipher.update(textToEncode, 'utf8', 'base64');
+    c += cipher.final('base64');
+    return c;
+  }
+
+  // DES 解密
+  static desDecrypt(textToDecode: string, keyString: string = 'key', ivString: string = 'iv') {
+    keyString =
+      keyString.length >= 8
+        ? keyString.slice(0, 8)
+        : keyString.concat('0'.repeat(8 - keyString.length));
+    const keyHex = Buffer.from(keyString, 'utf8');
+
+    ivString =
+      ivString.length >= 8
+        ? ivString.slice(0, 8)
+        : ivString.concat('0'.repeat(8 - ivString.length));
+    const ivHex = Buffer.from(ivString, 'utf8');
+
+    const cipher = crypto.createDecipheriv('des-cbc', keyHex, ivHex);
+    let c = cipher.update(textToDecode, 'base64', 'utf8');
+    c += cipher.final('utf8');
+    return c;
+  }
 }

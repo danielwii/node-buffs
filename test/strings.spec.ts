@@ -1,4 +1,4 @@
-import { toSnakeCase, toCamelCase } from '../src/node-buffs';
+import { toSnakeCase, toCamelCase } from '../src/strings';
 
 describe('strings toSnakeCase', () => {
   it('should cast camel case to underscore', () => {
