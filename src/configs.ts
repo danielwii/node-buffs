@@ -122,16 +122,7 @@ export class ConfigLoader {
       this.loadConfigFromOptions(key) ||
       defaultValue;
 
-    if (convert) {
-      if (/^\d+$/.test(value)) {
-        return +value;
-      }
-
-      if (_.isString(value) && /^(true|false)$/.test(value)) {
-        return value === 'true';
-      }
-    }
-    return value;
+    return convert ? ConfigLoader.convertValue(value) : value;
   }
 
   public loadNumericConfig(key: string, defaultValue: any = null): any {
@@ -169,6 +160,17 @@ export class ConfigLoader {
     if (!_.isEmpty(notExists)) {
       throw new Error(`[ConfigLoader] "${notExists}" is required.`);
     }
+  }
+
+  private static convertValue(value: any): any {
+    if (/^\d+$/.test(value)) {
+      return +value;
+    }
+
+    if (_.isString(value) && /^(true|false)$/.test(value)) {
+      return value === 'true';
+    }
+    return value;
   }
 
   private loadConfigFromOptions(key: string): any {

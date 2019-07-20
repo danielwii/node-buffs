@@ -56,17 +56,7 @@ export class Cryptor {
 
   // DES 加密
   static desEncrypt(textToEncode: string, keyString: string = 'key', ivString: string = 'iv') {
-    keyString =
-      keyString.length >= 8
-        ? keyString.slice(0, 8)
-        : keyString.concat('0'.repeat(8 - keyString.length));
-    const keyHex = Buffer.from(keyString, 'utf8');
-
-    ivString =
-      ivString.length >= 8
-        ? ivString.slice(0, 8)
-        : ivString.concat('0'.repeat(8 - ivString.length));
-    const ivHex = Buffer.from(ivString, 'utf8');
+    const [keyHex, ivHex] = this.calcKeyAndIV(keyString, ivString);
 
     const cipher = crypto.createCipheriv('des-cbc', keyHex, ivHex);
     let c = cipher.update(textToEncode, 'utf8', 'base64');
@@ -76,21 +66,20 @@ export class Cryptor {
 
   // DES 解密
   static desDecrypt(textToDecode: string, keyString: string = 'key', ivString: string = 'iv') {
-    keyString =
-      keyString.length >= 8
-        ? keyString.slice(0, 8)
-        : keyString.concat('0'.repeat(8 - keyString.length));
-    const keyHex = Buffer.from(keyString, 'utf8');
-
-    ivString =
-      ivString.length >= 8
-        ? ivString.slice(0, 8)
-        : ivString.concat('0'.repeat(8 - ivString.length));
-    const ivHex = Buffer.from(ivString, 'utf8');
+    const [keyHex, ivHex] = this.calcKeyAndIV(keyString, ivString);
 
     const cipher = crypto.createDecipheriv('des-cbc', keyHex, ivHex);
     let c = cipher.update(textToDecode, 'base64', 'utf8');
     c += cipher.final('utf8');
     return c;
+  }
+
+  private static calcKeyAndIV(key: string, iv: string): [Buffer, Buffer] {
+    key = key.length >= 8 ? key.slice(0, 8) : key.concat('0'.repeat(8 - key.length));
+    const keyHex = Buffer.from(key, 'utf8');
+
+    iv = iv.length >= 8 ? iv.slice(0, 8) : iv.concat('0'.repeat(8 - iv.length));
+    const ivHex = Buffer.from(iv, 'utf8');
+    return [keyHex, ivHex];
   }
 }
