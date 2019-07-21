@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+import { resolve } from 'path';
 
 export type Options = {
   [key: string]: string | number | boolean;
@@ -62,7 +63,8 @@ export function createConfigLoader(opts: IConfigLoaderOpts): ConfigLoader {
  */
 export function loadDotEnv(by: string = 'ENV', path: string = '.', suffix: string = ''): Options {
   const _suffix = process.env[by] || suffix ? `.${process.env[by] || suffix}` : '';
-  const _path = `${path}/.env${_suffix}`;
+  const _path = resolve(`${path}/.env${_suffix}`);
+  console.log(`load from ${_path}`);
   const dotenvResult = dotenv.config({ path: _path });
   if (dotenvResult.error) {
     console.warn(dotenvResult.error.message);
