@@ -57,13 +57,14 @@ export function createConfigLoader(opts: IConfigLoaderOpts): ConfigLoader {
 /**
  * 读取配置文件
  * @param {string} by 从 process.env 中读取指定的后缀，default: ENV
- * @param path 访问路径，默认为 .
+ * @param path 访问路径，默认为 `.`，可以从 ENV_PATH 中获取位置
  * @param suffix .env 文件后缀
  * @returns {Options}
  */
 export function loadDotEnv(by: string = 'ENV', path: string = '.', suffix: string = ''): Options {
   const _suffix = process.env[by] || suffix ? `.${process.env[by] || suffix}` : '';
-  const _path = resolve(`${path}/.env${_suffix}`);
+  const _from = process.env['ENV_PATH'] || path;
+  const _path = resolve(`${_from}/.env${_suffix}`);
   console.log(`load from ${_path}`);
   const dotenvResult = dotenv.config({ path: _path });
   if (dotenvResult.error) {
