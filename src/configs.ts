@@ -9,7 +9,7 @@ export type Func = () => any;
 
 export type FOptionsLoader = Options | Func;
 
-export interface IConfigLoaderOpts {
+export interface ConfigLoaderOpts {
   /**
    * 从 process.env 加载一个 ENV 属性，其值用于识别 .env 的后缀
    * e.g ENV=test will load .env.test
@@ -50,23 +50,19 @@ const _ = {
   isString: require('lodash/isString'),
 };
 
-export function createConfigLoader(opts: IConfigLoaderOpts): ConfigLoader {
-  return new ConfigLoader(opts);
-}
-
 /**
  * 读取配置文件
  * @param {string} by 从 process.env 中读取指定的后缀，default: ENV
- * @param path 访问路径，默认为 `.`，可以从 ENV_PATH 中获取位置
- * @param suffix .env 文件后缀
+ * @param pathStr 访问路径，默认为 `.`，可以从 ENV_PATH 中获取位置
+ * @param suffixStr .env 文件后缀
  * @returns {Options}
  */
-export function loadDotEnv(by: string = 'ENV', path: string = '.', suffix: string = ''): Options {
-  const _suffix = process.env[by] || suffix ? `.${process.env[by] || suffix}` : '';
-  const _from = process.env['ENV_PATH'] || path;
-  const _path = resolve(`${_from}/.env${_suffix}`);
-  console.log(`load from ${_path}`);
-  const dotenvResult = dotenv.config({ path: _path });
+export function loadDotEnv(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
+  const suffix = process.env[by] || suffixStr ? `.${process.env[by] || suffixStr}` : '';
+  const from = process.env.ENV_PATH || pathStr;
+  const path = resolve(`${from}/.env${suffix}`);
+  console.log(`load from ${path}`);
+  const dotenvResult = dotenv.config({ path });
   if (dotenvResult.error) {
     console.warn(dotenvResult.error.message);
     return {};
@@ -83,25 +79,29 @@ export class ConfigLoader {
    * 从 process.env 读取要加载的 .env 后缀，default: ENV
    */
   private readonly dotenvBy: string;
+
   /**
    * 配置加载器，可以是一个方法或配置对象
    */
   private readonly optionsLoader: FOptionsLoader;
+
   /**
    * 设置必填字段
    */
   private requiredVariables: string[];
+
   /**
    * 覆盖配置，优先级最高
    */
   private overwriteOptions: Options;
+
   /**
    * 加载自 .env 的配置
    * @type {{}}
    */
   private options: Options = {};
 
-  constructor(opts: IConfigLoaderOpts = {}) {
+  constructor(opts: ConfigLoaderOpts = {}) {
     this.dotenvBy = opts.dotenvBy || 'ENV';
     this.optionsLoader = opts.optionsLoader || {};
     this.overwriteOptions = opts.overwriteOptions || {};
@@ -117,7 +117,7 @@ export class ConfigLoader {
    * @param convert                 - convert bool string to bool and numeric string to numeric
    * @returns {any}                 - property value
    */
-  public loadConfig(key: string, defaultValue: any = null, convert: boolean = false): any {
+  public loadConfig(key: string, defaultValue: any = null, convert = false): any {
     const value =
       this.overwriteOptions[key] ||
       process.env[key] ||
@@ -148,11 +148,11 @@ export class ConfigLoader {
    * @param {string[]} requires
    * @param overwrite 是否覆盖已经设置的值，默认: true
    */
-  public setRequiredVariables(requires: string[], overwrite: boolean = true): void {
+  public setRequiredVariables(requires: string[], overwrite = true): void {
     this.requiredVariables = overwrite ? requires : { ...this.requiredVariables, ...requires };
   }
 
-  public setOverwriteOptions(options: Options, overwrite: boolean = true): void {
+  public setOverwriteOptions(options: Options, overwrite = true): void {
     this.overwriteOptions = overwrite ? options : { ...this.overwriteOptions, ...options };
   }
 
@@ -177,10 +177,13 @@ export class ConfigLoader {
   }
 
   private loadConfigFromOptions(key: string): any {
-    return _.isObjectLike(this.optionsLoader)
-      ? _.get(this.optionsLoader, key)
-      : _.isFunction(this.optionsLoader)
-      ? _.get((this.optionsLoader as Func)(), key)
-      : null;
+    if (_.isObjectLike(this.optionsLoader)) {
+      return _.get(this.optionsLoader, key);
+    }
+    return _.isFunction(this.optionsLoader) ? _.get((this.optionsLoader as Func)(), key) : null;
   }
+}
+
+export function createConfigLoader(opts: ConfigLoaderOpts): ConfigLoader {
+  return new ConfigLoader(opts);
 }

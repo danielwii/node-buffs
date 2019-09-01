@@ -5,23 +5,25 @@ import * as crypto from 'crypto';
  */
 export class Cryptor {
   private readonly iterations: number;
+
   private readonly keylen: number;
+
   private readonly algorithm: string;
 
-  constructor(iterations: number = 10000, keylen: number = 16, algorithm: string = 'sha512') {
+  constructor(iterations = 10000, keylen = 16, algorithm = 'sha512') {
     this.iterations = iterations;
     this.keylen = keylen;
     this.algorithm = algorithm;
   }
 
-  static generateSalt(length: number = 32): string {
+  static generateSalt(length = 32): string {
     return crypto
       .randomBytes(length)
       .toString('hex')
       .slice(0, length);
   }
 
-  static encrypt(data: string, algorithm: string = 'sha512'): string {
+  static encrypt(data: string, algorithm = 'sha512'): string {
     return crypto
       .createHash(algorithm)
       .update(data)
@@ -33,7 +35,7 @@ export class Cryptor {
    * @param {string} prefix
    * @returns {{hash: string; salt: string}}
    */
-  passwordEncrypt(password: string, prefix: string = ''): { hash: string; salt: string } {
+  passwordEncrypt(password: string, prefix = ''): { hash: string; salt: string } {
     const salt = Cryptor.generateSalt();
     const encryptedPassword = Cryptor.encrypt(password);
     const generatedSalt = `${prefix}${salt}`;
@@ -43,7 +45,7 @@ export class Cryptor {
     return { hash, salt };
   }
 
-  passwordCompare(password: string, savedHash: string, savedSalt: string, prefix: string = '') {
+  passwordCompare(password: string, savedHash: string, savedSalt: string, prefix = ''): boolean {
     const encryptedPassword = Cryptor.encrypt(password);
     const generatedSalt = `${prefix}${savedSalt}`;
     return (
@@ -55,7 +57,7 @@ export class Cryptor {
   }
 
   // DES 加密
-  static desEncrypt(textToEncode: string, keyString: string = 'key', ivString: string = 'iv') {
+  static desEncrypt(textToEncode: string, keyString = 'key', ivString = 'iv'): string {
     const [keyHex, ivHex] = this.calcKeyAndIV(keyString, ivString);
 
     const cipher = crypto.createCipheriv('des-cbc', keyHex, ivHex);
@@ -65,7 +67,7 @@ export class Cryptor {
   }
 
   // DES 解密
-  static desDecrypt(textToDecode: string, keyString: string = 'key', ivString: string = 'iv') {
+  static desDecrypt(textToDecode: string, keyString = 'key', ivString = 'iv'): string {
     const [keyHex, ivHex] = this.calcKeyAndIV(keyString, ivString);
 
     const cipher = crypto.createDecipheriv('des-cbc', keyHex, ivHex);
@@ -74,11 +76,12 @@ export class Cryptor {
     return c;
   }
 
-  private static calcKeyAndIV(key: string, iv: string): [Buffer, Buffer] {
-    key = key.length >= 8 ? key.slice(0, 8) : key.concat('0'.repeat(8 - key.length));
+  private static calcKeyAndIV(keyStr: string, ivStr: string): [Buffer, Buffer] {
+    const key =
+      keyStr.length >= 8 ? keyStr.slice(0, 8) : keyStr.concat('0'.repeat(8 - keyStr.length));
     const keyHex = Buffer.from(key, 'utf8');
 
-    iv = iv.length >= 8 ? iv.slice(0, 8) : iv.concat('0'.repeat(8 - iv.length));
+    const iv = ivStr.length >= 8 ? ivStr.slice(0, 8) : ivStr.concat('0'.repeat(8 - ivStr.length));
     const ivHex = Buffer.from(iv, 'utf8');
     return [keyHex, ivHex];
   }

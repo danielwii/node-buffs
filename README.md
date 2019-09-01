@@ -11,6 +11,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/danielwii/node-buffs.svg)](https://greenkeeper.io/)
 
 [![NPM](https://nodei.co/npm/node-buffs.png?downloads=true&downloadRank=true)](https://nodei.co/npm/node-buffs/)
+[![Package Quality](https://npm.packagequality.com/badge/node-buffs.png)](https://packagequality.com/#?package=node-buffs)
 
 node useful toolkit.
 封装了常用的 nodejs 工具包，如配置加载，加密和字符串转换等。
