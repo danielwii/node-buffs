@@ -1,4 +1,4 @@
-interface Action {
+export interface Action {
   transient?: boolean;
   type: string;
   payload: object;
