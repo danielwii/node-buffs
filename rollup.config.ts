@@ -1,13 +1,17 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import sourceMaps from 'rollup-plugin-sourcemaps'
-import camelCase from 'lodash.camelcase'
-import typescript from 'rollup-plugin-typescript2'
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-extraneous-dependencies,@typescript-eslint/no-var-requires */
+import builtins from 'rollup-plugin-node-builtins';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import sourceMaps from 'rollup-plugin-sourcemaps';
+import camelCase from 'lodash.camelcase';
+import typescript from 'rollup-plugin-typescript2';
 
-const pkg = require('./package.json')
+const pkg = require('./package.json');
 
-const libraryName = 'node-buffs'
+const libraryName = 'node-buffs';
 
+// eslint-disable-next-line import/no-default-export
 export default {
   input: `src/${libraryName}.ts`,
   output: [
@@ -20,6 +24,7 @@ export default {
     include: 'src/**',
   },
   plugins: [
+    builtins(),
     // Compile TypeScript files
     typescript({ useTsconfigDeclarationDir: true }),
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
@@ -32,4 +37,4 @@ export default {
     // Resolve source maps to the original source
     sourceMaps(),
   ],
-}
+};

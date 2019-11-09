@@ -58,8 +58,8 @@ const _ = {
  * @returns {Options}
  */
 export function loadDotEnv(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
-  const suffix = process.env[by] || suffixStr ? `.${process.env[by] || suffixStr}` : '';
-  const from = process.env.ENV_PATH || pathStr;
+  const suffix = process.env[by] ?? suffixStr ? `.${process.env[by] ?? suffixStr}` : '';
+  const from = process.env.ENV_PATH ?? pathStr;
   const path = resolve(`${from}/.env${suffix}`);
   console.log(`load from ${path}`);
   const dotenvResult = dotenv.config({ path });
@@ -67,7 +67,7 @@ export function loadDotEnv(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
     console.warn(dotenvResult.error.message);
     return {};
   }
-  return dotenvResult.parsed || {}; // load .env into process.env}
+  return dotenvResult.parsed ?? {}; // load .env into process.env}
 }
 
 /**
@@ -102,10 +102,10 @@ export class ConfigLoader {
   private options: Options = {};
 
   constructor(opts: ConfigLoaderOpts = {}) {
-    this.dotenvBy = opts.dotenvBy || 'ENV';
-    this.optionsLoader = opts.optionsLoader || {};
-    this.overwriteOptions = opts.overwriteOptions || {};
-    this.requiredVariables = opts.requiredVariables || [];
+    this.dotenvBy = opts.dotenvBy ?? 'ENV';
+    this.optionsLoader = opts.optionsLoader ?? {};
+    this.overwriteOptions = opts.overwriteOptions ?? {};
+    this.requiredVariables = opts.requiredVariables ?? [];
     this.options = loadDotEnv(this.dotenvBy, opts.path, opts.suffix);
     this.validate();
   }
@@ -119,10 +119,10 @@ export class ConfigLoader {
    */
   public loadConfig(key: string, defaultValue: any = null, convert = false): any {
     const value =
-      this.overwriteOptions[key] ||
-      process.env[key] ||
-      this.options[key] ||
-      this.loadConfigFromOptions(key) ||
+      this.overwriteOptions[key] ??
+      process.env[key] ??
+      this.options[key] ??
+      this.loadConfigFromOptions(key) ??
       defaultValue;
 
     return convert ? ConfigLoader.convertValue(value) : value;
@@ -157,9 +157,7 @@ export class ConfigLoader {
   }
 
   public validate(): void {
-    const notExists = _.filter(this.requiredVariables, (key: string) =>
-      _.isNil(this.loadConfig(key))
-    );
+    const notExists = _.filter(this.requiredVariables, (key: string) => _.isNil(this.loadConfig(key)));
     if (!_.isEmpty(notExists)) {
       throw new Error(`[ConfigLoader] "${notExists}" is required.`);
     }
