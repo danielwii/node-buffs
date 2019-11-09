@@ -65,7 +65,6 @@
     "collectCoverage": true
   },
   "devDependencies": {
-    "@types/dotenv": "^8.2.0",
     "@types/jest": "^24.0.22",
     "@types/lodash.camelcase": "^4.3.6",
     "@types/rollup-plugin-node-builtins": "^2.1.1",
