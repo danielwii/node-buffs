@@ -58,8 +58,8 @@ const _ = {
  * @returns {Options}
  */
 export function loadDotEnv(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
-  const suffix = process.env[by] || suffixStr ? `.${process.env[by] ?? suffixStr}` : '';
-  const from = process.env.ENV_PATH || pathStr;
+  const suffix = process.env[by] ?? suffixStr ? `.${process.env[by] ?? suffixStr}` : '';
+  const from = process.env.ENV_PATH ?? pathStr;
   const path = resolve(`${from}/.env${suffix}`);
   console.log(`load from ${path}`);
   const dotenvResult = dotenv.config({ path });
