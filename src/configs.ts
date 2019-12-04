@@ -117,7 +117,7 @@ export class ConfigLoader {
    * @param convert                 - convert bool string to bool and numeric string to numeric
    * @returns {any}                 - property value
    */
-  public loadConfig<T = string>(key: string, defaultValue: T | null = null, convert = false): T | null {
+  public loadConfig<T = string>(key: string, defaultValue: any = null, convert = false): T | null {
     const value =
       this.overwriteOptions[key] ??
       process.env[key] ??
