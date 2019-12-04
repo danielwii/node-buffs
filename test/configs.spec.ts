@@ -67,9 +67,13 @@ describe('ConfigLoader', () => {
       const truthy = loader.loadConfig('bool_test', 'true');
       expect(truthy).toBe('true');
 
-      const boolFalsy = loader.loadBoolConfig('bool_test', 'false');
+      const boolStrFalsy = loader.loadBoolConfig('bool_test', 'false' as any);
+      expect(boolStrFalsy).toBeFalsy();
+      const boolStrTruthy = loader.loadBoolConfig('bool_test', 'true' as any);
+      expect(boolStrTruthy).toBeTruthy();
+      const boolFalsy = loader.loadBoolConfig('bool_test', false);
       expect(boolFalsy).toBeFalsy();
-      const boolTruthy = loader.loadBoolConfig('bool_test', 'true');
+      const boolTruthy = loader.loadBoolConfig('bool_test', true);
       expect(boolTruthy).toBeTruthy();
     });
 
@@ -79,10 +83,8 @@ describe('ConfigLoader', () => {
       const numString2 = loader.loadConfig('num_test', 1);
       expect(numString2).toBe(1);
 
-      const numString3 = loader.loadNumericConfig('num_test', '1');
+      const numString3 = loader.loadNumericConfig('num_test', 1);
       expect(numString3).toBe(1);
-      const numString4 = loader.loadNumericConfig('num_test', 1);
-      expect(numString4).toBe(1);
     });
 
     it('should return overwrite options first', () => {
