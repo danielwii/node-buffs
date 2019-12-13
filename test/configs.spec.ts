@@ -29,18 +29,24 @@ describe('ConfigLoader', () => {
 
     it('should load .env file', () => {
       process.env.ENV = 'example';
-      expect(loader.loadConfigs()).toEqual({
+      expect(loader.loadConfigs({ autoConvert: true })).toEqual({
         env_loaded: true,
         env_number: 1,
         env_number_empty: null,
+        env_number_empty2: null,
         env_string: 'hello kitty ^_^',
+        env_string_empty: null,
+        env_string_empty2: null,
         PROXY_API: 'http://localhost:5000',
       });
-      expect(loader.loadConfigs({ autoConvert: false })).toEqual({
+      expect(loader.loadConfigs()).toEqual({
         env_loaded: 'true',
         env_number: '1',
         env_number_empty: '',
+        env_number_empty2: '',
         env_string: 'hello kitty ^_^',
+        env_string_empty: '',
+        env_string_empty2: '',
         PROXY_API: 'http://localhost:5000',
       });
     });
@@ -90,30 +96,49 @@ describe('ConfigLoader', () => {
 
       const numString4 = loader.loadNumericConfig('env_number_empty');
       expect(numString4).toBe(null);
+
+      const numString5 = loader.loadNumericConfig('env_number_empty', 0);
+      expect(numString5).toBe(null);
+      const numString6 = loader.loadNumericConfig('env_number_empty') || 0;
+      expect(numString6).toBe(0);
+
+      const numString7 = loader.loadNumericConfig('env_number_empty2', 0);
+      expect(numString7).toBe(null);
+      const numString8 = loader.loadNumericConfig('env_number_empty2') || 0;
+      expect(numString8).toBe(0);
     });
 
     it('should return overwrite options first', () => {
-      expect(loader.loadConfigs()).toEqual({
+      expect(loader.loadConfigs({ autoConvert: true })).toEqual({
         env_loaded: true,
         env_number: 1,
         env_number_empty: null,
+        env_number_empty2: null,
         env_string: 'hello kitty ^_^',
+        env_string_empty: null,
+        env_string_empty2: null,
         PROXY_API: 'http://localhost:5000',
       });
       process.env.env_number = '2';
-      expect(loader.loadConfigs()).toEqual({
+      expect(loader.loadConfigs({ autoConvert: true })).toEqual({
         env_loaded: true,
         env_number: 2,
         env_number_empty: null,
+        env_number_empty2: null,
         env_string: 'hello kitty ^_^',
+        env_string_empty: null,
+        env_string_empty2: null,
         PROXY_API: 'http://localhost:5000',
       });
       loader.setOverwriteOptions({ env_number: '3' });
-      expect(loader.loadConfigs()).toEqual({
+      expect(loader.loadConfigs({ autoConvert: true })).toEqual({
         env_loaded: true,
         env_number: 3,
         env_number_empty: null,
+        env_number_empty2: null,
         env_string: 'hello kitty ^_^',
+        env_string_empty: null,
+        env_string_empty2: null,
         PROXY_API: 'http://localhost:5000',
       });
     });

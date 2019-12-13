@@ -102,10 +102,10 @@ export class ConfigLoader {
    * load config from env first, then options loader, and default at last.
    * @param {string} key            - property key
    * @param defaultValue
-   * @param convert                 - convert bool string to bool and numeric string to numeric
+   * @param autoConvert             - convert bool string to bool and numeric string to numeric
    * @returns {any}                 - property value
    */
-  public loadConfig<T = string>(key: string, defaultValue: any = null, convert = false): T | null {
+  public loadConfig<T = string>(key: string, defaultValue: any = null, autoConvert = false): T | null {
     const value =
       this.overwriteOptions[key] ??
       process.env[key] ??
@@ -113,7 +113,7 @@ export class ConfigLoader {
       this.loadConfigFromOptions(key) ??
       defaultValue;
 
-    return convert ? ConfigLoader.convertValue(value) : value;
+    return autoConvert ? ConfigLoader.convertValue(value) : value;
   }
 
   public loadNumericConfig(key: string, defaultValue: number | null = null): number | null {
@@ -124,7 +124,7 @@ export class ConfigLoader {
     return this.loadConfig(key, defaultValue, true);
   }
 
-  public loadConfigs(opts: { autoConvert: boolean } = { autoConvert: true }): Options {
+  public loadConfigs(opts: { autoConvert: boolean } = { autoConvert: false }): Options {
     const configs = _.assign(_.zipObject(this.requiredVariables), this.options);
     return _.mapValues(configs, (value: string | number | boolean, key: string) =>
       this.loadConfig(key, null, opts.autoConvert)
