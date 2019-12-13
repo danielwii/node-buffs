@@ -107,10 +107,7 @@ export class ConfigLoader {
    */
   public loadConfig<T = string>(key: string, defaultValue: any = null, autoConvert = false): T | null {
     const value =
-      this.overwriteOptions[key] ??
-      process.env[key] ??
-      this.options[key] ??
-      this.loadConfigFromOptions(key) ??
+      (this.overwriteOptions[key] ?? process.env[key] ?? this.options[key] ?? this.loadConfigFromOptions(key)) ||
       defaultValue;
 
     return autoConvert ? ConfigLoader.convertValue(value) : value;

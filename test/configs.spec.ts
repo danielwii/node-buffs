@@ -37,16 +37,18 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        secret: null,
         PROXY_API: 'http://localhost:5000',
       });
       expect(loader.loadConfigs()).toEqual({
         env_loaded: 'true',
         env_number: '1',
-        env_number_empty: '',
-        env_number_empty2: '',
+        env_number_empty: null,
+        env_number_empty2: null,
         env_string: 'hello kitty ^_^',
-        env_string_empty: '',
-        env_string_empty2: '',
+        env_string_empty: null,
+        env_string_empty2: null,
+        secret: null,
         PROXY_API: 'http://localhost:5000',
       });
     });
@@ -67,6 +69,14 @@ describe('ConfigLoader', () => {
       expect(boolFalsy).toBeFalsy();
       const boolTruthy = loader.loadBoolConfig('bool_test', true);
       expect(boolTruthy).toBeTruthy();
+    });
+
+    it('should return correct string value', () => {
+      const str = loader.loadConfig('secret');
+      expect(str).toBe(null);
+
+      const strWithDefault = loader.loadConfig('secret', 'secret');
+      expect(strWithDefault).toBe('secret');
     });
 
     it('should return correct string boolean value', () => {
@@ -98,12 +108,12 @@ describe('ConfigLoader', () => {
       expect(numString4).toBe(null);
 
       const numString5 = loader.loadNumericConfig('env_number_empty', 0);
-      expect(numString5).toBe(null);
+      expect(numString5).toBe(0);
       const numString6 = loader.loadNumericConfig('env_number_empty') || 0;
       expect(numString6).toBe(0);
 
       const numString7 = loader.loadNumericConfig('env_number_empty2', 0);
-      expect(numString7).toBe(null);
+      expect(numString7).toBe(0);
       const numString8 = loader.loadNumericConfig('env_number_empty2') || 0;
       expect(numString8).toBe(0);
     });
@@ -117,6 +127,7 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        secret: null,
         PROXY_API: 'http://localhost:5000',
       });
       process.env.env_number = '2';
@@ -128,6 +139,7 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        secret: null,
         PROXY_API: 'http://localhost:5000',
       });
       loader.setOverwriteOptions({ env_number: '3' });
@@ -139,6 +151,7 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        secret: null,
         PROXY_API: 'http://localhost:5000',
       });
     });
