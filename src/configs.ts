@@ -1,8 +1,9 @@
 import * as dotenv from 'dotenv';
 import { resolve } from 'path';
+import * as _ from 'lodash';
 
 export type Options = {
-  [key: string]: string | number | boolean;
+  [key: string]: string | number | boolean | null;
 };
 
 export type Func = () => any;
@@ -36,19 +37,6 @@ export interface ConfigLoaderOpts {
    */
   suffix?: string;
 }
-
-const _ = {
-  get: require('lodash/get'),
-  mapValues: require('lodash/mapValues'),
-  zipObject: require('lodash/zipObject'),
-  assign: require('lodash/assign'),
-  filter: require('lodash/filter'),
-  isFunction: require('lodash/isFunction'),
-  isObjectLike: require('lodash/isObjectLike'),
-  isNil: require('lodash/isNil'),
-  isEmpty: require('lodash/isEmpty'),
-  isString: require('lodash/isString'),
-};
 
 /**
  * 读取配置文件
@@ -136,10 +124,10 @@ export class ConfigLoader {
     return this.loadConfig(key, defaultValue, true);
   }
 
-  public loadConfigs(opts: { convert: boolean } = { convert: false }): Options {
+  public loadConfigs(opts: { autoConvert: boolean } = { autoConvert: true }): Options {
     const configs = _.assign(_.zipObject(this.requiredVariables), this.options);
     return _.mapValues(configs, (value: string | number | boolean, key: string) =>
-      this.loadConfig(key, null, opts.convert)
+      this.loadConfig(key, null, opts.autoConvert)
     );
   }
 
@@ -170,6 +158,10 @@ export class ConfigLoader {
 
     if (_.isString(value) && /^(true|false)$/.test(value)) {
       return value === 'true';
+    }
+
+    if (_.isString(value) && value.length === 0) {
+      return null;
     }
     return value;
   }

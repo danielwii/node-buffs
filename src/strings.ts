@@ -1,6 +1,4 @@
-const _ = {
-  isString: require('lodash/isString'),
-};
+import * as _ from 'lodash';
 
 /**
  * cast camel case to snake case
@@ -10,10 +8,7 @@ const _ = {
 export const toSnakeCase = (str: string): string => {
   if (_.isString(str) && str.length > 0) {
     const trimStr = str.trim();
-    return (
-      trimStr[0].toLowerCase() +
-      trimStr.slice(1).replace(/[A-Z]/g, match => `_${match.toLowerCase()}`)
-    );
+    return trimStr[0].toLowerCase() + trimStr.slice(1).replace(/[A-Z]/g, match => `_${match.toLowerCase()}`);
   }
   return str;
 };
