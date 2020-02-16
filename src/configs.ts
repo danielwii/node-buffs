@@ -1,9 +1,11 @@
 import * as dotenv from 'dotenv';
+import * as jsYaml from 'js-yaml';
+import * as fs from 'fs-extra';
 import { resolve } from 'path';
 import * as _ from 'lodash';
 
 export type Options = {
-  [key: string]: string | number | boolean | null;
+  [key: string]: Options | string | number | boolean | null;
 };
 
 export type Func = () => any;
@@ -58,6 +60,18 @@ export function loadDotEnv(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
   return dotenvResult.parsed ?? {}; // load .env into process.env}
 }
 
+export function loadYaml(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
+  const suffix = process.env[by] ?? suffixStr ? `-${process.env[by] ?? suffixStr}` : '';
+  const from = process.env.ENV_PATH ?? pathStr;
+  const path = resolve(`${from}/app${suffix}.yaml`);
+  console.log(`load from ${path}`);
+  if (!fs.existsSync(path)) {
+    console.warn(`${path} not exists.`);
+    return {};
+  }
+  return jsYaml.safeLoad(fs.readFileSync(path, 'utf8'));
+}
+
 /**
  * 配置读取器，加载优先级：
  * overwrite options -> process.env -> options(.env) -> optionsLoader(user config) -> default
@@ -94,7 +108,10 @@ export class ConfigLoader {
     this.optionsLoader = opts.optionsLoader ?? {};
     this.overwriteOptions = opts.overwriteOptions ?? {};
     this.requiredVariables = opts.requiredVariables ?? [];
-    this.options = loadDotEnv(this.dotenvBy, opts.path, opts.suffix);
+    this.options = {
+      ...loadYaml(this.dotenvBy, opts.path, opts.suffix),
+      ...loadDotEnv(this.dotenvBy, opts.path, opts.suffix),
+    };
     this.validate();
   }
 
@@ -153,12 +170,14 @@ export class ConfigLoader {
       return +value;
     }
 
-    if (_.isString(value) && /^(true|false)$/.test(value)) {
-      return value === 'true';
-    }
+    if (_.isString(value)) {
+      if (/^(true|false)$/.test(value)) {
+        return value === 'true';
+      }
 
-    if (_.isString(value) && value.length === 0) {
-      return null;
+      // if (!_.trim(value)) {
+      //   return null;
+      // }
     }
     return value;
   }

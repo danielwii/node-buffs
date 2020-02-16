@@ -39,6 +39,17 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        receipt: 'Oz-Ware Purchase Invoice',
+        customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
+        date: new Date('2012-08-06T00:00:00.000Z'),
+        items: [
+          { part_no: 'A4786', descrip: 'Water Bucket (Filled)', price: 1.47, quantity: 4 },
+          { part_no: 'E1628', descrip: 'High Heeled "Ruby" Slippers', size: 8, price: 133.7, quantity: 1 },
+        ],
+        'bill-to': { street: '123 Tornado Alley\nSuite 16\n', city: 'East Centerville', state: 'KS' },
+        'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
+        specialDelivery:
+          'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
       });
       expect(loader.loadConfigs()).toEqual({
         env_loaded: 'true',
@@ -50,6 +61,17 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        receipt: 'Oz-Ware Purchase Invoice',
+        customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
+        date: new Date('2012-08-06T00:00:00.000Z'),
+        items: [
+          { part_no: 'A4786', descrip: 'Water Bucket (Filled)', price: 1.47, quantity: 4 },
+          { part_no: 'E1628', descrip: 'High Heeled "Ruby" Slippers', size: 8, price: 133.7, quantity: 1 },
+        ],
+        'bill-to': { street: '123 Tornado Alley\nSuite 16\n', city: 'East Centerville', state: 'KS' },
+        'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
+        specialDelivery:
+          'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
       });
     });
 
@@ -129,6 +151,17 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        receipt: 'Oz-Ware Purchase Invoice',
+        customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
+        date: new Date('2012-08-06T00:00:00.000Z'),
+        items: [
+          { part_no: 'A4786', descrip: 'Water Bucket (Filled)', price: 1.47, quantity: 4 },
+          { part_no: 'E1628', descrip: 'High Heeled "Ruby" Slippers', size: 8, price: 133.7, quantity: 1 },
+        ],
+        'bill-to': { street: '123 Tornado Alley\nSuite 16\n', city: 'East Centerville', state: 'KS' },
+        'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
+        specialDelivery:
+          'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
       });
       process.env.env_number = '2';
       expect(loader.loadConfigs({ autoConvert: true })).toEqual({
@@ -141,6 +174,17 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        receipt: 'Oz-Ware Purchase Invoice',
+        customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
+        date: new Date('2012-08-06T00:00:00.000Z'),
+        items: [
+          { part_no: 'A4786', descrip: 'Water Bucket (Filled)', price: 1.47, quantity: 4 },
+          { part_no: 'E1628', descrip: 'High Heeled "Ruby" Slippers', size: 8, price: 133.7, quantity: 1 },
+        ],
+        'bill-to': { street: '123 Tornado Alley\nSuite 16\n', city: 'East Centerville', state: 'KS' },
+        'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
+        specialDelivery:
+          'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
       });
       loader.setOverwriteOptions({ env_number: '3' });
       expect(loader.loadConfigs({ autoConvert: true })).toEqual({
@@ -153,6 +197,17 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        receipt: 'Oz-Ware Purchase Invoice',
+        customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
+        date: new Date('2012-08-06T00:00:00.000Z'),
+        items: [
+          { part_no: 'A4786', descrip: 'Water Bucket (Filled)', price: 1.47, quantity: 4 },
+          { part_no: 'E1628', descrip: 'High Heeled "Ruby" Slippers', size: 8, price: 133.7, quantity: 1 },
+        ],
+        'bill-to': { street: '123 Tornado Alley\nSuite 16\n', city: 'East Centerville', state: 'KS' },
+        'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
+        specialDelivery:
+          'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
       });
     });
   });
