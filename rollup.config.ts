@@ -21,7 +21,7 @@ export default {
     { file: pkg.module, format: 'es', sourcemap: true },
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['lodash', 'dotenv', 'crypto', 'path'],
+  external: ['lodash', 'dotenv', 'crypto', 'path', 'js-yaml', 'fs-extra'],
   watch: {
     include: 'src/**',
   },
@@ -29,7 +29,7 @@ export default {
     // Allow json resolution
     json(),
     globals(),
-    builtins({ crypto: true }),
+    // builtins({ crypto: true }),
     // Compile TypeScript files
     typescript({ useTsconfigDeclarationDir: true }),
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
