@@ -47,26 +47,30 @@ export interface ConfigLoaderOpts {
  * @param suffixStr .env 文件后缀
  * @returns {Options}
  */
-export function loadDotEnv(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
-  const suffix = process.env[by] ?? suffixStr ? `.${process.env[by] ?? suffixStr}` : '';
-  const from = process.env.ENV_PATH ?? pathStr;
+export function loadDotEnv(by = 'ENV', pathStr?: string, suffixStr?: string): Options {
+  const suffix = suffixStr ?? process.env[by] ?? '' ? `.${suffixStr ?? process.env[by] ?? ''}` : '';
+  const from = pathStr ?? process.env.ENV_PATH ?? '.';
   const path = resolve(`${from}/.env${suffix}`);
-  console.log(`load from ${path}`);
+  console.log(`[config-loader] load ${path}`);
+  if (!fs.existsSync(path)) {
+    console.warn(`[config-loader] ${path} not found.`);
+    return {};
+  }
   const dotenvResult = dotenv.config({ path });
   if (dotenvResult.error) {
-    console.warn(dotenvResult.error.message);
+    console.warn(`[config-loader] ${dotenvResult.error.message}`);
     return {};
   }
   return dotenvResult.parsed ?? {}; // load .env into process.env}
 }
 
-export function loadYaml(by = 'ENV', pathStr = '.', suffixStr = ''): Options {
-  const suffix = process.env[by] ?? suffixStr ? `-${process.env[by] ?? suffixStr}` : '';
-  const from = process.env.ENV_PATH ?? pathStr;
+export function loadYaml(by = 'ENV', pathStr?: string, suffixStr?: string): Options {
+  const suffix = suffixStr ?? process.env[by] ?? '' ? `-${suffixStr ?? process.env[by] ?? ''}` : '';
+  const from = pathStr ?? process.env.ENV_PATH ?? '.';
   const path = resolve(`${from}/app${suffix}.yaml`);
-  console.log(`load from ${path}`);
+  console.log(`[config-loader] load ${path}`);
   if (!fs.existsSync(path)) {
-    console.warn(`${path} not exists.`);
+    console.warn(`[config-loader] ${path} not found.`);
     return {};
   }
   return jsYaml.safeLoad(fs.readFileSync(path, 'utf8'));
