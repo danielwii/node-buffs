@@ -1,6 +1,5 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies,@typescript-eslint/no-var-requires */
-import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
@@ -21,7 +20,7 @@ export default {
     { file: pkg.module, format: 'es', sourcemap: true },
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['lodash', 'dotenv', 'crypto', 'path', 'js-yaml', 'fs-extra'],
+  external: ['lodash', 'dotenv', 'crypto', 'path', 'js-yaml', 'fs'],
   watch: {
     include: 'src/**',
   },

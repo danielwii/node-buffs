@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as jsYaml from 'js-yaml';
-import * as fs from 'fs-extra';
+import * as fs from 'fs';
 import { resolve } from 'path';
 import * as _ from 'lodash';
 
@@ -112,10 +112,14 @@ export class ConfigLoader {
     this.optionsLoader = opts.optionsLoader ?? {};
     this.overwriteOptions = opts.overwriteOptions ?? {};
     this.requiredVariables = opts.requiredVariables ?? [];
-    this.options = {
-      ...loadYaml(this.dotenvBy, opts.path, opts.suffix),
-      ...loadDotEnv(this.dotenvBy, opts.path, opts.suffix),
-    };
+    try {
+      this.options = {
+        ...loadYaml(this.dotenvBy, opts.path, opts.suffix),
+        ...loadDotEnv(this.dotenvBy, opts.path, opts.suffix),
+      };
+    } catch (e) {
+      this.options = {};
+    }
     this.validate();
   }
 
