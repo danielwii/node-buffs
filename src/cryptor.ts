@@ -10,7 +10,7 @@ export class Cryptor {
 
   private readonly algorithm: string;
 
-  constructor(iterations = 10000, keylen = 16, algorithm = 'sha512') {
+  constructor(iterations = 10_000, keylen = 16, algorithm = 'sha512') {
     this.iterations = iterations;
     this.keylen = keylen;
     this.algorithm = algorithm;
@@ -50,9 +50,7 @@ export class Cryptor {
     const generatedSalt = `${prefix}${savedSalt}`;
     return (
       savedHash ===
-      crypto
-        .pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.algorithm)
-        .toString('hex')
+      crypto.pbkdf2Sync(encryptedPassword, generatedSalt, this.iterations, this.keylen, this.algorithm).toString('hex')
     );
   }
 
@@ -77,8 +75,7 @@ export class Cryptor {
   }
 
   private static calcKeyAndIV(keyStr: string, ivStr: string): [Buffer, Buffer] {
-    const key =
-      keyStr.length >= 8 ? keyStr.slice(0, 8) : keyStr.concat('0'.repeat(8 - keyStr.length));
+    const key = keyStr.length >= 8 ? keyStr.slice(0, 8) : keyStr.concat('0'.repeat(8 - keyStr.length));
     const keyHex = Buffer.from(key, 'utf8');
 
     const iv = ivStr.length >= 8 ? ivStr.slice(0, 8) : ivStr.concat('0'.repeat(8 - ivStr.length));

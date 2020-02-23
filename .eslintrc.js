@@ -17,11 +17,13 @@ module.exports = {
     jest: true,
   },
   rules: {
-    'global-require': "off",
+    'global-require': 'off',
     // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
     'no-prototype-builtins': 'off',
     // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-implied-eval': 'off',
+    '@typescript-eslint/no-throw-literal': 'off',
     'import/no-default-export': 'error',
     'import/no-extraneous-dependencies': [
       'error',

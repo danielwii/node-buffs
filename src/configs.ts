@@ -117,7 +117,8 @@ export class ConfigLoader {
         ...loadYaml(this.dotenvBy, opts.path, opts.suffix),
         ...loadDotEnv(this.dotenvBy, opts.path, opts.suffix),
       };
-    } catch (e) {
+    } catch (error) {
+      console.error(error);
       this.options = {};
     }
     this.validate();
