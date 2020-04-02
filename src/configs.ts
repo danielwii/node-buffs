@@ -51,11 +51,11 @@ export function loadDotEnv(by = 'ENV', pathStr?: string, suffixStr?: string): Op
   const suffix = suffixStr ?? process.env[by] ?? '' ? `.${suffixStr ?? process.env[by] ?? ''}` : '';
   const from = pathStr ?? process.env.ENV_PATH ?? '.';
   const path = resolve(`${from}/.env${suffix}`);
-  console.log(`[config-loader] load ${path}`);
   if (!fs.existsSync(path)) {
     console.warn(`[config-loader] ${path} not found.`);
     return {};
   }
+  console.log(`[config-loader] load ${path}`);
   const dotenvResult = dotenv.config({ path });
   if (dotenvResult.error) {
     console.warn(`[config-loader] ${dotenvResult.error.message}`);
@@ -65,14 +65,14 @@ export function loadDotEnv(by = 'ENV', pathStr?: string, suffixStr?: string): Op
 }
 
 export function loadYaml(by = 'ENV', pathStr?: string, suffixStr?: string): Options {
-  const suffix = suffixStr ?? process.env[by] ?? '' ? `-${suffixStr ?? process.env[by] ?? ''}` : '';
+  const suffix = suffixStr ?? process.env[by] ?? '' ? `.${suffixStr ?? process.env[by] ?? ''}` : '';
   const from = pathStr ?? process.env.ENV_PATH ?? '.';
-  const path = resolve(`${from}/app${suffix}.yaml`);
-  console.log(`[config-loader] load ${path}`);
+  const path = resolve(`${from}/.env${suffix}.yml`);
   if (!fs.existsSync(path)) {
     console.warn(`[config-loader] ${path} not found.`);
     return {};
   }
+  console.log(`[config-loader] load ${path}`);
   return jsYaml.safeLoad(fs.readFileSync(path, 'utf8'));
 }
 
