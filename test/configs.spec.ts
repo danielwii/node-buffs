@@ -269,7 +269,7 @@ describe('ConfigLoader', () => {
         requiredVariables: ['TEST'],
       });
       const configs = loader.loadConfigs();
-      expect(configs).toEqual({ TEST: '^_^' });
+      expect(configs).toEqual({ TEST: '^_^', base: 'loaded' });
     });
   });
 
@@ -280,7 +280,7 @@ describe('ConfigLoader', () => {
         requiredVariables: ['TEST'],
       });
       const configs = loader.loadConfigs();
-      expect(configs).toEqual({ TEST: '^_^' });
+      expect(configs).toEqual({ TEST: '^_^', base: 'loaded' });
     });
 
     // it('should load configs after call loads/load by set delay to true', function() {

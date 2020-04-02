@@ -35,6 +35,10 @@ export interface ConfigLoaderOpts {
    */
   path?: string;
   /**
+   * 基础配置加载路径
+   */
+  basePath?: string;
+  /**
    * 自定义后缀
    */
   suffix?: string;
@@ -52,7 +56,7 @@ export function loadDotEnv(by = 'ENV', pathStr?: string, suffixStr?: string): Op
   const from = pathStr ?? process.env.ENV_PATH ?? '.';
   const path = resolve(`${from}/.env${suffix}`);
   if (!fs.existsSync(path)) {
-    console.warn(`[config-loader] ${path} not found.`);
+    // console.warn(`[config-loader] ${path} not found.`);
     return {};
   }
   console.log(`[config-loader] load ${path}`);
@@ -67,9 +71,9 @@ export function loadDotEnv(by = 'ENV', pathStr?: string, suffixStr?: string): Op
 export function loadYaml(by = 'ENV', pathStr?: string, suffixStr?: string): Options {
   const suffix = suffixStr ?? process.env[by] ?? '' ? `.${suffixStr ?? process.env[by] ?? ''}` : '';
   const from = pathStr ?? process.env.ENV_PATH ?? '.';
-  const path = resolve(`${from}/.env${suffix}.yml`);
+  const path = resolve(`${from}/.appenv${suffix}.yml`);
   if (!fs.existsSync(path)) {
-    console.warn(`[config-loader] ${path} not found.`);
+    // console.warn(`[config-loader] ${path} not found.`);
     return {};
   }
   console.log(`[config-loader] load ${path}`);
@@ -113,10 +117,19 @@ export class ConfigLoader {
     this.overwriteOptions = opts.overwriteOptions ?? {};
     this.requiredVariables = opts.requiredVariables ?? [];
     try {
-      this.options = {
-        ...loadYaml(this.dotenvBy, opts.path, opts.suffix),
-        ...loadDotEnv(this.dotenvBy, opts.path, opts.suffix),
-      };
+      this.options = _.assign(
+        {},
+        loadYaml(this.dotenvBy, opts.basePath ?? opts.path, 'base'),
+        loadYaml(this.dotenvBy, opts.path, opts.suffix),
+        loadDotEnv(this.dotenvBy, opts.basePath ?? opts.path, 'base'),
+        loadDotEnv(this.dotenvBy, opts.path, opts.suffix)
+      );
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const k in this.options) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        process.env[k] = this.options[k];
+      }
     } catch (error) {
       console.error(error);
       this.options = {};
