@@ -125,7 +125,7 @@ export class ConfigLoader {
         loadDotEnv(this.dotenvBy, opts.path, opts.suffix)
       );
       _.each(
-        _.filter(this.options, (v, k) => _.isObject(this.options[k])),
+        _.omitBy(this.options, (v, k) => _.isObject(this.options[k])),
         (v, k) => _.set(process.env, k, v)
       );
     } catch (error) {
