@@ -124,12 +124,10 @@ export class ConfigLoader {
         loadDotEnv(this.dotenvBy, opts.basePath ?? opts.path, 'base'),
         loadDotEnv(this.dotenvBy, opts.path, opts.suffix)
       );
-      // eslint-disable-next-line guard-for-in,no-restricted-syntax
-      for (const k in this.options) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        process.env[k] = this.options[k];
-      }
+      _.each(
+        _.filter(this.options, (v, k) => _.isObject(this.options[k])),
+        (v, k) => _.set(process.env, k, v)
+      );
     } catch (error) {
       console.error(error);
       this.options = {};
