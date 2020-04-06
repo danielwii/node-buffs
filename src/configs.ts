@@ -117,17 +117,24 @@ export class ConfigLoader {
     this.overwriteOptions = opts.overwriteOptions ?? {};
     this.requiredVariables = opts.requiredVariables ?? [];
     try {
-      this.options = _.assign(
+      const dotBase = loadDotEnv(this.dotenvBy, opts.basePath ?? opts.path, 'base');
+
+      const envFromYaml = _.assign(
         {},
         loadYaml(this.dotenvBy, opts.basePath ?? opts.path, 'base'),
-        loadYaml(this.dotenvBy, opts.path, opts.suffix),
-        loadDotEnv(this.dotenvBy, opts.basePath ?? opts.path, 'base'),
-        loadDotEnv(this.dotenvBy, opts.path, opts.suffix)
+        loadYaml(this.dotenvBy, opts.path, opts.suffix)
       );
       _.each(
-        _.omitBy(this.options, (v, k) => _.isObject(this.options[k])),
-        (v, k) => _.set(process.env, k, v)
+        _.omitBy(envFromYaml, (v, k) => _.isObject(envFromYaml[k])),
+        (v, k) => {
+          if (process.env[k] === dotBase[k]) {
+            _.set(process.env, k, v);
+          }
+        }
       );
+
+      const envFromDot = _.assign({}, dotBase, loadDotEnv(this.dotenvBy, opts.path, opts.suffix));
+      this.options = _.assign({}, envFromYaml, envFromDot);
     } catch (error) {
       console.error(error);
       this.options = {};
