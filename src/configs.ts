@@ -124,16 +124,17 @@ export class ConfigLoader {
         loadYaml(this.dotenvBy, opts.basePath ?? opts.path, 'base'),
         loadYaml(this.dotenvBy, opts.path, opts.suffix)
       );
+      const dotEnv = loadDotEnv(this.dotenvBy, opts.path, opts.suffix);
+
       _.each(
-        _.omitBy(envFromYaml, (v, k) => _.isObject(envFromYaml[k])),
+        _.omitBy({ ...envFromYaml, ...dotEnv }, (v, k) => _.isObject(envFromYaml[k])),
         (v, k) => {
           if (process.env[k] === dotBase[k]) {
             _.set(process.env, k, v);
           }
         }
       );
-
-      const envFromDot = _.assign({}, dotBase, loadDotEnv(this.dotenvBy, opts.path, opts.suffix));
+      const envFromDot = _.assign({}, dotBase, dotEnv);
       this.options = _.assign({}, envFromYaml, envFromDot);
     } catch (error) {
       console.error(error);
