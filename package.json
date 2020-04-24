@@ -56,6 +56,13 @@
     ],
     "collectCoverage": true
   },
+  "peerDependencies": {
+    "lodash": "^4.17.15"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "js-yaml": "^3.13.1"
+  },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
     "@types/jest": "^25.2.1",
@@ -65,15 +72,15 @@
     "@types/rollup-plugin-node-builtins": "^2.1.1",
     "@types/rollup-plugin-node-globals": "^1.4.0",
     "@types/rollup-plugin-sourcemaps": "^0.4.2",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
     "colors": "^1.4.0",
     "commitizen": "^4.0.4",
-    "coveralls": "^3.0.11",
+    "coveralls": "^3.0.14",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^7.2.1",
-    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-formatter-pretty": "^3.0.1",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-import": "^2.20.2",
@@ -82,30 +89,25 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-unicorn": "^18.0.1",
     "husky": "^4.2.5",
-    "jest": "^25.3.0",
+    "jest": "^25.4.0",
     "lodash.camelcase": "^4.3.0",
-    "prettier": "^2.0.4",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "prompt": "^1.0.0",
     "replace-in-file": "^5.0.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.6.0",
+    "rollup": "^2.7.2",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.5.0",
     "rollup-plugin-typescript2": "^0.27.0",
-    "ts-jest": "^25.3.1",
-    "ts-node": "^8.8.2",
+    "ts-jest": "^25.4.0",
+    "ts-node": "^8.9.0",
     "typedoc": "^0.17.4",
     "typescript": "^3.8.3",
     "validate-commit-msg": "^2.14.0"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "js-yaml": "^3.13.1",
-    "lodash": "^4.17.15"
   },
   "husky": {
     "hooks": {
