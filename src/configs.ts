@@ -77,7 +77,7 @@ export function loadYaml(by = 'ENV', pathStr?: string, suffixStr?: string): Opti
     return {};
   }
   console.log(`[config-loader] load ${path}`);
-  return jsYaml.safeLoad(fs.readFileSync(path, 'utf8'));
+  return jsYaml.safeLoad(fs.readFileSync(path, 'utf8')) as Options;
 }
 
 /**
