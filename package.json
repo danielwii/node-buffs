@@ -57,7 +57,7 @@
     "collectCoverage": true
   },
   "peerDependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -65,26 +65,26 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",
-    "@types/jest": "^26.0.3",
+    "@types/jest": "^26.0.4",
     "@types/js-yaml": "^3.12.5",
     "@types/lodash.camelcase": "^4.3.6",
     "@types/rollup-plugin-json": "^3.0.2",
     "@types/rollup-plugin-node-builtins": "^2.1.1",
     "@types/rollup-plugin-node-globals": "^1.4.0",
     "@types/rollup-plugin-sourcemaps": "^0.4.2",
-    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
     "colors": "^1.4.0",
     "commitizen": "^4.1.2",
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.3.1",
+    "eslint": "^7.4.0",
     "eslint-config-airbnb-typescript": "^8.0.2",
     "eslint-config-prettier": "^6.11.0",
     "eslint-formatter-pretty": "^4.0.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-jest": "^23.18.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-unicorn": "^20.1.0",
@@ -96,7 +96,7 @@
     "prompt": "^1.0.0",
     "replace-in-file": "^6.1.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.18.1",
+    "rollup": "^2.21.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
@@ -106,7 +106,7 @@
     "ts-jest": "^26.1.1",
     "ts-node": "^8.10.2",
     "typedoc": "^0.17.8",
-    "typescript": "^3.9.5",
+    "typescript": "^3.9.6",
     "validate-commit-msg": "^2.14.0"
   },
   "husky": {
