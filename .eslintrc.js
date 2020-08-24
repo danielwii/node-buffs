@@ -1,5 +1,6 @@
 module.exports = {
   plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn'],
+  parserOptions: { project: './tsconfig.json' },
   extends: [
     'airbnb-typescript/base',
     'plugin:@typescript-eslint/recommended',
