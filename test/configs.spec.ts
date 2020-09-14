@@ -20,6 +20,10 @@ describe('ConfigLoader', () => {
     const loader = new ConfigLoader({ path: __dirname });
 
     it('should return null without default value', () => {
+      expect(loader.loadConfig('proxy_api')).toBe('http://localhost:5000');
+    });
+
+    it('load ignore case', () => {
       expect(loader.loadConfig('a')).toBeNull();
     });
 

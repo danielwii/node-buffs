@@ -152,7 +152,10 @@ export class ConfigLoader {
    */
   public loadConfig<T = string>(key: string, defaultValue: any = null, autoConvert = false): T | null {
     const value =
-      (this.overwriteOptions[key] ?? process.env[key] ?? this.options[key] ?? this.loadConfigFromOptions(key)) ||
+      (ConfigLoader.loadIgnoreCase(this.overwriteOptions, key) ??
+        ConfigLoader.loadIgnoreCase(process.env, key) ??
+        ConfigLoader.loadIgnoreCase(this.options, key) ??
+        this.loadConfigFromOptions(key)) ||
       defaultValue;
 
     return autoConvert ? ConfigLoader.convertValue(value) : value;
@@ -193,6 +196,11 @@ export class ConfigLoader {
     }
   }
 
+  private static loadIgnoreCase<R>(source: Record<string, unknown>, key: string): R | undefined {
+    const found = _.findKey(source, (v, k) => k.toLowerCase() === key.toLowerCase());
+    return found ? (_.get(source, found) as R) : undefined;
+  }
+
   private static convertValue(value: any): any {
     if (/^\d+$/.test(value)) {
       return +value;
@@ -212,9 +220,11 @@ export class ConfigLoader {
 
   private loadConfigFromOptions(key: string): any {
     if (_.isObjectLike(this.optionsLoader)) {
-      return _.get(this.optionsLoader, key);
+      return ConfigLoader.loadIgnoreCase(this.optionsLoader as any, key);
     }
-    return _.isFunction(this.optionsLoader) ? _.get((this.optionsLoader as Func)(), key) : null;
+    return _.isFunction(this.optionsLoader)
+      ? ConfigLoader.loadIgnoreCase((this.optionsLoader as Func)(), key)
+      : undefined;
   }
 }
 

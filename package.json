@@ -57,11 +57,12 @@
     "collectCoverage": true
   },
   "peerDependencies": {
-    "lodash": "^4.17.20"
+    "lodash": ">=4.17.0"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "js-yaml": "^3.14.0"
+    "js-yaml": "^3.14.0",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",
