@@ -148,14 +148,20 @@ export class ConfigLoader {
    * @param {string} key            - property key
    * @param defaultValue
    * @param autoConvert             - convert bool string to bool and numeric string to numeric
+   * @param ignoreCase              - has performance issue
    * @returns {any}                 - property value
    */
-  public loadConfig<T = string>(key: string, defaultValue: any = null, autoConvert = false): T | null {
+  public loadConfig<T = string>(
+    key: string,
+    defaultValue: any = null,
+    autoConvert = false,
+    ignoreCase = false
+  ): T | null {
     const value =
-      (ConfigLoader.loadIgnoreCase(this.overwriteOptions, key) ??
-        ConfigLoader.loadIgnoreCase(process.env, key) ??
-        ConfigLoader.loadIgnoreCase(this.options, key) ??
-        this.loadConfigFromOptions(key)) ||
+      (ConfigLoader.loadIgnoreCase(this.overwriteOptions, key, ignoreCase) ??
+        ConfigLoader.loadIgnoreCase(process.env, key, ignoreCase) ??
+        ConfigLoader.loadIgnoreCase(this.options, key, ignoreCase) ??
+        this.loadConfigFromOptions(key, ignoreCase)) ||
       defaultValue;
 
     return autoConvert ? ConfigLoader.convertValue(value) : value;
@@ -196,9 +202,12 @@ export class ConfigLoader {
     }
   }
 
-  private static loadIgnoreCase<R>(source: Record<string, unknown>, key: string): R | undefined {
-    const found = _.findKey(source, (v, k) => k.toLowerCase() === key.toLowerCase());
-    return found ? (_.get(source, found) as R) : undefined;
+  private static loadIgnoreCase<R>(source: Record<string, R>, key: string, ignoreCase = false): R | undefined {
+    if (ignoreCase) {
+      const found = _.findKey(source, (v, k) => k.toLowerCase() === key.toLowerCase());
+      return found ? _.get(source, found) : undefined;
+    }
+    return _.get(source, key);
   }
 
   private static convertValue(value: any): any {
@@ -218,12 +227,12 @@ export class ConfigLoader {
     return value;
   }
 
-  private loadConfigFromOptions(key: string): any {
+  private loadConfigFromOptions(key: string, ignoreCase = false): any {
     if (_.isObjectLike(this.optionsLoader)) {
-      return ConfigLoader.loadIgnoreCase(this.optionsLoader as any, key);
+      return ConfigLoader.loadIgnoreCase(this.optionsLoader as any, key, ignoreCase);
     }
     return _.isFunction(this.optionsLoader)
-      ? ConfigLoader.loadIgnoreCase((this.optionsLoader as Func)(), key)
+      ? ConfigLoader.loadIgnoreCase((this.optionsLoader as Func)(), key, ignoreCase)
       : undefined;
   }
 }
