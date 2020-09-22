@@ -32,3 +32,11 @@ specialDelivery: > # 多行字符串
   Road to the Emerald City.
   Pay no attention to the
   man behind the curtain.
+
+hello:
+  b:
+    c:
+      d: true
+      d1: 1
+      d2: test
+      d3_test: test

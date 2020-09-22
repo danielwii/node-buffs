@@ -167,6 +167,12 @@ export class ConfigLoader {
     return autoConvert ? ConfigLoader.convertValue(value) : value;
   }
 
+  public loadConfig2<T>(module: string, path: string, defaultValue?: T): T | null {
+    const yamlConfig = this.loadConfig(module);
+    const key = _.toUpper(`${module}_${path}`).replace(/\./g, '_');
+    return this.loadConfig(key, _.get(yamlConfig, path) ?? defaultValue, true);
+  }
+
   public loadNumericConfig(key: string, defaultValue: number | null = null): number | null {
     return this.loadConfig(key, defaultValue, true);
   }

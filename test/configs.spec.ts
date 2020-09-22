@@ -22,6 +22,11 @@ describe('ConfigLoader', () => {
     it('should return null without default value', () => {
       expect(loader.loadConfig('proxy_api', undefined, false, true)).toBe('http://localhost:5000');
       expect(loader.loadConfig('proxy_api')).toBeNull();
+      expect(loader.loadConfig2('proxy', 'api')).toBe('http://localhost:5000');
+      expect(loader.loadConfig2('hello', 'b.c.d')).toBeTruthy();
+      expect(loader.loadConfig2('hello', 'b.c.d1')).toBe(1);
+      expect(loader.loadConfig2('hello', 'b.c.d2')).toBe('world');
+      expect(loader.loadConfig2('hello', 'b.c.d3_test')).toBe('world');
     });
 
     it('load ignore case', () => {
@@ -42,6 +47,9 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        HELLO_B_C_D2: 'world',
+        HELLO_B_C_D3_TEST: 'world',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         receipt: 'Oz-Ware Purchase Invoice',
@@ -64,6 +72,9 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        HELLO_B_C_D2: 'world',
+        HELLO_B_C_D3_TEST: 'world',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         receipt: 'Oz-Ware Purchase Invoice',
@@ -154,6 +165,9 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        HELLO_B_C_D2: 'world',
+        HELLO_B_C_D3_TEST: 'world',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         receipt: 'Oz-Ware Purchase Invoice',
@@ -177,6 +191,9 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        HELLO_B_C_D2: 'world',
+        HELLO_B_C_D3_TEST: 'world',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         receipt: 'Oz-Ware Purchase Invoice',
@@ -200,6 +217,9 @@ describe('ConfigLoader', () => {
         env_string: 'hello kitty ^_^',
         env_string_empty: null,
         env_string_empty2: null,
+        HELLO_B_C_D2: 'world',
+        HELLO_B_C_D3_TEST: 'world',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         receipt: 'Oz-Ware Purchase Invoice',
