@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { ConfigLoader, createConfigLoader } from '../src/node-buffs';
 
 beforeEach(() => {
@@ -29,6 +30,18 @@ describe('ConfigLoader', () => {
       expect(loader.loadConfig2('hello', 'b.c.d3_test')).toBe('world');
     });
 
+    it('Should load expected fast', async () => {
+      const start = new Date();
+
+      _.times(1000).forEach(() => {
+        expect(loader.loadConfig2('hello', 'b.c.d1')).toBe(1);
+      });
+
+      const after_save_all = new Date();
+
+      expect(after_save_all.getTime() - start.getTime()).toBeLessThanOrEqual(100);
+    });
+
     it('load ignore case', () => {
       expect(loader.loadConfig('a')).toBeNull();
     });
@@ -52,6 +65,7 @@ describe('ConfigLoader', () => {
         hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        TEST_A: 2,
         receipt: 'Oz-Ware Purchase Invoice',
         customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
         date: new Date('2012-08-06T00:00:00.000Z'),
@@ -63,6 +77,7 @@ describe('ConfigLoader', () => {
         'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
         specialDelivery:
           'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
+        test_a: 1,
       });
       expect(loader.loadConfigs()).toEqual({
         env_loaded: 'true',
@@ -77,6 +92,7 @@ describe('ConfigLoader', () => {
         hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        TEST_A: '2',
         receipt: 'Oz-Ware Purchase Invoice',
         customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
         date: new Date('2012-08-06T00:00:00.000Z'),
@@ -88,6 +104,7 @@ describe('ConfigLoader', () => {
         'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
         specialDelivery:
           'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
+        test_a: '1',
       });
     });
 
@@ -170,6 +187,7 @@ describe('ConfigLoader', () => {
         hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        TEST_A: 2,
         receipt: 'Oz-Ware Purchase Invoice',
         customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
         date: new Date('2012-08-06T00:00:00.000Z'),
@@ -181,6 +199,7 @@ describe('ConfigLoader', () => {
         'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
         specialDelivery:
           'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
+        test_a: 1,
       });
       process.env.env_number = '2';
       expect(loader.loadConfigs({ autoConvert: true })).toEqual({
@@ -196,6 +215,7 @@ describe('ConfigLoader', () => {
         hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        TEST_A: 2,
         receipt: 'Oz-Ware Purchase Invoice',
         customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
         date: new Date('2012-08-06T00:00:00.000Z'),
@@ -207,6 +227,7 @@ describe('ConfigLoader', () => {
         'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
         specialDelivery:
           'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
+        test_a: 1,
       });
       loader.setOverwriteOptions({ env_number: '3' });
       expect(loader.loadConfigs({ autoConvert: true })).toEqual({
@@ -222,6 +243,7 @@ describe('ConfigLoader', () => {
         hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
+        TEST_A: 2,
         receipt: 'Oz-Ware Purchase Invoice',
         customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
         date: new Date('2012-08-06T00:00:00.000Z'),
@@ -233,6 +255,7 @@ describe('ConfigLoader', () => {
         'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
         specialDelivery:
           'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
+        test_a: 1,
       });
     });
   });
