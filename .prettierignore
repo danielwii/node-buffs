@@ -2,3 +2,5 @@
 dist
 docs
 tools
+.yarn
+.yarnrc.yml
