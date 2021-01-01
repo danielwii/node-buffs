@@ -5,8 +5,10 @@ node_js:
 os: linux
 install:
   - yarn
-  - yarn dlx codecov
+  - yarn build
 after_success:
-  - codecov
+  - yarn dlx codecov
 cache:
-  yarn: true
+  yarn: false
+  directories:
+    - ./.yarn/cache
