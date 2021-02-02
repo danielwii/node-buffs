@@ -1,6 +1,6 @@
 {
   "name": "node-buffs",
-  "version": "0.8.10",
+  "version": "0.8.11",
   "description": "",
   "keywords": [],
   "main": "dist/node-buffs.umd.js",
