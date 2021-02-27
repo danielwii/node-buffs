@@ -40,3 +40,4 @@ hello:
       d1: 1
       d2: test
       d3_test: test
+      d4_test_overwrite: old

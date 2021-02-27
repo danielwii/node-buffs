@@ -217,7 +217,7 @@ export class ConfigLoader {
   }
 
   private static convertValue(value: any): any {
-    if (/^\d+$/.test(value)) {
+    if (/^-?\d+$/.test(value)) {
       return +value;
     }
 

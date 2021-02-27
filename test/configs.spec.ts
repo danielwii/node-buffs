@@ -28,6 +28,7 @@ describe('ConfigLoader', () => {
       expect(loader.loadConfig2('hello', 'b.c.d1')).toBe(1);
       expect(loader.loadConfig2('hello', 'b.c.d2')).toBe('world');
       expect(loader.loadConfig2('hello', 'b.c.d3_test')).toBe('world');
+      expect(loader.loadConfig2('hello', 'b.c.d4_test_overwrite')).toBe('new');
     });
 
     it('Should load expected fast', async () => {
@@ -52,64 +53,18 @@ describe('ConfigLoader', () => {
 
     it('should load .env file', () => {
       process.env.ENV = 'example';
+      const loader = new ConfigLoader({ path: __dirname });
       expect(loader.loadConfigs({ autoConvert: true })).toEqual({
-        env_loaded: true,
-        env_number: 1,
-        env_number_empty: null,
-        env_number_empty2: null,
-        env_string: 'hello kitty ^_^',
-        env_string_empty: null,
-        env_string_empty2: null,
-        HELLO_B_C_D2: 'world',
-        HELLO_B_C_D3_TEST: 'world',
-        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
-        secret: null,
-        PROXY_API: 'http://localhost:5000',
-        TEST_A: 2,
-        receipt: 'Oz-Ware Purchase Invoice',
-        customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
-        date: new Date('2012-08-06T00:00:00.000Z'),
-        items: [
-          { part_no: 'A4786', descrip: 'Water Bucket (Filled)', price: 1.47, quantity: 4 },
-          { part_no: 'E1628', descrip: 'High Heeled "Ruby" Slippers', size: 8, price: 133.7, quantity: 1 },
-        ],
-        'bill-to': { street: '123 Tornado Alley\nSuite 16\n', city: 'East Centerville', state: 'KS' },
-        'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
-        specialDelivery:
-          'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
-        test_a: 1,
+        env_number: -1,
       });
       expect(loader.loadConfigs()).toEqual({
-        env_loaded: 'true',
-        env_number: '1',
-        env_number_empty: null,
-        env_number_empty2: null,
-        env_string: 'hello kitty ^_^',
-        env_string_empty: null,
-        env_string_empty2: null,
-        HELLO_B_C_D2: 'world',
-        HELLO_B_C_D3_TEST: 'world',
-        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
-        secret: null,
-        PROXY_API: 'http://localhost:5000',
-        TEST_A: '2',
-        receipt: 'Oz-Ware Purchase Invoice',
-        customer: { given: 'Dorothy', family: 'Gale', 'is-active': true },
-        date: new Date('2012-08-06T00:00:00.000Z'),
-        items: [
-          { part_no: 'A4786', descrip: 'Water Bucket (Filled)', price: 1.47, quantity: 4 },
-          { part_no: 'E1628', descrip: 'High Heeled "Ruby" Slippers', size: 8, price: 133.7, quantity: 1 },
-        ],
-        'bill-to': { street: '123 Tornado Alley\nSuite 16\n', city: 'East Centerville', state: 'KS' },
-        'ship-to': { city: 'East Centerville', state: 'KS', street: '123 Tornado Alley\nSuite 16\n' },
-        specialDelivery:
-          'Follow the Yellow Brick Road to the Emerald City. Pay no attention to the man behind the curtain.\n',
-        test_a: '1',
+        env_number: '-1',
       });
     });
 
     it('should return error when load .env.not-exists', () => {
       process.env.ENV = 'not-exists';
+      const loader = new ConfigLoader({ path: __dirname });
       const env = loader.loadConfigs();
       expect(!!env).toBeTruthy();
     });
@@ -184,7 +139,8 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         HELLO_B_C_D2: 'world',
         HELLO_B_C_D3_TEST: 'world',
-        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
+        HELLO_B_C_D4_TEST_OVERWRITE: 'new',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test', d4_test_overwrite: 'old' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         TEST_A: 2,
@@ -212,7 +168,8 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         HELLO_B_C_D2: 'world',
         HELLO_B_C_D3_TEST: 'world',
-        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
+        HELLO_B_C_D4_TEST_OVERWRITE: 'new',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test', d4_test_overwrite: 'old' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         TEST_A: 2,
@@ -240,7 +197,8 @@ describe('ConfigLoader', () => {
         env_string_empty2: null,
         HELLO_B_C_D2: 'world',
         HELLO_B_C_D3_TEST: 'world',
-        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test' } } },
+        HELLO_B_C_D4_TEST_OVERWRITE: 'new',
+        hello: { b: { c: { d: true, d1: 1, d2: 'test', d3_test: 'test', d4_test_overwrite: 'old' } } },
         secret: null,
         PROXY_API: 'http://localhost:5000',
         TEST_A: 2,
