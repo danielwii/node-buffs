@@ -1,12 +1,14 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable import/no-extraneous-dependencies,@typescript-eslint/no-var-requires */
+import eslint from '@rollup/plugin-eslint';
 import globals from 'rollup-plugin-node-globals';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import sourceMaps from 'rollup-plugin-sourcemaps';
-import camelCase from 'lodash.camelcase';
+// import camelCase from 'lodash.camelcase';
 import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
+import sizes from 'rollup-plugin-sizes';
+import del from 'rollup-plugin-delete';
+import autoExternal from 'rollup-plugin-auto-external';
 
 const pkg = require('./package.json');
 
@@ -16,18 +18,22 @@ const libraryName = 'node-buffs';
 export default {
   input: `src/${libraryName}.ts`,
   output: [
-    { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
-    { file: pkg.module, format: 'es', sourcemap: true },
+    // { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
+    // { file: pkg.module, format: 'es', sourcemap: true },
+    { file: pkg.module, format: 'cjs', sourcemap: true },
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['lodash', 'dotenv', 'crypto', 'path', 'js-yaml', 'fs'],
+  // external: ['lodash', 'dotenv', 'crypto', 'path', 'js-yaml', 'fs'],
   watch: {
     include: 'src/**',
   },
   plugins: [
+    eslint({ fix: false }),
+    del({ targets: 'dist/*' }),
     // Allow json resolution
     json(),
     globals(),
+    autoExternal(),
     // builtins({ crypto: true }),
     // Compile TypeScript files
     typescript({ useTsconfigDeclarationDir: true }),
@@ -40,5 +46,6 @@ export default {
 
     // Resolve source maps to the original source
     sourceMaps(),
+    sizes({ details: true }),
   ],
 };

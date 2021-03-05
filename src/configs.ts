@@ -4,9 +4,9 @@ import * as fs from 'fs';
 import { resolve } from 'path';
 import * as _ from 'lodash';
 
-export type Options = {
+export interface Options {
   [key: string]: Options | string | number | boolean | null;
-};
+}
 
 export type Func = () => any;
 
@@ -111,7 +111,7 @@ export class ConfigLoader {
    */
   private options: Options = {};
 
-  constructor(opts: ConfigLoaderOpts = {}) {
+  public constructor(opts: ConfigLoaderOpts = {}) {
     this.dotenvBy = opts.dotenvBy ?? 'ENV';
     this.optionsLoader = opts.optionsLoader ?? {};
     this.overwriteOptions = opts.overwriteOptions ?? {};
@@ -218,7 +218,7 @@ export class ConfigLoader {
 
   private static convertValue(value: any): any {
     if (/^-?\d+$/.test(value)) {
-      return +value;
+      return Number(value);
     }
 
     if (_.isString(value)) {

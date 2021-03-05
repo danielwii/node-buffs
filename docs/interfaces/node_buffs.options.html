@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>node-buffs | node-buffs</title>
+	<title>Options | node-buffs</title>
 	<meta name="description" content="Documentation for node-buffs">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2652,7 +2652,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">node-buffs</a></strong>
+					<strong><a href="../index.html">node-buffs</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2682,101 +2682,63 @@ img {
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
+		<li class=" tsd-kind-class tsd-parent-kind-module">
+			<a href="../classes/node_buffs.configloader.html" class="tsd-kind-icon">Config<wbr>Loader</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-module">
+			<a href="../classes/node_buffs.cryptor.html" class="tsd-kind-icon">Cryptor</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-module">
+			<a href="node_buffs.action.html" class="tsd-kind-icon">Action</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-module">
+			<a href="node_buffs.configloaderopts.html" class="tsd-kind-icon">Config<wbr>Loader<wbr>Opts</a>
+		</li>
+		<li class="current tsd-kind-interface tsd-parent-kind-module">
+			<a href="node_buffs.options.html" class="tsd-kind-icon">Options</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#foptionsloader" class="tsd-kind-icon">FOptions<wbr>Loader</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#func" class="tsd-kind-icon">Func</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#createconfigloader" class="tsd-kind-icon">create<wbr>Config<wbr>Loader</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#loaddotenv" class="tsd-kind-icon">load<wbr>Dot<wbr>Env</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#loadyaml" class="tsd-kind-icon">load<wbr>Yaml</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#reduxaction" class="tsd-kind-icon">redux<wbr>Action</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#tocamelcase" class="tsd-kind-icon">to<wbr>Camel<wbr>Case</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#tosnakecase" class="tsd-kind-icon">to<wbr>Snake<wbr>Case</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-module">
+			<a href="../modules/node_buffs.html#transientaction" class="tsd-kind-icon">transient<wbr>Action</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<div class="tsd-panel tsd-typography">
-			<a href="#node-buffs" id="node-buffs" style="color: inherit; text-decoration: none;">
-				<h1>node-buffs</h1>
-			</a>
-			<p><a href="https://travis-ci.org/danielwii/node-buffs"><img src="https://travis-ci.org/danielwii/node-buffs.svg?branch=master" alt="travis-ci"></a>
-				<a href="https://codecov.io/gh/danielwii/node-buffs"><img src="https://codecov.io/gh/danielwii/node-buffs/branch/master/graph/badge.svg" alt="codecov"></a>
-				<a href="https://codeclimate.com/github/danielwii/node-buffs/maintainability"><img src="https://api.codeclimate.com/v1/badges/7f78db8355785dfe34a4/maintainability" alt="Maintainability"></a>
-				<a href="https://www.npmjs.com/package/node-buffs"><img src="https://img.shields.io/npm/v/node-buffs.svg" alt="npm version"></a>
-				<a href="https://www.npmjs.com/package/node-buffs"><img src="https://img.shields.io/npm/dt/node-buffs.svg" alt="npm downloads"></a>
-				<a href="https://david-dm.org/danielwii/node-buffs"><img src="https://img.shields.io/david/danielwii/node-buffs.svg?style=flat-square" alt="Dependencies"></a>
-				<a href="https://www.npmjs.com/package/node-buffs"><img src="https://img.shields.io/npm/l/node-buffs.svg" alt="license"></a>
-			<a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier"></a></p>
-			<p><a href="https://nodei.co/npm/node-buffs/"><img src="https://nodei.co/npm/node-buffs.png?downloads=true&downloadRank=true" alt="NPM"></a>
-			<a href="https://packagequality.com/#?package=node-buffs"><img src="https://npm.packagequality.com/badge/node-buffs.png" alt="Package Quality"></a></p>
-			<p>node useful toolkit.
-			封装了常用的 nodejs 工具包，如配置加载，加密和字符串转换等。</p>
-			<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
-				<h2>Getting Started</h2>
-			</a>
-			<pre><code class="language-bash"><span style="color: #000000">yarn add node-buffs</span>
-</code></pre>
-			<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">createConfigLoader</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;node-buffs&#039;</span><span style="color: #000000">);</span>
-<span style="color: #008000">// or</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createConfigLoader</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;node-buffs&#039;</span><span style="color: #000000">;</span>
-</code></pre>
-			<a href="#模块" id="模块" style="color: inherit; text-decoration: none;">
-				<h2>模块</h2>
-			</a>
-			<a href="#configloader" id="configloader" style="color: inherit; text-decoration: none;">
-				<h3>ConfigLoader</h3>
-			</a>
-			<p>一个灵活配置读取器，通过环境变量 <code>ENV</code> 加载对应的 <a href="https://github.com/motdotla/dotenv">dotenv</a> 文件，也可通过预制的优先级覆盖配置。</p>
-			<ul>
-				<li>ENV=undefined -&gt; .env</li>
-				<li>ENV=local -&gt; .env.local</li>
-				<li>ENV=staging -&gt; .env.staging</li>
+		<section class="tsd-panel tsd-hierarchy">
+			<h3>Hierarchy</h3>
+			<ul class="tsd-hierarchy">
+				<li>
+					<span class="target">Options</span>
+				</li>
 			</ul>
-			<blockquote>
-				<p>加载优先级：
-				overwrite options -&gt; process.env -&gt; options(.env) -&gt; optionsLoader -&gt; default</p>
-			</blockquote>
-			<p>e.g:</p>
-			<ul>
-				<li><strong>set required</strong>, will throw exceptions at startup when variable cannot found in .env or environments</li>
-			</ul>
-			<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createConfigLoader</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;node-buffs&#039;</span><span style="color: #000000">;</span>
-
-<span style="color: #008000">// Load order:</span>
-<span style="color: #008000">// 1. load from overwrite options</span>
-<span style="color: #008000">// 2. load from process.env</span>
-<span style="color: #008000">// 3. load from .env</span>
-<span style="color: #008000">// 4. load from optionsLoader (json or function)</span>
-<span style="color: #008000">// 5. load from default</span>
-
-<span style="color: #008000">// lv4</span>
-<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">configLoader</span><span style="color: #000000"> = </span><span style="color: #795E26">createConfigLoader</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">optionsLoader:</span><span style="color: #000000"> { </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;o.o&#039;</span><span style="color: #000000"> },</span>
-<span style="color: #000000">  </span><span style="color: #001080">requiredVariables:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;SECRET_KEY&#039;</span><span style="color: #000000">],</span>
-<span style="color: #000000">});</span>
-
-<span style="color: #008000">// 具有最高的优先级 lv1</span>
-<span style="color: #001080">configLoader</span><span style="color: #000000">.</span><span style="color: #795E26">setOverwriteOptions</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">highestOrder:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;^_^&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
-
-<span style="color: #008000">// lv5</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">key</span><span style="color: #000000"> = </span><span style="color: #001080">configLoader</span><span style="color: #000000">.</span><span style="color: #795E26">loadConfig</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;SECRET_KEY&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;default-secret&#039;</span><span style="color: #000000">);</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">configs</span><span style="color: #000000"> = </span><span style="color: #001080">configLoader</span><span style="color: #000000">.</span><span style="color: #795E26">loadConfigs</span><span style="color: #000000">();</span>
-</code></pre>
-			<a href="#license" id="license" style="color: inherit; text-decoration: none;">
-				<h2>License</h2>
-			</a>
-			<p>This project is licensed under the MIT License - see the <a href="https://github.com/atom/atom/blob/master/LICENSE.md">LICENSE.md</a> file for details</p>
-		</div>
-		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
-		<section class="tsd-panel-group tsd-index-group">
-			<h2>Index</h2>
-			<section class="tsd-panel tsd-index-panel">
-				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Modules</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-module"><a href="modules/configs.html" class="tsd-kind-icon">configs</a></li>
-							<li class="tsd-kind-module"><a href="modules/cryptor.html" class="tsd-kind-icon">cryptor</a></li>
-							<li class="tsd-kind-module"><a href="modules/node_buffs.html" class="tsd-kind-icon">node-<wbr>buffs</a></li>
-							<li class="tsd-kind-module"><a href="modules/redux.html" class="tsd-kind-icon">redux</a></li>
-							<li class="tsd-kind-module"><a href="modules/strings.html" class="tsd-kind-icon">strings</a></li>
-						</ul>
-					</section>
-				</div>
-			</section>
+		</section>
+		<section class="tsd-panel tsd-kind-interface tsd-parent-kind-module">
+			<h3 class="tsd-before-signature">Indexable</h3>
+			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="configs.options.html" class="tsd-signature-type" data-tsd-kind="Interface">Options</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 		</section>
 		<footer class="with-border-bottom">
 			<div class="container">
