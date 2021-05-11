@@ -9,6 +9,7 @@ import json from 'rollup-plugin-json';
 import sizes from 'rollup-plugin-sizes';
 // import del from 'rollup-plugin-delete';
 import autoExternal from 'rollup-plugin-auto-external';
+import { camelCase } from 'lodash';
 
 const pkg = require('./package.json');
 
@@ -20,6 +21,7 @@ export default {
   output: [
     // { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
     // { file: pkg.module, format: 'es', sourcemap: true },
+    { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
     { file: pkg.module, format: 'cjs', sourcemap: true },
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
