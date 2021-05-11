@@ -20,8 +20,8 @@
   },
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "clean": "rimraf dist",
+    "build": "yarn clean && tsc --module commonjs && rollup -c rollup.config.ts",
     "doc": "typedoc --out docs --theme minimal src",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest",
@@ -63,8 +63,8 @@
     "fsevents": "^2"
   },
   "dependencies": {
-    "dotenv": "^9.0.1",
-    "js-yaml": "^4.1.0"
+    "dotenv": "^9",
+    "js-yaml": "^4"
   },
   "devDependencies": {
     "@rollup/plugin-eslint": "^8",

@@ -7,7 +7,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
 import sizes from 'rollup-plugin-sizes';
-import del from 'rollup-plugin-delete';
+// import del from 'rollup-plugin-delete';
 import autoExternal from 'rollup-plugin-auto-external';
 
 const pkg = require('./package.json');
@@ -29,7 +29,7 @@ export default {
   },
   plugins: [
     eslint({ fix: false }),
-    del({ targets: 'dist/*' }),
+    // del({ targets: 'dist/*' }),
     // Allow json resolution
     json(),
     globals(),
