@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as jsYaml from 'js-yaml';
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import { resolve } from 'path';
 import * as _ from 'lodash';
 
