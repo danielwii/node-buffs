@@ -1,4 +1,4 @@
-import * as crypto from 'crypto';
+import * as crypto from 'node:crypto';
 
 /**
  * 加密工具
@@ -48,6 +48,7 @@ export class Cryptor {
     );
   }
 
+  /*
   // DES 加密
   public static desEncrypt(textToEncode: string, keyString = 'key', ivString = 'iv'): string {
     const [keyHex, ivHex] = this.calcKeyAndIV(keyString, ivString);
@@ -66,7 +67,7 @@ export class Cryptor {
     let c = cipher.update(textToDecode, 'base64', 'utf8');
     c += cipher.final('utf8');
     return c;
-  }
+  } */
 
   private static calcKeyAndIV(keyStr: string, ivStr: string): [Buffer, Buffer] {
     const key = keyStr.length >= 8 ? keyStr.slice(0, 8) : keyStr.concat('0'.repeat(8 - keyStr.length));

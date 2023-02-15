@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { ConfigLoader, createConfigLoader } from '../src/node-buffs';
+import { ConfigLoader, createConfigLoader } from '../src/configs';
 
 beforeEach(() => {
   // ...
@@ -34,6 +34,7 @@ describe('ConfigLoader', () => {
     it('Should load expected fast', async () => {
       const start = new Date();
 
+      // eslint-disable-next-line max-nested-callbacks
       _.times(1000).forEach(() => {
         expect(loader.loadConfig2('hello', 'b.c.d1')).toBe(1);
       });
@@ -298,5 +299,15 @@ describe('ConfigLoader', () => {
     //   process.env.ENV = 'test';
     //   expect(loader.loadConfig('env_loaded')).toBeTruthy();
     // });
+  });
+
+  describe('With module', () => {
+    it('should throw error when setRequiredVariables', () => {
+      const loader = new ConfigLoader({ path: 'test', suffix: 'test' }); // test/.env.test
+      loader.setRequiredVariables(['test-required-1', 'test-required-2']);
+      expect(() => {
+        loader.validate();
+      }).toThrowError('[ConfigLoader] "test-required-1,test-required-2" is required.');
+    });
   });
 });

@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 import * as jsYaml from 'js-yaml';
 import * as fs from 'fs-extra';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import * as _ from 'lodash';
 
 export interface Options {
@@ -109,7 +109,7 @@ export class ConfigLoader {
    * 加载自 .env 的配置
    * @type {{}}
    */
-  private options: Options = {};
+  private readonly options: Options = {};
 
   public constructor(opts: ConfigLoaderOpts = {}) {
     this.dotenvBy = opts.dotenvBy ?? 'ENV';
