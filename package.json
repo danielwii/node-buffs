@@ -1,6 +1,6 @@
 {
   "name": "node-buffs",
-  "version": "0.8.21",
+  "version": "0.8.23",
   "description": "",
   "keywords": [],
   "main": "dist/index.js",
@@ -15,9 +15,6 @@
     "url": "https://github.com/danielwii/node-buffs"
   },
   "license": "MIT",
-  "engines": {
-    "node": ">=6.0.0"
-  },
   "scripts": {
     "rename": "find dist -depth -name \"*.js\" -exec sh -c 'mv \"$1\" \"${1%.js}.mjs\"' _ \\{\\} \\; && find dist -depth -name \"*.js.map\" -exec sh -c 'mv \"$1\" \"${1%.js.map}.mjs.map\"' _ \\{\\} \\;",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
@@ -104,6 +101,7 @@
   },
   "packageManager": "yarn@3.4.1",
   "volta": {
-    "node": "18.12.1"
+    "node": "18.12.1",
+    "npm": "9.4.2"
   }
 }
