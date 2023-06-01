@@ -2326,10 +2326,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.3":
-  version: 16.0.3
-  resolution: "dotenv@npm:16.0.3"
-  checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
+"dotenv@npm:^16.1.1":
+  version: 16.1.3
+  resolution: "dotenv@npm:16.1.3"
+  checksum: 8f73bae720161cf365b679de162fe79a05f5b7a21d0d2b8bf9fb0601a2ed30f7e9dc49fa8b752d93206e4b7d427eccea2f383a1622cd5da4a1824f43bf8f780b
   languageName: node
   linkType: hard
 
@@ -3068,7 +3068,7 @@ __metadata:
 
 "fsevents@patch:fsevents@npm%3A^2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
     node-gyp: latest
   conditions: os=darwin
@@ -4755,7 +4755,7 @@ __metadata:
     colors: ^1.4.0
     coveralls: ^3.1.1
     cross-env: ^7.0.3
-    dotenv: ^16.0.3
+    dotenv: ^16.1.1
     eslint: ^8.34.0
     eslint-config-alloy: ^4.9.0
     eslint-import-resolver-node: ^0.3.7
@@ -5435,7 +5435,7 @@ __metadata:
 
 "resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
   version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=07638b"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
@@ -6207,11 +6207,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: ab417a2f398380c90a6cf5a5f74badd17866adf57f1165617d6a551f059c3ba0a3e4da0d147b3ac5681db9ac76a303c5876394b13b3de75fdd5b1eaa06181c9d
+  checksum: 2eee5c37cad4390385db5db5a8e81470e42e8f1401b0358d7390095d6f681b410f2c4a0c496c6ff9ebd775423c7785cdace7bcdad76c7bee283df3d9718c0f20
   languageName: node
   linkType: hard
 
